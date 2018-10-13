@@ -1,11 +1,41 @@
 package states;
 
+import ui.CommandWindow;
+
 import flixel.FlxState;
 
 class MenuMainState extends FlxState
 {
+    private var commandWindow:CommandWindow;
+
+    private function drawBackground():Void
+    {
+
+    }
+
+    private function drawTitle():Void
+    {
+
+    }
+
+    private function createCommandWindow():Void
+    {
+        commandWindow = new CommandWindow();
+        commandWindow.setHandler("New Game", commandNewGame);
+    }
+
+    private function commandNewGame():Void
+    {
+
+    }
+
     override public function create():Void
     {
+        drawBackground();
+        drawTitle();
+
+        createCommandWindow();
+
         super.create();
     }
 

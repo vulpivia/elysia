@@ -1,6 +1,6 @@
 package;
 
-import states.ExplorationState;
+import states.MenuMainState;
 
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -13,7 +13,7 @@ class Main extends Sprite
 	{
 		super();
 
-		addChild(new FlxGame(320, 240, ExplorationState, 2, 60, 60, true));
+		addChild(new FlxGame(320, 240, MenuMainState, 2, 60, 60, true));
 
 		FlxG.scaleMode = new PixelPerfectScaleMode();
 	}

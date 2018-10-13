@@ -1,6 +1,6 @@
 .DS_Store
 /.vscode
+/assets/data/*.hash
 /build
 /export/
 /report/
-/assets/data/*.hash
