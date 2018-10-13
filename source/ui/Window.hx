@@ -1,0 +1,6 @@
+package ui;
+
+class Window
+{
+
+}
