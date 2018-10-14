@@ -11,7 +11,7 @@ class CommandWindow extends Window
     **/
     public function new(x:Int, y:Int, width:Int)
     {
-
+        super(x, y, width, 32);
     }
 
     /**
