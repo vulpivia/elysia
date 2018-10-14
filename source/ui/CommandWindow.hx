@@ -7,7 +7,7 @@ class CommandWindow extends Window
 
     }
 
-    public function setHandler(text:String, command:Void->Void)
+    public function addCommand(text:String, command:Void->Void)
     {
         
     }

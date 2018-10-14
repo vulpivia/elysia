@@ -22,8 +22,9 @@ class MenuMainState extends FlxState
     private function createCommandWindow():Void
     {
         commandWindow = new CommandWindow();
-        commandWindow.setHandler("New Game", commandNewGame);
-        commandWindow.setHandler("Continue", commandContinue);
+        commandWindow.addCommand("New Game", commandNewGame);
+        commandWindow.addCommand("Continue", commandContinue);
+        commandWindow.addCommand("Shutdown", commandShutdown);
     }
 
     private function commandNewGame():Void
@@ -34,6 +35,11 @@ class MenuMainState extends FlxState
     private function commandContinue():Void
     {
         FlxG.switchState(new MenuLoadState());
+    }
+
+    private function commandShutdown():Void
+    {
+        
     }
 
     override public function create():Void
