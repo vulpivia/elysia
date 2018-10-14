@@ -25,6 +25,8 @@ class MenuMainState extends FlxState
         commandWindow.addCommand("New Game", commandNewGame);
         commandWindow.addCommand("Continue", commandContinue);
         commandWindow.addCommand("Shutdown", commandShutdown);
+
+        add(commandWindow.sprite);
     }
 
     private function commandNewGame():Void

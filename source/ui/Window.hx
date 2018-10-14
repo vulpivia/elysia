@@ -1,10 +1,13 @@
 package ui;
 
 import flash.geom.Rectangle;
+import flixel.FlxSprite;
 import flixel.addons.ui.FlxUI9SliceSprite;
 
 class Window
 {
+    public var sprite(default, null):FlxSprite;
+
     /**
         Creates a new window.
 
@@ -17,7 +20,8 @@ class Window
     {
         var spritePath = "assets/images/tileset_window.png";
         var size = new Rectangle(0, 0, width, height);
+        var slicePoints = [8, 8, 16, 16];
 
-        var sprite = new FlxUI9SliceSprite(x, y, spritePath, size);
+        sprite = new FlxUI9SliceSprite(x, y, spritePath, size, slicePoints);
     }
 }
