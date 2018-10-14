@@ -1,0 +1,7 @@
+language: haxe
+
+install:
+  - haxelib install flixel
+
+script:
+  - haxelib run openfl build "Project.xml" html5
