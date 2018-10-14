@@ -3,6 +3,7 @@ language: haxe
 install:
   - haxelib install flixel
   - haxelib install openfl
+  - haxelib install lime
 
 script:
   - haxelib run openfl build "Project.xml" html5
