@@ -19,27 +19,25 @@ class MenuMainState extends FlxState
 
     }
 
-    private function createCommandWindow():Void
+    private function createOptionWindow():Void
     {
-        commandWindow = new CommandWindow(96, 128, 128);
-        commandWindow.addCommand("New Game", commandNewGame);
-        commandWindow.addCommand("Continue", commandContinue);
-        commandWindow.addCommand("Shutdown", commandShutdown);
-
-        add(commandWindow.sprite);
+        optionWindow = new OptionWindow(96, 128, 128);
+        optionWindow.addOption("New Game", optionNewGame);
+        optionWindow.addOption("Continue", optionContinue);
+        optionWindow.addOption("Shutdown", optionShutdown);
     }
 
-    private function commandNewGame():Void
+    private function optionNewGame():Void
     {
         FlxG.switchState(new ExplorationState());
     }
 
-    private function commandContinue():Void
+    private function optionContinue():Void
     {
         FlxG.switchState(new MenuLoadState());
     }
 
-    private function commandShutdown():Void
+    private function optionShutdown():Void
     {
 
     }
@@ -49,7 +47,7 @@ class MenuMainState extends FlxState
         drawBackground();
         drawTitle();
 
-        createCommandWindow();
+        createOptionWindow();
 
         super.create();
     }
