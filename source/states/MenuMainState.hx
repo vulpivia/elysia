@@ -1,13 +1,13 @@
 package states;
 
-import ui.CommandWindow;
+import ui.OptionWindow;
 
 import flixel.FlxG;
 import flixel.FlxState;
 
 class MenuMainState extends FlxState
 {
-    private var commandWindow:CommandWindow;
+    private var optionWindow:OptionWindow;
 
     private function drawBackground():Void
     {
@@ -21,7 +21,7 @@ class MenuMainState extends FlxState
 
     private function createOptionWindow():Void
     {
-        optionWindow = new OptionWindow(96, 128, 128);
+        optionWindow = new OptionWindow(this, 96, 128, 128);
         optionWindow.addOption("New Game", optionNewGame);
         optionWindow.addOption("Continue", optionContinue);
         optionWindow.addOption("Shutdown", optionShutdown);

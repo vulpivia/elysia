@@ -2,6 +2,7 @@ package ui;
 
 import flash.geom.Rectangle;
 import flixel.FlxSprite;
+import flixel.FlxState;
 import flixel.addons.ui.FlxUI9SliceSprite;
 
 class Window

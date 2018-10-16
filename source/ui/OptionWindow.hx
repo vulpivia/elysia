@@ -1,5 +1,7 @@
 package ui;
 
+import flixel.FlxState;
+
 class OptionWindow extends Window
 {
     /**
