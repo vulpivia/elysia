@@ -1,5 +1,7 @@
 package ui;
 
+import flixel.addons.ui.FlxUI9SliceSprite;
+import flash.geom.Rectangle;
 import flixel.FlxState;
 
 class OptionWindow extends Window
@@ -14,6 +16,13 @@ class OptionWindow extends Window
     public function new(state:FlxState, x:Int, y:Int, width:Int)
     {
         super(state, x, y, width, 32);
+
+        var spritePath = "assets/images/tileset_selection.png";
+        var size = new Rectangle(0, 0, width, 32);
+        var slicePoints = [8, 8, 16, 16];
+
+        var selectionSprite = new FlxUI9SliceSprite(x, y, spritePath, size, slicePoints);
+        state.add(selectionSprite);
     }
 
     /**
