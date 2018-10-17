@@ -6,6 +6,8 @@ import flixel.FlxState;
 
 class OptionWindow extends Window
 {
+    private var options = new List<Option>();
+
     /**
         Create a new option window. Height adjusts itself to fit the options.
 
@@ -31,8 +33,8 @@ class OptionWindow extends Window
         @param text the shown text of the command
         @param option the function that is executed when the command is selected
     **/
-    public function addOption(text:String, option:Void->Void)
+    public function addOption(option:Option)
     {
-        
+        options.add(option);
     }
 }

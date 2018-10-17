@@ -1,5 +1,6 @@
 package states;
 
+import ui.Option;
 import ui.OptionWindow;
 
 import flixel.FlxG;
@@ -22,9 +23,9 @@ class MenuMainState extends FlxState
     private function createOptionWindow():Void
     {
         optionWindow = new OptionWindow(this, 96, 128, 128);
-        optionWindow.addOption("New Game", optionNewGame);
-        optionWindow.addOption("Continue", optionContinue);
-        optionWindow.addOption("Shutdown", optionShutdown);
+        optionWindow.addOption(new Option("New Game", optionNewGame));
+        optionWindow.addOption(new Option("Continue", optionContinue));
+        optionWindow.addOption(new Option("Shutdown", optionShutdown));
     }
 
     private function optionNewGame():Void
