@@ -26,6 +26,8 @@ class MenuMainState extends FlxState
         optionWindow.addOption(new Option("New Game", optionNewGame));
         optionWindow.addOption(new Option("Continue", optionContinue));
         optionWindow.addOption(new Option("Shutdown", optionShutdown));
+
+        optionWindow.draw(this);
     }
 
     private function optionNewGame():Void

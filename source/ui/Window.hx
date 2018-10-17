@@ -14,6 +14,10 @@ class Window
 
     public var sprite(default, null):FlxSprite;
 
+    private var spritePath = "assets/images/tileset_window.png";
+    private var size:Rectangle;
+    private var slicePoints = [8, 8, 16, 16];
+
     /**
         Creates a new window.
 
@@ -28,11 +32,12 @@ class Window
         this.y = y;
         this.width = width;
         this.height = height;
+    }
 
-        var spritePath = "assets/images/tileset_window.png";
-        var size = new Rectangle(0, 0, width, height);
-        var slicePoints = [8, 8, 16, 16];
-
+    public function draw(state:FlxState)
+    {
+        size = new Rectangle(0, 0, width, height);
+        
         sprite = new FlxUI9SliceSprite(x, y, spritePath, size, slicePoints);
         state.add(sprite);
     }

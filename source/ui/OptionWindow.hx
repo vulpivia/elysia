@@ -8,6 +8,8 @@ class OptionWindow extends Window
 {
     private var options = new List<Option>();
 
+    private var selectionSpritePath = "assets/images/tileset_selection.png";
+
     /**
         Create a new option window. Height adjusts itself to fit the options.
 
@@ -17,13 +19,16 @@ class OptionWindow extends Window
     **/
     public function new(state:FlxState, x:Int, y:Int, width:Int)
     {
-        super(state, x, y, width, 32);
+        super(state, x, y, width, 0);
+    }
 
-        var spritePath = "assets/images/tileset_selection.png";
+    public override function draw(state:FlxState)
+    {
+        super.draw(state);
+
         var size = new Rectangle(0, 0, width, 32);
-        var slicePoints = [8, 8, 16, 16];
 
-        var selectionSprite = new FlxUI9SliceSprite(x, y, spritePath, size, slicePoints);
+        var selectionSprite = new FlxUI9SliceSprite(x, y, selectionSpritePath, size, slicePoints);
         state.add(selectionSprite);
     }
 
@@ -36,5 +41,6 @@ class OptionWindow extends Window
     public function addOption(option:Option)
     {
         options.add(option);
+        height += 16;
     }
 }
