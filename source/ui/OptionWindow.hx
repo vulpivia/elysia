@@ -1,5 +1,6 @@
 package ui;
 
+import flixel.text.FlxText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flash.geom.Rectangle;
 import flixel.FlxState;
@@ -19,17 +20,20 @@ class OptionWindow extends Window
     **/
     public function new(state:FlxState, x:Int, y:Int, width:Int)
     {
-        super(state, x, y, width, 0);
+        super(state, x, y, width, 13);
     }
 
     public override function draw(state:FlxState)
     {
         super.draw(state);
 
-        var size = new Rectangle(0, 0, width, 32);
+        var size = new Rectangle(0, 0, width, 27);
 
         var selectionSprite = new FlxUI9SliceSprite(x, y, selectionSpritePath, size, slicePoints);
         state.add(selectionSprite);
+
+        var testText = new FlxText(x + 8, y + 7, 0, "Test");
+        state.add(testText);
     }
 
     /**
@@ -41,6 +45,6 @@ class OptionWindow extends Window
     public function addOption(option:Option)
     {
         options.add(option);
-        height += 16;
+        height += 14;
     }
 }
