@@ -7,7 +7,7 @@ import flixel.FlxState;
 
 class OptionWindow extends Window
 {
-    private var options = new List<Option>();
+    private var options = new Array<Option>();
 
     private var selectionSpritePath = "assets/images/tileset_selection.png";
 
@@ -32,8 +32,11 @@ class OptionWindow extends Window
         var selectionSprite = new FlxUI9SliceSprite(x, y, selectionSpritePath, size, slicePoints);
         state.add(selectionSprite);
 
-        var testText = new FlxText(x + 8, y + 7, 0, "Test");
-        state.add(testText);
+        for (i in 0...options.length)
+        {
+            var text = new FlxText(x + 8, y + 7 + i * 14, 0, options[i].text);
+            state.add(text);
+        }
     }
 
     /**
@@ -44,7 +47,7 @@ class OptionWindow extends Window
     **/
     public function addOption(option:Option)
     {
-        options.add(option);
+        options.push(option);
         height += 14;
     }
 }
