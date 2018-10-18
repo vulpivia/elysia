@@ -13,9 +13,9 @@ class OptionWindow extends Window
     private static inline var TEXT_OFFSET_Y = 7;
     private static inline var LINE_OFFSET = 14;
 
-    private var options = new Array<Option>();
+    private static inline var SELECTION_SPRITE_PATH = "assets/images/tileset_selection.png";
 
-    private var selectionSpritePath = "assets/images/tileset_selection.png";
+    private var options = new Array<Option>();
 
     /**
         Create a new option window. Height adjusts itself to fit the options.
@@ -35,7 +35,7 @@ class OptionWindow extends Window
 
         var size = new Rectangle(0, 0, width, SELECTION_HEIGHT);
 
-        var selectionSprite = new FlxUI9SliceSprite(x, y, selectionSpritePath, size, slicePoints);
+        var selectionSprite = new FlxUI9SliceSprite(x, y, SELECTION_SPRITE_PATH, size, slicePoints);
         state.add(selectionSprite);
 
         for (i in 0...options.length)

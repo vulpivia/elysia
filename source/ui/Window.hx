@@ -12,14 +12,14 @@ class Window
     private static inline var SLICE_B_X = 16;
     private static inline var SLICE_B_Y = 16;
 
+    private static inline var SPRITE_PATH = "assets/images/tileset_window.png";
+
     private var x:Int;
     private var y:Int;
     private var width:Int;
     private var height:Int;
 
     public var sprite(default, null):FlxSprite;
-
-    private var spritePath = "assets/images/tileset_window.png";
     private var size:Rectangle;
     private var slicePoints = [SLICE_A_X, SLICE_A_Y, SLICE_B_X, SLICE_B_Y];
 
@@ -43,7 +43,7 @@ class Window
     {
         size = new Rectangle(0, 0, width, height);
         
-        sprite = new FlxUI9SliceSprite(x, y, spritePath, size, slicePoints);
+        sprite = new FlxUI9SliceSprite(x, y, SPRITE_PATH, size, slicePoints);
         state.add(sprite);
     }
 }
