@@ -14,17 +14,17 @@ class MenuMainState extends FlxState
 
     private var optionWindow:OptionWindow;
 
-    private function drawBackground():Void
+    private function drawBackground()
     {
 
     }
 
-    private function drawTitle():Void
+    private function drawTitle()
     {
 
     }
 
-    private function createOptionWindow():Void
+    private function createOptionWindow()
     {
         optionWindow = new OptionWindow(MAIN_MENU_WINDOW_X, MAIN_MENU_WINDOW_Y, MAIN_MENU_WINDOW_WIDTH);
         optionWindow.addOption(new Option("New Game", optionNewGame));
@@ -34,22 +34,22 @@ class MenuMainState extends FlxState
         optionWindow.draw(this);
     }
 
-    private function optionNewGame():Void
+    private function optionNewGame()
     {
         FlxG.switchState(new ExplorationState());
     }
 
-    private function optionContinue():Void
+    private function optionContinue()
     {
         FlxG.switchState(new MenuLoadState());
     }
 
-    private function optionShutdown():Void
+    private function optionShutdown()
     {
 
     }
 
-    override public function create():Void
+    override public function create()
     {
         drawBackground();
         drawTitle();
@@ -59,7 +59,7 @@ class MenuMainState extends FlxState
         super.create();
     }
 
-    override public function update(elapsed:Float):Void
+    override public function update(elapsed:Float)
     {
         super.update(elapsed);
     }
