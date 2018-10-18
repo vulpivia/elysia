@@ -6,25 +6,28 @@ import ui.OptionWindow;
 import flixel.FlxG;
 import flixel.FlxState;
 
+/**
+    The main menu. This is the first state of the game.
+**/
 class MenuMainState extends FlxState
 {
-    private static inline var MAIN_MENU_WINDOW_X = 96;
-    private static inline var MAIN_MENU_WINDOW_Y = 128;
-    private static inline var MAIN_MENU_WINDOW_WIDTH = 128;
+    static inline var MAIN_MENU_WINDOW_X:Int = 96;
+    static inline var MAIN_MENU_WINDOW_Y:Int = 128;
+    static inline var MAIN_MENU_WINDOW_WIDTH:Int = 128;
 
-    private var optionWindow:OptionWindow;
+    var optionWindow:OptionWindow;
 
-    private function drawBackground()
+    function drawBackground()
     {
-
+        // Should draw a background image.
     }
 
-    private function drawTitle()
+    function drawTitle()
     {
-
+        // Should draw the game logo.
     }
 
-    private function createOptionWindow()
+    function createOptionWindow()
     {
         optionWindow = new OptionWindow(MAIN_MENU_WINDOW_X, MAIN_MENU_WINDOW_Y, MAIN_MENU_WINDOW_WIDTH);
         optionWindow.addOption(new Option("New Game", optionNewGame));
@@ -34,19 +37,19 @@ class MenuMainState extends FlxState
         optionWindow.draw(this);
     }
 
-    private function optionNewGame()
+    function optionNewGame()
     {
         FlxG.switchState(new ExplorationState());
     }
 
-    private function optionContinue()
+    function optionContinue()
     {
         FlxG.switchState(new MenuLoadState());
     }
 
-    private function optionShutdown()
+    function optionShutdown()
     {
-
+        // Should end the game.
     }
 
     override public function create()
