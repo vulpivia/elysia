@@ -1,25 +1,30 @@
 {
-    "type": "LeftCurly",
-    "props": {
-        "severity": "WARNING",
-        "option": "nl",
-        "ignoreEmptySingleline": "true",
-        "tokens": [
-            "CLASS_DEF",
-            "ENUM_DEF",
-            "ABSTRACT_DEF",
-            "TYPEDEF_DEF",
-            "INTERFACE_DEF",
-            "OBJECT_DECL",
-            "FUNCTION",
-            "FOR",
-            "IF",
-            "WHILE",
-            "SWITCH",
-            "TRY",
-            "CATCH",
-            "REIFICATION",
-            "ARRAY_COMPREHENSION"
-        ]
-    }
+    "defaultSeverity": "INFO",
+    "checks": [
+        {
+            "type": "LeftCurly",
+            "props": {
+                "severity": "WARNING",
+                "option": "nl",
+                "ignoreEmptySingleline": "true",
+                "tokens": [
+                    "CLASS_DEF",
+                    "ENUM_DEF",
+                    "ABSTRACT_DEF",
+                    "TYPEDEF_DEF",
+                    "INTERFACE_DEF",
+                    "OBJECT_DECL",
+                    "FUNCTION",
+                    "FOR",
+                    "IF",
+                    "WHILE",
+                    "SWITCH",
+                    "TRY",
+                    "CATCH",
+                    "REIFICATION",
+                    "ARRAY_COMPREHENSION"
+                ]
+            }
+        }
+    ]
 }
