@@ -31,7 +31,7 @@ class Window
         @param width width of the window in pixels
         @param height height of thei window in pixels
     **/
-    public function new(state:FlxState, x:Int, y:Int, width:Int, height:Int)
+    public function new(x:Int, y:Int, width:Int, height:Int)
     {
         this.x = x;
         this.y = y;

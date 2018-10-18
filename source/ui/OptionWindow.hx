@@ -18,9 +18,9 @@ class OptionWindow extends Window
         @param y y-coordinate of the window in pixels
         @param width width of the window in pixels
     **/
-    public function new(state:FlxState, x:Int, y:Int, width:Int)
+    public function new(x:Int, y:Int, width:Int)
     {
-        super(state, x, y, width, 13);
+        super(x, y, width, 13);
     }
 
     public override function draw(state:FlxState)

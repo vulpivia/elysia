@@ -8,6 +8,10 @@ import flixel.FlxState;
 
 class MenuMainState extends FlxState
 {
+    private static inline var MAIN_MENU_WINDOW_X = 96;
+    private static inline var MAIN_MENU_WINDOW_Y = 128;
+    private static inline var MAIN_MENU_WINDOW_WIDTH = 128;
+
     private var optionWindow:OptionWindow;
 
     private function drawBackground():Void
@@ -22,7 +26,7 @@ class MenuMainState extends FlxState
 
     private function createOptionWindow():Void
     {
-        optionWindow = new OptionWindow(this, 96, 128, 128);
+        optionWindow = new OptionWindow(MAIN_MENU_WINDOW_X, MAIN_MENU_WINDOW_Y, MAIN_MENU_WINDOW_WIDTH);
         optionWindow.addOption(new Option("New Game", optionNewGame));
         optionWindow.addOption(new Option("Continue", optionContinue));
         optionWindow.addOption(new Option("Shutdown", optionShutdown));
