@@ -563,8 +563,8 @@
             "type":"SeparatorWhitespace",
             "props":{
                 "severity":"WARNING",
-                "dotPolicy":"around",
-                "commaPolicy":"none",
+                "dotPolicy":"none",
+                "commaPolicy":"after",
                 "semicolonPolicy":"after"
             }
         },

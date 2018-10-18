@@ -18,7 +18,7 @@ class OptionWindow extends Window
 
     static inline var SELECTION_SPRITE_PATH:String = "assets/images/tileset_selection.png";
 
-    private var options:Array<Option>;
+    var options:Array<Option>;
 
     /**
         Create a new option window. Height adjusts itself to fit the options.
@@ -34,7 +34,7 @@ class OptionWindow extends Window
         options = [];
     }
 
-    public override function draw(state:FlxState)
+    override public function draw(state:FlxState)
     {
         super.draw(state);
 
