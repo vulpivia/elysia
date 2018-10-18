@@ -7,6 +7,11 @@ import flixel.addons.ui.FlxUI9SliceSprite;
 
 class Window
 {
+    private static inline var SLICE_A_X = 8;
+    private static inline var SLICE_A_Y = 8;
+    private static inline var SLICE_B_X = 16;
+    private static inline var SLICE_B_Y = 16;
+
     private var x:Int;
     private var y:Int;
     private var width:Int;
@@ -16,7 +21,7 @@ class Window
 
     private var spritePath = "assets/images/tileset_window.png";
     private var size:Rectangle;
-    private var slicePoints = [8, 8, 16, 16];
+    private var slicePoints = [SLICE_A_X, SLICE_A_Y, SLICE_B_X, SLICE_B_Y];
 
     /**
         Creates a new window.
