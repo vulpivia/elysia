@@ -16,8 +16,6 @@ class OptionWindow extends Window
     static inline var TEXT_OFFSET_Y:Int = 7;
     static inline var LINE_OFFSET:Int = 14;
 
-    static inline var SELECTION_SPRITE_PATH:String = "assets/images/tileset_selection.png";
-
     var options:Array<Option>;
 
     /**
@@ -40,7 +38,7 @@ class OptionWindow extends Window
 
         var size = new Rectangle(0, 0, width, SELECTION_HEIGHT);
 
-        var selectionSprite = new FlxUI9SliceSprite(x, y, SELECTION_SPRITE_PATH, size, slicePoints);
+        var selectionSprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_selection__png, size, slicePoints);
         state.add(selectionSprite);
 
         for (i in 0...options.length)
