@@ -7,6 +7,12 @@ import flixel.FlxState;
 
 class OptionWindow extends Window
 {
+    private static inline var BASE_HEIGHT = 13;
+    private static inline var SELECTION_HEIGHT = 27;
+    private static inline var TEXT_OFFSET_X = 8;
+    private static inline var TEXT_OFFSET_Y = 7;
+    private static inline var LINE_OFFSET = 14;
+
     private var options = new Array<Option>();
 
     private var selectionSpritePath = "assets/images/tileset_selection.png";
@@ -20,21 +26,21 @@ class OptionWindow extends Window
     **/
     public function new(x:Int, y:Int, width:Int)
     {
-        super(x, y, width, 13);
+        super(x, y, width, BASE_HEIGHT);
     }
 
     public override function draw(state:FlxState)
     {
         super.draw(state);
 
-        var size = new Rectangle(0, 0, width, 27);
+        var size = new Rectangle(0, 0, width, SELECTION_HEIGHT);
 
         var selectionSprite = new FlxUI9SliceSprite(x, y, selectionSpritePath, size, slicePoints);
         state.add(selectionSprite);
 
         for (i in 0...options.length)
         {
-            var text = new FlxText(x + 8, y + 7 + i * 14, 0, options[i].text);
+            var text = new FlxText(x + TEXT_OFFSET_X, y + TEXT_OFFSET_Y + i * LINE_OFFSET, 0, options[i].text);
             state.add(text);
         }
     }
@@ -48,6 +54,6 @@ class OptionWindow extends Window
     public function addOption(option:Option)
     {
         options.push(option);
-        height += 14;
+        height += LINE_OFFSET;
     }
 }
