@@ -565,7 +565,7 @@
                 "severity":"WARNING",
                 "dotPolicy":"around",
                 "commaPolicy":"none",
-                "semicolonPolicy":"none"
+                "semicolonPolicy":"after"
             }
         },
         {

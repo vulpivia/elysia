@@ -5,15 +5,18 @@ import flixel.addons.ui.FlxUI9SliceSprite;
 import flash.geom.Rectangle;
 import flixel.FlxState;
 
+/**
+    A window with different options to choose from.
+**/
 class OptionWindow extends Window
 {
-    private static inline var BASE_HEIGHT = 13;
-    private static inline var SELECTION_HEIGHT = 27;
-    private static inline var TEXT_OFFSET_X = 8;
-    private static inline var TEXT_OFFSET_Y = 7;
-    private static inline var LINE_OFFSET = 14;
+    static inline var BASE_HEIGHT:Int = 13;
+    static inline var SELECTION_HEIGHT:Int = 27;
+    static inline var TEXT_OFFSET_X:Int = 8;
+    static inline var TEXT_OFFSET_Y:Int = 7;
+    static inline var LINE_OFFSET:Int = 14;
 
-    private static inline var SELECTION_SPRITE_PATH = "assets/images/tileset_selection.png";
+    static inline var SELECTION_SPRITE_PATH:String = "assets/images/tileset_selection.png";
 
     private var options:Array<Option>;
 
@@ -28,7 +31,7 @@ class OptionWindow extends Window
     {
         super(x, y, width, BASE_HEIGHT);
 
-        options = new Array<Option>();
+        options = [];
     }
 
     public override function draw(state:FlxState)
