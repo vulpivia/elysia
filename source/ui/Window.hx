@@ -21,7 +21,7 @@ class Window
 
     public var sprite(default, null):FlxSprite;
     private var size:Rectangle;
-    private var slicePoints = [SLICE_A_X, SLICE_A_Y, SLICE_B_X, SLICE_B_Y];
+    private var slicePoints:Array<Int>;
 
     /**
         Creates a new window.
@@ -37,6 +37,8 @@ class Window
         this.y = y;
         this.width = width;
         this.height = height;
+
+        slicePoints = [SLICE_A_X, SLICE_A_Y, SLICE_B_X, SLICE_B_Y];
     }
 
     public function draw(state:FlxState)
