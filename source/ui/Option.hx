@@ -9,8 +9,10 @@ class Option
         The text that is shown in the option window.
     **/
     public var text:String;
-
-    var execute:Void->Void;
+    /**
+        The function that gets executed when this option is chosen.
+    **/
+    public var execute:Void->Void;
 
     public function new(text:String, execute:Void->Void)
     {

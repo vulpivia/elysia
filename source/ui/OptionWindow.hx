@@ -1,5 +1,6 @@
 package ui;
 
+import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flash.geom.Rectangle;
@@ -17,6 +18,8 @@ class OptionWindow extends Window
     static inline var LINE_OFFSET:Int = 14;
 
     var options:Array<Option>;
+
+    var index:Int;
 
     /**
         Create a new option window. Height adjusts itself to fit the options.
@@ -46,6 +49,42 @@ class OptionWindow extends Window
             var text = new FlxText(x + TEXT_OFFSET_X, y + TEXT_OFFSET_Y + i * LINE_OFFSET, 0, options[i].text);
             state.add(text);
         }
+    }
+
+    function updateIndex()
+    {
+        if (FlxG.keys.justPressed.UP)
+        {
+            index--;
+        }
+
+        if (FlxG.keys.justPressed.DOWN)
+        {
+            index++;
+        }
+
+        if (index < 0)
+        {
+            index += options.length;
+        }
+        else if (index >= options.length)
+        {
+            index = 0;
+        }
+    }
+
+    /**
+        Update option window. Handles keyboard input.
+    **/
+    public function update()
+    {
+        if (FlxG.keys.justPressed.ENTER)
+        {
+            options[index].execute();
+            return;
+        }
+
+        updateIndex();
     }
 
     /**

@@ -65,5 +65,8 @@ class MenuMainState extends FlxState
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
+
+        optionWindow.update();
+        optionWindow.draw(this);
     }
 }
