@@ -33,6 +33,7 @@ class OptionWindow extends Window
         super(x, y, width, BASE_HEIGHT);
 
         options = [];
+        index = 0;
     }
 
     override public function draw(state:FlxState)
@@ -41,7 +42,7 @@ class OptionWindow extends Window
 
         var size = new Rectangle(0, 0, width, SELECTION_HEIGHT);
 
-        var selectionSprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_selection__png, size, slicePoints);
+        var selectionSprite = new FlxUI9SliceSprite(x, y + index * LINE_OFFSET, AssetPaths.tileset_selection__png, size, slicePoints);
         state.add(selectionSprite);
 
         for (i in 0...options.length)
