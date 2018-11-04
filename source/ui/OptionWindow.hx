@@ -81,6 +81,8 @@ class OptionWindow extends Window
     {
         if (FlxG.keys.justPressed.ENTER)
         {
+            FlxG.sound.play(AssetPaths.decision_1__wav);
+
             options[index].execute();
             return;
         }
