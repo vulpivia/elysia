@@ -5,5 +5,8 @@ package entities;
 **/
 class Character
 {
-    // TODO
+    public void onInteraction()
+    {
+        
+    }
 }

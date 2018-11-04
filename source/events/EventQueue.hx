@@ -5,5 +5,8 @@ package events;
 **/
 class EventQueue
 {
-    // TODO
+    public void insert(IExecutable event)
+    {
+        
+    }
 }
