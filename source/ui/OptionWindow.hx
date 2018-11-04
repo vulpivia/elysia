@@ -52,16 +52,20 @@ class OptionWindow extends Window
         }
     }
 
-    function updateIndex()
+    function updateIndex():Bool
     {
+        var indexChanged = false;
+
         if (FlxG.keys.justPressed.UP)
         {
             index--;
+            indexChanged = true;
         }
 
         if (FlxG.keys.justPressed.DOWN)
         {
             index++;
+            indexChanged = true;
         }
 
         if (index < 0)
@@ -72,6 +76,8 @@ class OptionWindow extends Window
         {
             index = 0;
         }
+
+        return indexChanged;
     }
 
     /**
@@ -87,7 +93,11 @@ class OptionWindow extends Window
             return;
         }
 
-        updateIndex();
+        var indexChanged = updateIndex();
+        if (indexChanged)
+        {
+            FlxG.sound.play(AssetPaths.cursor__wav);
+        }
     }
 
     /**
