@@ -13,7 +13,7 @@ import flixel.FlxState;
 class MenuMainState extends FlxState
 {
     static inline var MAIN_MENU_WINDOW_X:Int = 96;
-    static inline var MAIN_MENU_WINDOW_Y:Int = 128;
+    static inline var MAIN_MENU_WINDOW_Y:Int = 144;
     static inline var MAIN_MENU_WINDOW_WIDTH:Int = 128;
 
     var optionWindow:OptionWindow;
