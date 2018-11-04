@@ -1,5 +1,6 @@
 package states;
 
+import flixel.FlxSprite;
 import ui.Option;
 import ui.OptionWindow;
 
@@ -20,6 +21,9 @@ class MenuMainState extends FlxState
     function drawBackground()
     {
         // Should draw a background image.
+        var background = new FlxSprite();
+        background.loadGraphic(AssetPaths.background_title__png);
+        add(background);
     }
 
     function drawTitle()
