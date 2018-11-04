@@ -5,7 +5,12 @@ package commands;
 **/
 class CommandQueue
 {
-    public void insert(IExecutable command)
+    public function new()
+    {
+
+    }
+
+    public function insert(IExecutable command)
     {
 
     }

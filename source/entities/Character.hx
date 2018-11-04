@@ -5,5 +5,11 @@ package entities;
 **/
 class Character extends Event
 {
+    /**
+        Gets executed when the player interacts with this character.
+    **/
+    public function onInteraction()
+    {
 
+    }
 }

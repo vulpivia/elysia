@@ -7,11 +7,14 @@ class Event
 {
     public function new()
     {
-
+        // Empty
     }
-    
-    public void onStart()
-    {
 
+    /**
+        Gets executed when the scene is loaded.
+    **/
+    public function onStart()
+    {
+        // Empty
     }
 }

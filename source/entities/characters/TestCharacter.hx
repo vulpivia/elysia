@@ -1,13 +1,16 @@
 package entities.characters;
 
+import commands.CommandQueue;
+import commands.ShowTextCommand;
+
 /**
     A simple test character
 **/
 class TestCharacter extends Character
 {
-    public void onInteraction()
+    override public function onInteraction()
     {
-        CommandQueue queue = new CommandQueue();
+        var queue = new CommandQueue();
 
         queue.insert(new ShowTextEvent(this, "This is a test."));
         queue.insert(new ShowTextEvent(this, "This is part 2 of the test."));
