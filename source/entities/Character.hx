@@ -3,10 +3,7 @@ package entities;
 /**
     A character in the game world.
 **/
-class Character
+class Character extends Event
 {
-    public void onInteraction()
-    {
-        
-    }
+
 }

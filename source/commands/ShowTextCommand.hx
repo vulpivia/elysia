@@ -1,11 +1,11 @@
-package events;
+package commands;
 
 import entities.Character;
 
 /**
     Opens a message window and displays text.
 **/
-class ShowTextEvent implements IExecutable
+class ShowTextCommand implements IExecutable
 {
     /**
         Opens a message window and displays text.

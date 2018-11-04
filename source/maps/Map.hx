@@ -1,7 +1,8 @@
 package maps;
 
-import flixel.tile.FlxTilemap;
+import entities.Event;
 import flixel.FlxState;
+import flixel.tile.FlxTilemap;
 
 /**
     The base class of a map.
@@ -9,10 +10,12 @@ import flixel.FlxState;
 class Map
 {
     var tilemap:FlxTilemap;
+    var events:Array<Event>;
 
     public function new()
     {
         tilemap = new FlxTilemap();
+        events = [];
     }
 
     /**
@@ -23,5 +26,16 @@ class Map
     public function draw(state:FlxState)
     {
         state.add(tilemap);
+    }
+
+    /**
+        Tells all events to execute their starting scripts.
+    **/
+    public function start()
+    {
+        for (event in events)
+        {
+            event.onStart();
+        }
     }
 }

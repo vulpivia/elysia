@@ -1,4 +1,4 @@
-package events;
+package commands;
 
 /**
     The interface that is used by events.

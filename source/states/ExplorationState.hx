@@ -14,6 +14,7 @@ class ExplorationState extends FlxState
 
         var map = new TestMap();
         map.draw(this);
+        map.start();
     }
 
     override public function update(elapsed:Float)

@@ -1,5 +1,6 @@
 package maps;
 
+import entities.events.IntroEvent;
 import flixel.tile.FlxBaseTilemap;
 
 /**
@@ -33,5 +34,7 @@ class TestMap extends Map
             19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
             19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
         ], 25, 20, AssetPaths.tileset_map__png, 16, 16, FlxTilemapAutoTiling.OFF);
+
+        events.push(new IntroEvent());
     }
 }
