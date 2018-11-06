@@ -12,7 +12,7 @@ class TestCharacter extends Character
     {
         var queue = new CommandQueue();
 
-        queue.insert(new ShowTextEvent(this, "This is a test."));
-        queue.insert(new ShowTextEvent(this, "This is part 2 of the test."));
+        queue.insert(new ShowTextCommand(this, "This is a test."));
+        queue.insert(new ShowTextCommand(this, "This is part 2 of the test."));
     }
 }
