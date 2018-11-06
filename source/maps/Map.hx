@@ -9,6 +9,8 @@ import flixel.tile.FlxTilemap;
 **/
 class Map
 {
+    static inline var TILE_SIZE:Int = 16;
+
     var tilemap:FlxTilemap;
     var events:Array<Event>;
 
