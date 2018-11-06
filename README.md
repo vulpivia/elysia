@@ -1,6 +1,7 @@
 # RPG Game
 
 [![Build Status](https://travis-ci.com/Acid147/rpg-game.svg?branch=master)](https://travis-ci.com/Acid147/rpg-game)
+[![Lines of Code](https://tokei.rs/b1/github/Acid147/rpg-game)](https://github.com/Aaronepower/tokei)
 
 **RPG Game** is a single-player 2D tactical RPG.
 
@@ -32,4 +33,4 @@ Pull requests are welcome!
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). For license information of third party assets visit ```CREDITS.md```.
