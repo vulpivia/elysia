@@ -5,6 +5,9 @@ package entities;
 **/
 class Character extends Event
 {
+    var x:Int;
+    var y:Int;
+
     /**
         Gets executed when the player interacts with this character.
     **/
