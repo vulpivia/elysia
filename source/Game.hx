@@ -24,4 +24,9 @@ class Game
             gameObject.create(state);
         }
     }
+
+    public static function clear()
+    {
+        gameObjects = [];
+    }
 }

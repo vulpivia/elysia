@@ -36,11 +36,13 @@ class MenuMainState extends State
     function optionNewGame()
     {
         FlxG.switchState(new ExplorationState());
+        Game.clear();
     }
 
     function optionContinue()
     {
         FlxG.switchState(new MenuLoadState());
+        Game.clear();
     }
 
     function optionShutdown()
