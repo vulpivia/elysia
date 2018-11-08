@@ -1,5 +1,6 @@
 package maps;
 
+import entities.characters.Player;
 import entities.characters.TestCharacter;
 import entities.events.IntroEvent;
 
@@ -15,6 +16,7 @@ class TestMap extends Map
         tilemap.loadMapFromCSV(AssetPaths.map_test__csv, AssetPaths.tileset_map__png, Map.TILE_SIZE, Map.TILE_SIZE);
 
         //events.push(new IntroEvent());
+        events.push(new Player());
         events.push(new TestCharacter());
     }
 }

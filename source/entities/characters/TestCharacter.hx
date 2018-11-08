@@ -13,8 +13,8 @@ class TestCharacter extends Character
     override public function new()
     {
         super();
-        x = 64;
-        y = 64;
+        x = 4 * 16;
+        y = 5 * 16;
     }
 
     override public function onStart()
