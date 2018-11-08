@@ -14,9 +14,7 @@ class TestMap extends Map
 
         tilemap.loadMapFromCSV(AssetPaths.map_test__csv, AssetPaths.tileset_map__png, Map.TILE_SIZE, Map.TILE_SIZE);
 
-        events.push(new IntroEvent());
+        //events.push(new IntroEvent());
         events.push(new TestCharacter());
-
-        start();
     }
 }
