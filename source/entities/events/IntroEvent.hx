@@ -13,5 +13,7 @@ class IntroEvent extends Event
         var queue = new CommandQueue();
 
         queue.insert(new ShowTextCommand(null, "Connection established."));
+
+        queue.run();
     }
 }

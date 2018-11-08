@@ -16,5 +16,7 @@ class TestMap extends Map
 
         events.push(new IntroEvent());
         events.push(new TestCharacter());
+
+        start();
     }
 }
