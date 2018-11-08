@@ -3,11 +3,11 @@ package entities;
 /**
     An event in the game world.
 **/
-class Event
+class Event extends GameObject
 {
     public function new()
     {
-        // Empty
+        super();
     }
 
     /**
