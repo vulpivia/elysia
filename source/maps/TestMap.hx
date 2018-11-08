@@ -13,7 +13,7 @@ class TestMap extends Map
     {
         super();
 
-        tilemap.loadMapFromCSV(AssetPaths.map_test__csv, AssetPaths.tileset_map__png, Map.TILE_SIZE, Map.TILE_SIZE);
+        tilemap.loadMapFromCSV(AssetPaths.map_test_bottom__csv, AssetPaths.tileset_map_bottom__png, Map.TILE_SIZE, Map.TILE_SIZE);
 
         //events.push(new IntroEvent());
         events.push(new Player());
