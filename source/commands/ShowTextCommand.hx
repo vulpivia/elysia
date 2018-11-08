@@ -10,6 +10,8 @@ import flixel.text.FlxText;
 **/
 class ShowTextCommand extends Command
 {
+    static inline var SCREEN_PADDING = 16;
+
     var text:FlxText;
     var fullText:String;
 
@@ -22,7 +24,7 @@ class ShowTextCommand extends Command
     public function new(character:Character, text:String)
     {
         super();
-        this.text = new FlxText(8, 8, 304, "");
+        this.text = new FlxText(SCREEN_PADDING, SCREEN_PADDING, Game.SCREEN_WIDTH - SCREEN_PADDING * 2, "");
         fullText = text;
     }
 
