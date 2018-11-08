@@ -8,11 +8,13 @@ import commands.ShowTextCommand;
 **/
 class TestCharacter extends Character
 {
-    override public function onInteraction()
+    override public function onStart()
     {
         var queue = new CommandQueue();
 
         queue.insert(new ShowTextCommand(this, "This is a test."));
         queue.insert(new ShowTextCommand(this, "This is part 2 of the test."));
+
+        queue.run();
     }
 }
