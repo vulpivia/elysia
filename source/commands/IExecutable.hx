@@ -5,5 +5,6 @@ package commands;
 **/
 interface IExecutable
 {
-    // TODO
+    public function execute(callback:Void->Void):Void;
+    private function finish():Void;
 }

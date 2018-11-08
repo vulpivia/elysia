@@ -5,9 +5,13 @@ package commands;
 **/
 class CommandQueue
 {
+    var commands:Array<IExecutable>;
+    var commandIndex:Int;
+
     public function new()
     {
-        // Empty
+        commands = [];
+        commandIndex = 0;
     }
 
     /**
@@ -17,6 +21,17 @@ class CommandQueue
     **/
     public function insert(command:IExecutable)
     {
-        // TODO
+        commands.push(command);
+    }
+
+    public function run()
+    {
+        if (commandIndex == commands.length)
+        {
+            // Command queue finished
+        }
+
+        commands[commandIndex].execute(run);
+        commandIndex++;
     }
 }
