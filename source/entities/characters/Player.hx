@@ -4,6 +4,7 @@ import entities.Character;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import maps.Map;
 
 class Player extends Character
 {
@@ -26,7 +27,7 @@ class Player extends Character
 
     override public function update()
     {
-        if (x % 16 != 0 || y % 16 != 0)
+        if (x % Map.TILE_SIZE != 0 || y % Map.TILE_SIZE != 0)
         {
             continueMovement();
         }
