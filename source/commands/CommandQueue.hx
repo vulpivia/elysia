@@ -29,6 +29,7 @@ class CommandQueue
         if (commandIndex == commands.length)
         {
             // Command queue finished
+            return;
         }
 
         commands[commandIndex].execute(run);
