@@ -9,16 +9,18 @@ import flixel.tile.FlxTilemap;
 **/
 class Map extends GameObject
 {
-    static inline var TILE_SIZE:Int = 16;
+    public static inline var TILE_SIZE:Int = 16;
 
-    var tilemap:FlxTilemap;
+    var layerBottom:FlxTilemap;
+    var layerTop:FlxTilemap;
     var events:Array<Event>;
 
     public function new()
     {
         super();
 
-        tilemap = new FlxTilemap();
+        layerBottom = new FlxTilemap();
+        layerTop = new FlxTilemap();
         events = [];
     }
 
@@ -29,7 +31,8 @@ class Map extends GameObject
     **/
     override public function create(state:FlxState)
     {
-        state.add(tilemap);
+        state.add(layerBottom);
+        state.add(layerTop);
     }
 
     /**
