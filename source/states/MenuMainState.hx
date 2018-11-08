@@ -10,7 +10,7 @@ import flixel.FlxState;
 /**
     The main menu. This is the first state of the game.
 **/
-class MenuMainState extends FlxState
+class MenuMainState extends State
 {
     static inline var MAIN_MENU_WINDOW_X:Int = 96;
     static inline var MAIN_MENU_WINDOW_Y:Int = 144;
@@ -18,17 +18,11 @@ class MenuMainState extends FlxState
 
     var optionWindow:OptionWindow;
 
-    function drawBackground()
+    function createBackground()
     {
-        // Should draw a background image.
         var background = new FlxSprite();
         background.loadGraphic(AssetPaths.background_title__png);
         add(background);
-    }
-
-    function drawTitle()
-    {
-        // Should draw the game logo.
     }
 
     function createOptionWindow()
@@ -37,8 +31,6 @@ class MenuMainState extends FlxState
         optionWindow.addOption(new Option("New Game", optionNewGame));
         optionWindow.addOption(new Option("Continue", optionContinue));
         optionWindow.addOption(new Option("Shutdown", optionShutdown));
-
-        optionWindow.draw(this);
     }
 
     function optionNewGame()
@@ -58,19 +50,9 @@ class MenuMainState extends FlxState
 
     override public function create()
     {
-        drawBackground();
-        drawTitle();
-
+        createBackground();
         createOptionWindow();
 
         super.create();
-    }
-
-    override public function update(elapsed:Float)
-    {
-        super.update(elapsed);
-
-        optionWindow.update();
-        optionWindow.draw(this);
     }
 }

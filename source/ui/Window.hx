@@ -8,7 +8,7 @@ import flixel.addons.ui.FlxUI9SliceSprite;
 /**
     A window to display content in the game.
 **/
-class Window
+class Window extends GameObject
 {
     static inline var SLICE_A_X:Int = 8;
     static inline var SLICE_A_Y:Int = 8;
@@ -34,6 +34,8 @@ class Window
     **/
     public function new(x:Int, y:Int, width:Int, height:Int)
     {
+        super();
+
         this.x = x;
         this.y = y;
         this.width = width;
@@ -47,7 +49,7 @@ class Window
 
         @param state the state to draw to.
     **/
-    public function draw(state:FlxState)
+    override public function create(state:FlxState)
     {
         size = new Rectangle(0, 0, width, height);
 

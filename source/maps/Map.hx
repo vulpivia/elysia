@@ -7,7 +7,7 @@ import flixel.tile.FlxTilemap;
 /**
     The base class of a map.
 **/
-class Map
+class Map extends GameObject
 {
     static inline var TILE_SIZE:Int = 16;
 
@@ -16,6 +16,8 @@ class Map
 
     public function new()
     {
+        super();
+
         tilemap = new FlxTilemap();
         events = [];
     }
@@ -25,7 +27,7 @@ class Map
 
         @param state the state to draw to.
     **/
-    public function draw(state:FlxState)
+    override public function create(state:FlxState)
     {
         state.add(tilemap);
     }

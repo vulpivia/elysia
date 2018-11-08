@@ -20,6 +20,7 @@ class OptionWindow extends Window
     var options:Array<Option>;
 
     var index:Int;
+    var selectionSprite:FlxUI9SliceSprite;
 
     /**
         Create a new option window. Height adjusts itself to fit the options.
@@ -36,13 +37,13 @@ class OptionWindow extends Window
         index = 0;
     }
 
-    override public function draw(state:FlxState)
+    override public function create(state:FlxState)
     {
-        super.draw(state);
+        super.create(state);
 
         var size = new Rectangle(0, 0, width, SELECTION_HEIGHT);
 
-        var selectionSprite = new FlxUI9SliceSprite(x, y + index * LINE_OFFSET, AssetPaths.tileset_selection__png, size, slicePoints);
+        selectionSprite = new FlxUI9SliceSprite(x, y + index * LINE_OFFSET, AssetPaths.tileset_selection__png, size, slicePoints);
         state.add(selectionSprite);
 
         for (i in 0...options.length)
@@ -50,6 +51,11 @@ class OptionWindow extends Window
             var text = new FlxText(x + TEXT_OFFSET_X, y + TEXT_OFFSET_Y + i * LINE_OFFSET, 0, options[i].text);
             state.add(text);
         }
+    }
+
+    function updatePosition()
+    {
+        selectionSprite.y = y + index * LINE_OFFSET;
     }
 
     function updateIndex():Bool
@@ -83,7 +89,7 @@ class OptionWindow extends Window
     /**
         Update option window. Handles keyboard input.
     **/
-    public function update()
+    override public function update()
     {
         if (FlxG.keys.justPressed.ENTER)
         {
@@ -97,6 +103,7 @@ class OptionWindow extends Window
         if (indexChanged)
         {
             FlxG.sound.play(AssetPaths.cursor__wav);
+            updatePosition();
         }
     }
 

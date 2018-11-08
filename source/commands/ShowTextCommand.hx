@@ -5,7 +5,7 @@ import entities.Character;
 /**
     Opens a message window and displays text.
 **/
-class ShowTextCommand implements IExecutable
+class ShowTextCommand extends Command
 {
     /**
         Opens a message window and displays text.
@@ -15,6 +15,6 @@ class ShowTextCommand implements IExecutable
     **/
     public function new(character:Character, text:String)
     {
-        // TODO
+        super();
     }
 }
