@@ -29,8 +29,8 @@ class TestCharacter extends Character
 
     override public function create(state:FlxState)
     {
-        sprite = new FlxSprite(x, y - 2);
-        sprite.loadGraphic(AssetPaths.character_warrior__png, true, 16, 18);
+        sprite = new FlxSprite(x - 4, y - 16);
+        sprite.loadGraphic(AssetPaths.character_knight__png, true, 24, 32);
         sprite = addAnimations(sprite);
         sprite.animation.play("idle_down");
         state.add(sprite);
