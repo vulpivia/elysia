@@ -51,7 +51,7 @@ class Player extends Character
             return Direction.Up;
         }
 
-        if (down) {
+        if (down && !up) {
             return Direction.Down;
         }
 
@@ -60,7 +60,7 @@ class Player extends Character
             return Direction.Left;
         }
 
-        if (right)
+        if (right && !left)
         {
             return Direction.Right;
         }
