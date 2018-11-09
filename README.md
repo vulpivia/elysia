@@ -1,9 +1,9 @@
-# RPG Game
+# Elysia
 
-[![Build Status](https://travis-ci.com/Acid147/rpg-game.svg?branch=master)](https://travis-ci.com/Acid147/rpg-game)
-[![Lines of Code](https://tokei.rs/b1/github/Acid147/rpg-game)](https://github.com/Aaronepower/tokei)
+[![Build Status](https://travis-ci.com/Acid147/elysia.svg?branch=master)](https://travis-ci.com/Acid147/elysia)
+[![Lines of Code](https://tokei.rs/b1/github/Acid147/elysia)](https://github.com/Aaronepower/tokei)
 
-**RPG Game** is a single-player 2D tactical RPG.
+**Elysia** is a single-player 2D tactical RPG.
 
 It is built on [HaxeFlixel](https://github.com/HaxeFlixel).
 
