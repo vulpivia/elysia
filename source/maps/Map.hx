@@ -9,6 +9,9 @@ import flixel.tile.FlxTilemap;
 **/
 class Map extends GameObject
 {
+    /**
+        Width and height of a single tile.
+    **/
     public static inline var TILE_SIZE:Int = 16;
 
     var layerBottom:FlxTilemap;

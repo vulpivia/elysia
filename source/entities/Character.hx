@@ -1,6 +1,7 @@
 package entities;
 
 import flixel.FlxSprite;
+import maps.Map;
 
 enum Direction
 {
@@ -27,7 +28,7 @@ class Character extends Event
     **/
     public function onInteraction()
     {
-
+        // No interaction for the base character
     }
 
     function addAnimations(sprite:FlxSprite):FlxSprite
@@ -85,40 +86,49 @@ class Character extends Event
         }
     }
 
+    function startWalkUp()
+    {
+        this.direction = Direction.Up;
+        sprite.animation.play("walk_up");
+        y--;
+    }
+
+    function startWalkDown()
+    {
+        this.direction = Direction.Down;
+        sprite.animation.play("walk_down");
+        y++;
+    }
+
+    function startWalkLeft()
+    {
+        this.direction = Direction.Left;
+        sprite.animation.play("walk_left");
+        x--;
+    }
+
+    function startWalkRight()
+    {
+        this.direction = Direction.Right;
+        sprite.animation.play("walk_right");
+        x++;
+    }
+
     function move(direction:Direction)
     {
-        if (x % 16 != 0 || y % 16 != 0)
+        if (x % Map.TILE_SIZE != 0 || y % Map.TILE_SIZE != 0)
         {
             continueMovement();
+            return;
         }
 
-        if (direction == Direction.None)
+        switch (direction)
         {
-            switchToIdle();
-        }
-        else if (direction == Direction.Up)
-        {
-            this.direction = Direction.Up;
-            sprite.animation.play("walk_up");
-            y--;
-        }
-        else if (direction == Direction.Down)
-        {
-            this.direction = Direction.Down;
-            sprite.animation.play("walk_down");
-            y++;
-        }
-        else if (direction == Direction.Left)
-        {
-            this.direction = Direction.Left;
-            sprite.animation.play("walk_left");
-            x--;
-        }
-        else
-        {
-            this.direction = Direction.Right;
-            sprite.animation.play("walk_right");
-            x++;
+            case Direction.None: switchToIdle();
+            case Direction.Up: startWalkUp();
+            case Direction.Down: startWalkDown();
+            case Direction.Left: startWalkLeft();
+            case Direction.Right: startWalkRight();
         }
     }
 }

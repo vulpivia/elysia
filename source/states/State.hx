@@ -2,6 +2,9 @@ package states;
 
 import flixel.FlxState;
 
+/**
+    The base class for game states.
+**/
 class State extends FlxState
 {
     override public function create()

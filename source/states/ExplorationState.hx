@@ -1,6 +1,5 @@
 package states;
 
-import flixel.FlxState;
 import maps.TestMap;
 
 /**

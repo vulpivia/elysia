@@ -1,11 +1,9 @@
 package states;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import ui.Option;
 import ui.OptionWindow;
-
-import flixel.FlxG;
-import flixel.FlxState;
 
 /**
     The main menu. This is the first state of the game.
