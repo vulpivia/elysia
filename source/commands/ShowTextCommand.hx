@@ -13,10 +13,26 @@ import flixel.text.FlxText;
 **/
 class ShowTextCommand extends Command
 {
-    static inline var SCREEN_PADDING = 16;
+    /**
+        Distance between screen border and text in pixels.
+    **/
+    static inline var SCREEN_PADDING:Int = 16;
 
-    static inline var BUBBLE_PADDING = 4;
-    static inline var BUBBLE_SCREEN_PADDING = 64;
+    /**
+        Distance between bubble border and text in pixels.
+    **/
+    static inline var BUBBLE_PADDING:Int = 4;
+    /**
+        Distance between screen border and bubble border in pixels.
+    **/
+    static inline var BUBBLE_SCREEN_PADDING:Int = 64;
+    /**
+        Height of the bubble in pixels.
+    **/
+    static inline var BUBBLE_HEIGHT:Int = 32;
+
+    static inline var BUBBLE_BOTTOM_OFFSET_X:Int = 6;
+    static inline var BUBBLE_BOTTOM_OFFSET_Y:Int = 6;
 
     static inline var SLICE_A_X:Int = 8;
     static inline var SLICE_A_Y:Int = 8;
@@ -62,10 +78,15 @@ class ShowTextCommand extends Command
         if (this.character != null)
         {
             var slicePoints = [SLICE_A_X, SLICE_A_Y, SLICE_B_X, SLICE_B_Y];
-            var size = new Rectangle(0, 0, Game.SCREEN_WIDTH - BUBBLE_SCREEN_PADDING * 2 + BUBBLE_PADDING * 2, 32);
-            sprite = new FlxUI9SliceSprite(BUBBLE_SCREEN_PADDING - BUBBLE_PADDING, BUBBLE_SCREEN_PADDING - BUBBLE_PADDING, AssetPaths.tileset_message__png, size, slicePoints);
+            var size = new Rectangle(0, 0, Game.SCREEN_WIDTH - BUBBLE_SCREEN_PADDING * 2 + BUBBLE_PADDING * 2, BUBBLE_HEIGHT);
 
-            spriteBottom = new FlxSprite(Game.SCREEN_WIDTH / 2 - 6, BUBBLE_SCREEN_PADDING + 32 - 6, AssetPaths.sprite_message_bottom__png);
+            var bubbleX = BUBBLE_SCREEN_PADDING - BUBBLE_PADDING;
+            var bubbleY = BUBBLE_SCREEN_PADDING - BUBBLE_PADDING;
+            sprite = new FlxUI9SliceSprite(bubbleX, bubbleY, AssetPaths.tileset_message__png, size, slicePoints);
+
+            var bubbleBottomX = Game.SCREEN_WIDTH / 2 - BUBBLE_BOTTOM_OFFSET_X;
+            var bubbleBottomY = BUBBLE_SCREEN_PADDING + BUBBLE_HEIGHT - BUBBLE_BOTTOM_OFFSET_Y;
+            spriteBottom = new FlxSprite(bubbleBottomX, bubbleBottomY, AssetPaths.sprite_message_bottom__png);
         }
     }
 
