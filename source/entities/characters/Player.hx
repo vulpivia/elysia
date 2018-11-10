@@ -8,12 +8,17 @@ import maps.Map;
 
 class Player extends Character
 {
+    public var inputEnabled:Bool;
+
     override public function new()
     {
         super();
         x = 8 * 16;
         y = 8 * 16;
         direction = Direction.Down;
+
+        Game.player = this;
+        inputEnabled = true;
     }
 
     override public function create(state:FlxState)
@@ -43,6 +48,11 @@ class Player extends Character
 
     function getDirection()
     {
+        if (!inputEnabled)
+        {
+            return Direction.None;
+        }
+
         var up = FlxG.keys.pressed.UP;
         var down = FlxG.keys.pressed.DOWN;
         var left = FlxG.keys.pressed.LEFT;

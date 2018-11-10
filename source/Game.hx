@@ -1,3 +1,4 @@
+import entities.characters.Player;
 import flixel.FlxState;
 
 /**
@@ -13,6 +14,8 @@ class Game
         Height of the game screen in pixels before upscaling.
     **/
     public static inline var SCREEN_HEIGHT:Int = 240;
+
+    public static var player:Player;
 
     static var gameObjects:Array<GameObject> = [];
 

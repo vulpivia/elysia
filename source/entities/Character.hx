@@ -17,11 +17,11 @@ enum Direction
 **/
 class Character extends Event
 {
-    var x:Int;
-    var y:Int;
+    public var x:Int;
+    public var y:Int;
     var direction:Direction;
 
-    var sprite:FlxSprite;
+    public var sprite:FlxSprite;
 
     /**
         Gets executed when the player interacts with this character.

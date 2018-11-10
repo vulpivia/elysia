@@ -7,6 +7,7 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.text.FlxText;
+import maps.Map;
 
 /**
     Opens a message window and displays text.
@@ -22,17 +23,20 @@ class ShowTextCommand extends Command
         Distance between bubble border and text in pixels.
     **/
     static inline var BUBBLE_PADDING:Int = 4;
+
     /**
-        Distance between screen border and bubble border in pixels.
+        Width of the bubble in pixels.
     **/
-    static inline var BUBBLE_SCREEN_PADDING:Int = 64;
+    static inline var BUBBLE_WIDTH:Int = 128;
     /**
         Height of the bubble in pixels.
     **/
     static inline var BUBBLE_HEIGHT:Int = 32;
 
-    static inline var BUBBLE_BOTTOM_OFFSET_X:Int = 6;
-    static inline var BUBBLE_BOTTOM_OFFSET_Y:Int = 6;
+    static inline var BUBBLE_OFFSET_Y:Int = -36;
+
+    static inline var BUBBLE_BOTTOM_OFFSET_X:Int = -6;
+    static inline var BUBBLE_BOTTOM_OFFSET_Y:Int = -2;
 
     static inline var SLICE_A_X:Int = 8;
     static inline var SLICE_A_Y:Int = 8;
@@ -67,7 +71,10 @@ class ShowTextCommand extends Command
         }
         else
         {
-            this.text = new FlxText(BUBBLE_SCREEN_PADDING, BUBBLE_SCREEN_PADDING, Game.SCREEN_WIDTH - BUBBLE_SCREEN_PADDING * 2, "");
+            var x = character.x - BUBBLE_WIDTH / 2 + Map.TILE_SIZE / 2 + BUBBLE_PADDING;
+            var y = character.y - BUBBLE_HEIGHT / 2 + BUBBLE_OFFSET_Y + BUBBLE_PADDING;
+            var width = BUBBLE_WIDTH - BUBBLE_PADDING * 2;
+            this.text = new FlxText(x, y, width, "");
         }
     }
 
@@ -78,14 +85,14 @@ class ShowTextCommand extends Command
         if (this.character != null)
         {
             var slicePoints = [SLICE_A_X, SLICE_A_Y, SLICE_B_X, SLICE_B_Y];
-            var size = new Rectangle(0, 0, Game.SCREEN_WIDTH - BUBBLE_SCREEN_PADDING * 2 + BUBBLE_PADDING * 2, BUBBLE_HEIGHT);
+            var size = new Rectangle(0, 0, BUBBLE_WIDTH, BUBBLE_HEIGHT);
 
-            var bubbleX = BUBBLE_SCREEN_PADDING - BUBBLE_PADDING;
-            var bubbleY = BUBBLE_SCREEN_PADDING - BUBBLE_PADDING;
+            var bubbleX = character.x - BUBBLE_WIDTH / 2 + Map.TILE_SIZE / 2;
+            var bubbleY = character.y - BUBBLE_HEIGHT / 2 + BUBBLE_OFFSET_Y;
             sprite = new FlxUI9SliceSprite(bubbleX, bubbleY, AssetPaths.tileset_message__png, size, slicePoints);
 
-            var bubbleBottomX = Game.SCREEN_WIDTH / 2 - BUBBLE_BOTTOM_OFFSET_X;
-            var bubbleBottomY = BUBBLE_SCREEN_PADDING + BUBBLE_HEIGHT - BUBBLE_BOTTOM_OFFSET_Y;
+            var bubbleBottomX = character.x + BUBBLE_BOTTOM_OFFSET_X + Map.TILE_SIZE / 2;
+            var bubbleBottomY = character.y + BUBBLE_HEIGHT / 2 + BUBBLE_BOTTOM_OFFSET_Y + BUBBLE_OFFSET_Y;
             spriteBottom = new FlxSprite(bubbleBottomX, bubbleBottomY, AssetPaths.sprite_message_bottom__png);
         }
     }
@@ -100,6 +107,8 @@ class ShowTextCommand extends Command
 
         state.add(text);
 
+        FlxG.camera.follow(character.sprite);
+
         firstUpdate = false;
     }
 
@@ -109,6 +118,8 @@ class ShowTextCommand extends Command
         {
             if (sprite != null)
             {
+                FlxG.camera.follow(Game.player.sprite);
+
                 sprite.destroy();
                 spriteBottom.destroy();
             }

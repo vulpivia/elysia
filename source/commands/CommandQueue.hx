@@ -29,9 +29,11 @@ class CommandQueue
         if (commandIndex == commands.length)
         {
             // Command queue finished
+            Game.player.inputEnabled = true;
             return;
         }
 
+        Game.player.inputEnabled = false;
         commands[commandIndex].execute(run);
         commandIndex++;
     }
