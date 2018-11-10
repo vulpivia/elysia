@@ -23,6 +23,8 @@ class Player extends Character
         sprite = addAnimations(sprite);
         sprite.animation.play("idle_down");
         state.add(sprite);
+
+        FlxG.camera.follow(sprite);
     }
 
     override public function update()
