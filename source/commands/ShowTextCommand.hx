@@ -90,6 +90,33 @@ class ShowTextCommand extends Command
         }
     }
 
+    function initialUpdate()
+    {
+        if (this.character != null)
+        {
+            state.add(sprite);
+            state.add(spriteBottom);
+        }
+
+        state.add(text);
+
+        firstUpdate = false;
+    }
+
+    function finishedTextUpdate()
+    {
+        if (FlxG.keys.justPressed.ENTER)
+        {
+            if (sprite != null)
+            {
+                sprite.destroy();
+                spriteBottom.destroy();
+            }
+            text.destroy();
+            finish();
+        }
+    }
+
     override public function update()
     {
         if (!executing)
@@ -99,31 +126,16 @@ class ShowTextCommand extends Command
 
         if (firstUpdate)
         {
-            if (this.character != null)
-            {
-                state.add(sprite);
-                state.add(spriteBottom);
-            }
-
-            state.add(text);
-
-            firstUpdate = false;
+            initialUpdate();
             return;
         }
 
         var textString = text.text;
+
         if (textString == fullText)
         {
-            if (FlxG.keys.justPressed.ENTER)
-            {
-                if (sprite != null)
-                {
-                    sprite.destroy();
-                    spriteBottom.destroy();
-                }
-                text.destroy();
-                finish();
-            }
+            // Text fully loaded
+            finishedTextUpdate();
             return;
         }
 
