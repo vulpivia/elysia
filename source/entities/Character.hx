@@ -88,6 +88,12 @@ class Character extends Event
 
     function startWalkUp()
     {
+        if (Map.current.isBlocked(x, y - Map.TILE_SIZE))
+        {
+            sprite.animation.play("idle_up");
+            return;
+        }
+
         this.direction = Direction.Up;
         sprite.animation.play("walk_up");
         y--;
@@ -95,6 +101,12 @@ class Character extends Event
 
     function startWalkDown()
     {
+        if (Map.current.isBlocked(x, y + Map.TILE_SIZE))
+        {
+            sprite.animation.play("idle_down");
+            return;
+        }
+
         this.direction = Direction.Down;
         sprite.animation.play("walk_down");
         y++;
@@ -102,6 +114,12 @@ class Character extends Event
 
     function startWalkLeft()
     {
+        if (Map.current.isBlocked(x - Map.TILE_SIZE, y))
+        {
+            sprite.animation.play("idle_left");
+            return;
+        }
+
         this.direction = Direction.Left;
         sprite.animation.play("walk_left");
         x--;
@@ -109,6 +127,12 @@ class Character extends Event
 
     function startWalkRight()
     {
+        if (Map.current.isBlocked(x + Map.TILE_SIZE, y))
+        {
+            sprite.animation.play("idle_right");
+            return;
+        }
+
         this.direction = Direction.Right;
         sprite.animation.play("walk_right");
         x++;

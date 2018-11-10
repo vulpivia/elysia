@@ -14,8 +14,14 @@ class Map extends GameObject
     **/
     public static inline var TILE_SIZE:Int = 16;
 
+    /**
+        The current map.
+    **/
+    public static var current:Map;
+
     var layerBottom:FlxTilemap;
     var layerTop:FlxTilemap;
+    var layerCollision:FlxTilemap;
     var events:Array<Event>;
 
     public function new()
@@ -24,7 +30,27 @@ class Map extends GameObject
 
         layerBottom = new FlxTilemap();
         layerTop = new FlxTilemap();
+        layerCollision = new FlxTilemap();
         events = [];
+
+        current = this;
+    }
+
+    /**
+        Check collision for tile at position.
+
+        @param x x position of tile to check in pixels
+        @param y y position of tile to check in pixels
+
+        @return true if blocked
+    **/
+    public function isBlocked(x:Int, y:Int):Bool
+    {
+        x = cast(x / TILE_SIZE);
+        y = cast(y / TILE_SIZE);
+
+        var tile = layerCollision.getTile(x, y);
+        return tile > 0;
     }
 
     /**
