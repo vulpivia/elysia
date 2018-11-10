@@ -2,6 +2,7 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import openfl.system.System;
 import ui.Option;
 import ui.OptionWindow;
 
@@ -45,7 +46,7 @@ class MenuMainState extends State
 
     function optionShutdown()
     {
-        // Should end the game.
+        System.exit(0);
     }
 
     override public function create()

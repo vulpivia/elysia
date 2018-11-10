@@ -1,11 +1,10 @@
 package;
 
-import states.MenuMainState;
-
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.system.scaleModes.PixelPerfectScaleMode;
 import openfl.display.Sprite;
+import states.MenuMainState;
 
 /**
     The game.
@@ -23,7 +22,8 @@ class Main extends Sprite
     {
         super();
 
-        addChild(new FlxGame(Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT, MenuMainState, ZOOM, UPDATE_FPS, DRAW_FPS, true));
+        var game = new FlxGame(Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT, MenuMainState, ZOOM, UPDATE_FPS, DRAW_FPS, true);
+        addChild(game);
 
         FlxG.scaleMode = new PixelPerfectScaleMode();
     }
