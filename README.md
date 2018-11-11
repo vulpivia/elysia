@@ -33,4 +33,4 @@ Pull requests are welcome!
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). For license information of third party assets visit [CREDITS.md](https://github.com/Acid147/rpg-game/blob/master/CREDITS.md).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Assets in the ```assets``` directory may be licensed differently. For licensing information of those, visit [CREDITS.md](https://github.com/Acid147/rpg-game/blob/master/CREDITS.md).
