@@ -67,6 +67,11 @@ class Map extends GameObject
         x = cast(x / TILE_SIZE);
         y = cast(y / TILE_SIZE);
 
+        if (x < 0 || y < 0 || x >= layerBottom.widthInTiles || y >= layerBottom.heightInTiles)
+        {
+            return true;
+        }
+
         var tile = layerCollision.getTile(x, y);
         if (tile > 0)
         {
