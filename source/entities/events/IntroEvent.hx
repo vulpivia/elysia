@@ -13,7 +13,10 @@ class IntroEvent extends Event
     {
         var queue = new CommandQueue();
 
-        queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "So, you're ready?"));
+        queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "Ready?"));
+        queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "The connection process will start in 3..."));
+        queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "2..."));
+        queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "1..."));
 
         queue.run();
     }
