@@ -1,5 +1,6 @@
 package maps;
 
+import entities.characters.JoshuaCollier;
 import entities.characters.Player;
 import flixel.FlxG;
 
@@ -16,5 +17,6 @@ class LaboratoryMap extends Map
         FlxG.camera.setScrollBounds(0, layerBottom.width, 0, layerBottom.height);
 
         events.push(new Player());
+        events.push(new JoshuaCollier());
     }
 }
