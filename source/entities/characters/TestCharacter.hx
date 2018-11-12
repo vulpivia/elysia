@@ -4,6 +4,7 @@ package entities.characters;
 import commands.CommandQueue;
 import commands.ShowTextCommand;
 import flixel.FlxSprite;
+import maps.Map;
 import states.State;
 /**
     A simple test character
@@ -13,8 +14,9 @@ class TestCharacter extends Character
     override public function new()
     {
         super();
-        x = 5 * 16;
-        y = 6 * 16;
+        name = "test_character";
+        x = 5 * Map.TILE_SIZE;
+        y = 6 * Map.TILE_SIZE;
     }
 
     override public function onStart()

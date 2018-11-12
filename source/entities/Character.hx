@@ -17,6 +17,7 @@ enum Direction
 **/
 class Character extends Event
 {
+    public var name:String;
     public var x:Int;
     public var y:Int;
     var direction:Direction;

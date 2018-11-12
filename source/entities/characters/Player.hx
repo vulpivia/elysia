@@ -13,6 +13,7 @@ class Player extends Character
     override public function new()
     {
         super();
+        name = "player";
         x = 10 * Map.TILE_SIZE;
         y = 9 * Map.TILE_SIZE;
         direction = Direction.Down;
@@ -23,7 +24,7 @@ class Player extends Character
 
     override public function create(state:State)
     {
-        sprite = new FlxSprite(x, y - 2);
+        sprite = new FlxSprite();
         sprite.loadGraphic(AssetPaths.character_knight__png, true, 24, 32);
         sprite = addAnimations(sprite);
         sprite.animation.play("idle_down");
