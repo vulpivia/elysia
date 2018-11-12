@@ -23,6 +23,7 @@ class Command extends GameObject implements IExecutable
 
     function finish()
     {
+        executing = false;
         callback();
     }
 
