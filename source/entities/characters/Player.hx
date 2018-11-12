@@ -13,8 +13,8 @@ class Player extends Character
     override public function new()
     {
         super();
-        x = 8 * 16;
-        y = 8 * 16;
+        x = 10 * Map.TILE_SIZE;
+        y = 9 * Map.TILE_SIZE;
         direction = Direction.Down;
 
         Game.player = this;
