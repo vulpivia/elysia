@@ -32,6 +32,9 @@ class Map extends GameObject
         layerBottom = new FlxTilemap();
         layerTop = new FlxTilemap();
         layerCollision = new FlxTilemap();
+
+        layerBottom.useScaleHack = false;
+        layerTop.useScaleHack = false;
         events = [];
 
         current = this;
