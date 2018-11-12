@@ -1,5 +1,5 @@
 import entities.characters.Player;
-import flixel.FlxState;
+import states.State;
 
 /**
     Manages all game objects.
@@ -45,7 +45,7 @@ class Game
 
         @param state the current state
     **/
-    public static function createObjects(state:FlxState)
+    public static function createObjects(state:State)
     {
         for (gameObject in gameObjects)
         {

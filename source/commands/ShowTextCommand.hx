@@ -4,10 +4,10 @@ import entities.Character;
 import flash.geom.Rectangle;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.FlxState;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.text.FlxText;
 import maps.Map;
+import states.State;
 
 /**
     Opens a message window and displays text.
@@ -78,7 +78,7 @@ class ShowTextCommand extends Command
         }
     }
 
-    override public function create(state:FlxState)
+    override public function create(state:State)
     {
         super.create(state);
 
@@ -101,11 +101,11 @@ class ShowTextCommand extends Command
     {
         if (this.character != null)
         {
-            state.add(sprite);
-            state.add(spriteBottom);
+            state.uiLayer.add(sprite);
+            state.uiLayer.add(spriteBottom);
         }
 
-        state.add(text);
+        state.uiLayer.add(text);
 
         FlxG.camera.follow(character.sprite);
 

@@ -4,7 +4,7 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flash.geom.Rectangle;
-import flixel.FlxState;
+import states.State;
 
 /**
     A window with different options to choose from.
@@ -37,19 +37,19 @@ class OptionWindow extends Window
         index = 0;
     }
 
-    override public function create(state:FlxState)
+    override public function create(state:State)
     {
         super.create(state);
 
         var size = new Rectangle(0, 0, width, SELECTION_HEIGHT);
 
         selectionSprite = new FlxUI9SliceSprite(x, y + index * LINE_OFFSET, AssetPaths.tileset_selection__png, size, slicePoints);
-        state.add(selectionSprite);
+        state.uiLayer.add(selectionSprite);
 
         for (i in 0...options.length)
         {
             var text = new FlxText(x + TEXT_OFFSET_X, y + TEXT_OFFSET_Y + i * LINE_OFFSET, 0, options[i].text);
-            state.add(text);
+            state.uiLayer.add(text);
         }
     }
 

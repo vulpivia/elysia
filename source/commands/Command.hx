@@ -1,13 +1,13 @@
 package commands;
 
-import flixel.FlxState;
+import states.State;
 
 class Command extends GameObject implements IExecutable
 {
     var callback:Void->Void;
     var executing:Bool;
 
-    var state:FlxState;
+    var state:State;
 
     public function new()
     {
@@ -26,7 +26,7 @@ class Command extends GameObject implements IExecutable
         callback();
     }
 
-    override public function create(state:FlxState)
+    override public function create(state:State)
     {
         super.create(state);
         this.state = state;

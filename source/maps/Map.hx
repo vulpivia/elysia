@@ -2,8 +2,8 @@ package maps;
 
 import entities.Character;
 import entities.Event;
-import flixel.FlxState;
 import flixel.tile.FlxTilemap;
+import states.State;
 
 /**
     The base class of a map.
@@ -81,10 +81,10 @@ class Map extends GameObject
 
         @param state the state to draw to.
     **/
-    override public function create(state:FlxState)
+    override public function create(state:State)
     {
-        state.add(layerBottom);
-        state.add(layerTop);
+        state.backgroundLayer.add(layerBottom);
+        state.foregroundLayer.add(layerTop);
     }
 
     /**

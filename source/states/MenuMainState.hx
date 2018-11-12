@@ -21,7 +21,7 @@ class MenuMainState extends State
     {
         var background = new FlxSprite();
         background.loadGraphic(AssetPaths.background_title__png);
-        add(background);
+        backgroundLayer.add(background);
     }
 
     function createOptionWindow()

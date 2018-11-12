@@ -3,8 +3,8 @@ package entities.characters;
 import entities.Character;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.FlxState;
 import maps.Map;
+import states.State;
 
 class Player extends Character
 {
@@ -21,13 +21,13 @@ class Player extends Character
         inputEnabled = true;
     }
 
-    override public function create(state:FlxState)
+    override public function create(state:State)
     {
         sprite = new FlxSprite(x, y - 2);
         sprite.loadGraphic(AssetPaths.character_knight__png, true, 24, 32);
         sprite = addAnimations(sprite);
         sprite.animation.play("idle_down");
-        state.add(sprite);
+        state.middleLayer.add(sprite);
 
         FlxG.camera.follow(sprite);
     }

@@ -2,8 +2,8 @@ package ui;
 
 import flash.geom.Rectangle;
 import flixel.FlxSprite;
-import flixel.FlxState;
 import flixel.addons.ui.FlxUI9SliceSprite;
+import states.State;
 
 /**
     A window to display content in the game.
@@ -49,11 +49,11 @@ class Window extends GameObject
 
         @param state the state to draw to.
     **/
-    override public function create(state:FlxState)
+    override public function create(state:State)
     {
         size = new Rectangle(0, 0, width, height);
 
         sprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_window__png, size, slicePoints);
-        state.add(sprite);
+        state.uiLayer.add(sprite);
     }
 }

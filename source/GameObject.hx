@@ -1,4 +1,4 @@
-import flixel.FlxState;
+import states.State;
 
 class GameObject
 {
@@ -12,7 +12,7 @@ class GameObject
 
         @param state the game state that this game object belongs to
     **/
-    public function create(state:FlxState)
+    public function create(state:State)
     {}
 
     /**
