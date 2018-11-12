@@ -1,5 +1,6 @@
 package commands;
 
+import flixel.util.FlxColor;
 import entities.Character;
 import flash.geom.Rectangle;
 import flixel.FlxG;
@@ -50,6 +51,9 @@ class ShowTextCommand extends Command
     var spriteBottom:FlxSprite;
 
     var firstUpdate:Bool;
+
+    var textSpeed = 1;
+    var textTimer = 0;
 
     /**
         Opens a message window and displays text.
@@ -103,6 +107,8 @@ class ShowTextCommand extends Command
         {
             state.uiLayer.add(sprite);
             state.uiLayer.add(spriteBottom);
+
+            text.color = FlxColor.BLACK;
         }
 
         state.uiLayer.add(text);
@@ -156,7 +162,15 @@ class ShowTextCommand extends Command
         }
         else
         {
-            textString += fullText.charAt(textString.length);
+            if (textTimer >= textSpeed)
+            {
+                textTimer = 0;
+                textString += fullText.charAt(textString.length);
+            }
+            else
+            {
+                textTimer++;
+            }
         }
 
         text.text = textString;
