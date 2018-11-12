@@ -40,6 +40,23 @@ class Map extends GameObject
         current = this;
     }
 
+    public function getCharacter(name:String):Character
+    {
+        for (event in events)
+        {
+            if (Std.is(event, Character))
+            {
+                var character = cast(event, Character);
+                if (character.name == name)
+                {
+                    return character;
+                }
+            }
+        }
+        
+        return null;
+    }
+
     function characterAt(x:Int, y:Int):Bool
     {
         for (event in events)

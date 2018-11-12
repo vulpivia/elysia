@@ -2,6 +2,7 @@ package maps;
 
 import entities.characters.JoshuaCollier;
 import entities.characters.Player;
+import entities.events.IntroEvent;
 import flixel.FlxG;
 
 class LaboratoryMap extends Map
@@ -18,5 +19,7 @@ class LaboratoryMap extends Map
 
         events.push(new Player());
         events.push(new JoshuaCollier());
+
+        events.push(new IntroEvent());
     }
 }
