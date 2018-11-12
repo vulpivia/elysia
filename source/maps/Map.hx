@@ -1,5 +1,6 @@
 package maps;
 
+import entities.Character;
 import entities.Event;
 import flixel.FlxState;
 import flixel.tile.FlxTilemap;
@@ -36,6 +37,23 @@ class Map extends GameObject
         current = this;
     }
 
+    function characterAt(x:Int, y:Int):Bool
+    {
+        for (event in events)
+        {
+            if (Std.is(event, Character))
+            {
+                var character = cast(event, Character);
+                if (character.x == x && character.y == y)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     /**
         Check collision for tile at position.
 
@@ -50,7 +68,12 @@ class Map extends GameObject
         y = cast(y / TILE_SIZE);
 
         var tile = layerCollision.getTile(x, y);
-        return tile > 0;
+        if (tile > 0)
+        {
+            return true;
+        }
+
+        return characterAt(x * TILE_SIZE, y * TILE_SIZE);
     }
 
     /**
