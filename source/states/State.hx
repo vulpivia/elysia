@@ -18,10 +18,13 @@ class State extends FlxState
     function new()
     {
         super();
+
         backgroundLayer = new FlxTypedGroup<FlxObject>();
         middleLayer = new FlxTypedGroup<FlxObject>();
         foregroundLayer = new FlxTypedGroup<FlxObject>();
         uiLayer = new FlxTypedGroup<FlxObject>();
+
+        Game.clear();
     }
 
     override public function create()

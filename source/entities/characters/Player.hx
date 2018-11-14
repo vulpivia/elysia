@@ -14,8 +14,19 @@ class Player extends Character
     {
         super();
         name = "player";
-        x = 10 * Map.TILE_SIZE;
-        y = 9 * Map.TILE_SIZE;
+
+        // Set player position only when first player is created and not on map change
+        if (Game.player == null)
+        {
+            x = 10 * Map.TILE_SIZE;
+            y = 9 * Map.TILE_SIZE;
+        }
+        else
+        {
+            x = Game.player.x;
+            y = Game.player.y;
+        }
+
         direction = Direction.Down;
 
         Game.player = this;

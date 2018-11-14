@@ -19,7 +19,7 @@ class IntroEvent extends Event
         queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "The connection process will start in 3..."));
         queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "2..."));
         queue.insert(new ShowTextCommand(Map.current.getCharacter("joshua_collier"), "1..."));
-        queue.insert(new TeleportCommand(new PlainsStartMap(), 5, 5));
+        queue.insert(new TeleportCommand(PlainsStartMap, 11, 5));
 
         queue.run();
     }

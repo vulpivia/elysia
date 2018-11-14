@@ -2,6 +2,7 @@ package states;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import maps.LaboratoryMap;
 import openfl.system.System;
 import ui.Option;
 import ui.OptionWindow;
@@ -34,14 +35,12 @@ class MenuMainState extends State
 
     function optionNewGame()
     {
-        FlxG.switchState(new ExplorationState());
-        Game.clear();
+        FlxG.switchState(new ExplorationState(LaboratoryMap));
     }
 
     function optionContinue()
     {
         FlxG.switchState(new MenuLoadState());
-        Game.clear();
     }
 
     function optionShutdown()

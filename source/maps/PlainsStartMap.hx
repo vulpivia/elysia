@@ -1,5 +1,6 @@
 package maps;
 
+import entities.characters.Player;
 import entities.events.MissionOneEvent;
 import flixel.FlxG;
 
@@ -14,6 +15,7 @@ class PlainsStartMap extends Map
         FlxG.camera.setScrollBounds(0, layerBottom.width, 0, layerBottom.height);
 
         events.push(new MissionOneEvent());
+        events.push(new Player());
 
         super.start();
     }
