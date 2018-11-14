@@ -9,10 +9,8 @@ import flixel.FlxG;
 **/
 class TestMap extends Map
 {
-    public function new()
+    override public function start()
     {
-        super();
-
         layerBottom.loadMapFromCSV(AssetPaths.map_test_bottom__csv, AssetPaths.tileset_map_bottom__png, Map.TILE_SIZE, Map.TILE_SIZE);
         layerTop.loadMapFromCSV(AssetPaths.map_test_top__csv, AssetPaths.tileset_map_top__png, Map.TILE_SIZE, Map.TILE_SIZE);
         layerCollision.loadMapFromCSV(AssetPaths.map_test_collision__csv, null);
@@ -21,5 +19,7 @@ class TestMap extends Map
 
         events.push(new Player());
         events.push(new TestCharacter());
+
+        super.start();
     }
 }

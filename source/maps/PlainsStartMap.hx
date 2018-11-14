@@ -5,10 +5,8 @@ import flixel.FlxG;
 
 class PlainsStartMap extends Map
 {
-    public function new()
+    override public function start()
     {
-        super();
-
         layerBottom.loadMapFromCSV(AssetPaths.map_plains_start_bottom__csv, AssetPaths.tileset_map_bottom__png, Map.TILE_SIZE, Map.TILE_SIZE);
         layerTop.loadMapFromCSV(AssetPaths.map_plains_start_top__csv, AssetPaths.tileset_map_top__png, Map.TILE_SIZE, Map.TILE_SIZE);
         layerCollision.loadMapFromCSV(AssetPaths.map_plains_start_collision__csv, null);
@@ -16,5 +14,7 @@ class PlainsStartMap extends Map
         FlxG.camera.setScrollBounds(0, layerBottom.width, 0, layerBottom.height);
 
         events.push(new MissionOneEvent());
+
+        super.start();
     }
 }
