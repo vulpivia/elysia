@@ -34,7 +34,7 @@ class TeleportCommand extends Command
         }
 
         FlxG.switchState(new ExplorationState(mapType));
-        
+
         Game.player.x = this.x;
         Game.player.y = this.y;
 
