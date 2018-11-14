@@ -25,5 +25,7 @@ class Main extends Sprite
         addChild(game);
 
         FlxG.scaleMode = new PixelPerfectScaleMode();
+
+        FlxG.mouse.useSystemCursor = true;
     }
 }
