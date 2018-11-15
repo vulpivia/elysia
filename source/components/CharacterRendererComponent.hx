@@ -2,7 +2,7 @@ package components;
 
 import flixel.animation.FlxAnimationController;
 
-class CharacterRendererComponent implements IComponent
+class CharacterRendererComponent extends Component
 {
     /**
         If the character is currently moving or not.
@@ -11,10 +11,7 @@ class CharacterRendererComponent implements IComponent
 
     var animation:FlxAnimationController;
 
-    public function start(gameObject:GameObject)
-    {}
-
-    public function update()
+    public function new()
     {}
 
     /**

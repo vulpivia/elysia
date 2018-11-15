@@ -11,25 +11,30 @@ enum Direction
     Right;
 }
 
-class ControllerComponent implements IComponent
+class ControllerComponent extends Component
 {
     var characterRenderer:CharacterRendererComponent;
 
     var direction:Direction;
     var position:FlxPoint;
 
+    public function new()
+    {}
+
+    /**
+        Get required components and set variables.
+
+        @param gameObject The game object this component belongs to.
+    **/
     public function start(gameObject:GameObject)
     {
         // Get required components
-        characterRenderer = gameObject.getComponent(CharacterRendererComponent);
+        characterRenderer = cast(gameObject.getComponent(CharacterRendererComponent), CharacterRendererComponent);
 
         // Set variables
         direction = Direction.None;
         position = gameObject.position;
     }
-
-    public function update()
-    {}
 
     function continueMovement()
     {
