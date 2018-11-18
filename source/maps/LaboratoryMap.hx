@@ -1,7 +1,6 @@
 package maps;
 
 import entities.characters.JoshuaCollier;
-import entities.characters.Player;
 import entities.events.IntroEvent;
 import flixel.FlxG;
 

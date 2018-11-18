@@ -1,3 +1,5 @@
+package objects;
+
 import components.Component;
 import flixel.math.FlxPoint;
 

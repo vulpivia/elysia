@@ -1,6 +1,5 @@
 package maps;
 
-import entities.characters.Player;
 import entities.events.MissionOneEvent;
 import flixel.FlxG;
 

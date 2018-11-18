@@ -1,6 +1,7 @@
 package components;
 
 import flixel.animation.FlxAnimationController;
+import objects.GameObject;
 
 class CharacterRendererComponent extends Component
 {

@@ -1,6 +1,7 @@
 package components;
 
 import flixel.math.FlxPoint;
+import objects.GameObject;
 
 enum Direction
 {

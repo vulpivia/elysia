@@ -1,4 +1,4 @@
-package characters;
+package objects;
 
 import components.CharacterRendererComponent;
 import components.InputControllerComponent;
