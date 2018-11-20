@@ -10,11 +10,13 @@ class GameObject
     public var active:Bool;
     public var position:FlxPoint;
 
+    var layer:FlxTypedGroup<FlxObject>;
+
     var components:Array<Component>;
 
     public function new(layer:FlxTypedGroup<FlxObject>)
     {
-        
+        this.layer = layer;
     }
 
     /**

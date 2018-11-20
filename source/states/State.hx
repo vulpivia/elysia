@@ -1,9 +1,9 @@
 package states;
 
+import flixel.FlxObject;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.util.FlxSort;
-import flixel.FlxObject;
 
 /**
     The base class for game states.
@@ -27,22 +27,14 @@ class State extends FlxState
 
     override public function create()
     {
-        Game.createObjects(this);
-
         add(backgroundLayer);
-        add(middleLayer);
+        add(spriteLayer);
         add(foregroundLayer);
         add(uiLayer);
-
-        super.create();
     }
 
     override public function update(elapsed:Float)
     {
-        super.update(elapsed);
-
-        Game.update();
-
-        middleLayer.sort(FlxSort.byY);
+        spriteLayer.sort(FlxSort.byY);
     }
 }

@@ -1,5 +1,9 @@
 package states;
 
+import components.PanelComponent;
+import flixel.math.FlxPoint;
+import objects.OptionWindow;
+
 /**
     The main menu. This is the first state of the game.
 **/
@@ -7,7 +11,13 @@ class MenuMainState extends State
 {
     public function new()
     {
-        var mainMenu = new OptionWindow();
+        super();
+
+        var mainMenu = new OptionWindow(uiLayer);
+
+        var mainMenuPanel = cast(mainMenu.getComponent(PanelComponent), PanelComponent);
+        mainMenuPanel.position = new FlxPoint(96, 144);
+        mainMenuPanel.size = new FlxPoint(128, 16);
     }
 
     /*static inline var MAIN_MENU_WINDOW_X:Int = 96;

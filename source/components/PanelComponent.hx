@@ -10,6 +10,9 @@ class PanelComponent extends Component
     public var position:FlxPoint;
     public var size:FlxPoint;
 
+    public function new()
+    {}
+
     public function start(gameObject:GameObject)
     {
         var size = new Rectangle(0, 0, size.x, size.y);
