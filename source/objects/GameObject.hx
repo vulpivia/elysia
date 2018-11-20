@@ -29,6 +29,14 @@ class GameObject
         }
     }
 
+    public function update()
+    {
+        for (component in components)
+        {
+            component.update();
+        }
+    }
+
     /**
         Add a new component to the game object.
 

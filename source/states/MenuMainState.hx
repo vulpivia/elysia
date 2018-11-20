@@ -2,6 +2,7 @@ package states;
 
 import components.PanelComponent;
 import flixel.math.FlxPoint;
+import objects.GameObject;
 import objects.OptionWindow;
 
 /**
@@ -9,17 +10,26 @@ import objects.OptionWindow;
 **/
 class MenuMainState extends State
 {
+    var mainMenu:GameObject;
+
     override public function create()
     {
         super.create();
 
-        var mainMenu = new OptionWindow(uiLayer);
+        mainMenu = new OptionWindow(uiLayer);
 
         var mainMenuPanel = cast(mainMenu.getComponent(PanelComponent), PanelComponent);
         mainMenuPanel.position = new FlxPoint(96, 144);
         mainMenuPanel.size = new FlxPoint(128, 16);
 
         mainMenu.start();
+    }
+
+    override public function update(elapsed:Float)
+    {
+        super.update(elapsed);
+
+        mainMenu.update();
     }
 
     /*static inline var MAIN_MENU_WINDOW_X:Int = 96;

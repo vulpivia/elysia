@@ -6,4 +6,7 @@ class Component
 {
     public function start(gameObject:GameObject)
     {}
+
+    public function update()
+    {}
 }
