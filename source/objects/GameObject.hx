@@ -10,7 +10,7 @@ class GameObject
     public var active:Bool;
     public var position:FlxPoint;
 
-    var layer:FlxTypedGroup<FlxObject>;
+    public var layer:FlxTypedGroup<FlxObject>;
 
     var components:Array<Component>;
 

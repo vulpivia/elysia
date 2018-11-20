@@ -1,5 +1,6 @@
 package objects;
 
+import components.OptionComponent;
 import components.PanelComponent;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
