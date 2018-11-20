@@ -35,7 +35,7 @@ class OptionComponent extends Component
         for (i in 0...options.length)
         {
             var x = gameObject.position.x;
-            var y = gameObject.position.y + i * 14;
+            var y = gameObject.position.y;
             var text = new FlxText(x, y, 0, options[i].text);
             gameObject.layer.add(text);
         }
