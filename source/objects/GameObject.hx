@@ -1,6 +1,8 @@
 package objects;
 
 import components.Component;
+import flixel.FlxObject;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
 
 class GameObject
@@ -9,6 +11,11 @@ class GameObject
     public var position:FlxPoint;
 
     var components:Array<Component>;
+
+    public function new(layer:FlxTypedGroup<FlxObject>)
+    {
+        
+    }
 
     /**
         Add a new component to the game object.

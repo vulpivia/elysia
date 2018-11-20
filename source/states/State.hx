@@ -10,21 +10,19 @@ import flixel.FlxObject;
 **/
 class State extends FlxState
 {
-    public var backgroundLayer:FlxTypedGroup<FlxObject>;
-    public var middleLayer:FlxTypedGroup<FlxObject>;
-    public var foregroundLayer:FlxTypedGroup<FlxObject>;
-    public var uiLayer:FlxTypedGroup<FlxObject>;
+    var backgroundLayer:FlxTypedGroup<FlxObject>;
+    var foregroundLayer:FlxTypedGroup<FlxObject>;
+    var spriteLayer:FlxTypedGroup<FlxObject>;
+    var uiLayer:FlxTypedGroup<FlxObject>;
 
     function new()
     {
         super();
 
         backgroundLayer = new FlxTypedGroup<FlxObject>();
-        middleLayer = new FlxTypedGroup<FlxObject>();
         foregroundLayer = new FlxTypedGroup<FlxObject>();
+        spriteLayer = new FlxTypedGroup<FlxObject>();
         uiLayer = new FlxTypedGroup<FlxObject>();
-
-        Game.clear();
     }
 
     override public function create()

@@ -9,7 +9,7 @@ class InputControllerComponent extends ControllerComponent
 
         @param gameObject The game object to which this component belongs.
     **/
-    override public function update()
+    public function update()
     {
         // Check if character is on grid
         if (onGrid(position))

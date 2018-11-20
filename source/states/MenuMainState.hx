@@ -1,18 +1,16 @@
 package states;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import maps.LaboratoryMap;
-import openfl.system.System;
-import ui.Option;
-import ui.OptionWindow;
-
 /**
     The main menu. This is the first state of the game.
 **/
 class MenuMainState extends State
 {
-    static inline var MAIN_MENU_WINDOW_X:Int = 96;
+    public function new()
+    {
+        var mainMenu = new OptionWindow();
+    }
+
+    /*static inline var MAIN_MENU_WINDOW_X:Int = 96;
     static inline var MAIN_MENU_WINDOW_Y:Int = 144;
     static inline var MAIN_MENU_WINDOW_WIDTH:Int = 128;
 
@@ -54,5 +52,5 @@ class MenuMainState extends State
         createOptionWindow();
 
         super.create();
-    }
+    }*/
 }
