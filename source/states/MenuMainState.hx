@@ -17,9 +17,9 @@ class MenuMainState extends State
         super.create();
 
         mainMenu = new OptionWindow(uiLayer);
+        mainMenu.position = new FlxPoint(96, 144);
 
         var mainMenuPanel = cast(mainMenu.getComponent(PanelComponent), PanelComponent);
-        mainMenuPanel.position = new FlxPoint(96, 144);
         mainMenuPanel.size = new FlxPoint(128, 16);
 
         mainMenu.start();

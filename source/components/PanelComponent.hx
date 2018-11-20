@@ -7,7 +7,6 @@ import objects.GameObject;
 
 class PanelComponent extends Component
 {
-    public var position:FlxPoint;
     public var size:FlxPoint;
 
     public function new()
@@ -17,7 +16,7 @@ class PanelComponent extends Component
     {
         var size = new Rectangle(0, 0, size.x, size.y);
         var slicePoints = [8, 8, 16, 16];
-        var sprite = new FlxUI9SliceSprite(position.x, position.y, AssetPaths.tileset_window__png, size, slicePoints);
+        var sprite = new FlxUI9SliceSprite(gameObject.position.x, gameObject.position.y, AssetPaths.tileset_window__png, size, slicePoints);
         gameObject.layer.add(sprite);
     }
 }
