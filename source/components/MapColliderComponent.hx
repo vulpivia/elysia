@@ -5,7 +5,7 @@ import objects.GameObject;
 
 class MapColliderComponent extends Component
 {
-    public function start(gameObject:GameObject)
+    override public function start(gameObject:GameObject)
     {
         var layerCollision = new FlxTilemap();
     }

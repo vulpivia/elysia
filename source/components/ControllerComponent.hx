@@ -27,7 +27,7 @@ class ControllerComponent extends Component
 
         @param gameObject The game object this component belongs to.
     **/
-    public function start(gameObject:GameObject)
+    override public function start(gameObject:GameObject)
     {
         // Get required components
         characterRenderer = cast(gameObject.getComponent(CharacterRendererComponent), CharacterRendererComponent);

@@ -49,7 +49,7 @@ class CharacterRendererComponent extends Component
         return idle;
     }
 
-    public function start(gameObject:GameObject)
+    override public function start(gameObject:GameObject)
     {
         animation.add("idle_up", [1], 0, true, false, false);
         animation.add("idle_right", [4], 0, true, false, false);

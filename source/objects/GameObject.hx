@@ -21,6 +21,14 @@ class GameObject
         components = [];
     }
 
+    public function start()
+    {
+        for (component in components)
+        {
+            component.start(this);
+        }
+    }
+
     /**
         Add a new component to the game object.
 

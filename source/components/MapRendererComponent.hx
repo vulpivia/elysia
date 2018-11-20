@@ -5,7 +5,7 @@ import objects.GameObject;
 
 class MapRendererComponent extends Component
 {
-    public function start(gameObject:GameObject)
+    override public function start(gameObject:GameObject)
     {
         var layerBottom = new FlxTilemap();
         var layerTop = new FlxTilemap();

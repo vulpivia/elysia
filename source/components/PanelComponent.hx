@@ -13,7 +13,7 @@ class PanelComponent extends Component
     public function new()
     {}
 
-    public function start(gameObject:GameObject)
+    override public function start(gameObject:GameObject)
     {
         var size = new Rectangle(0, 0, size.x, size.y);
         var slicePoints = [8, 8, 16, 16];

@@ -9,15 +9,17 @@ import objects.OptionWindow;
 **/
 class MenuMainState extends State
 {
-    public function new()
+    override public function create()
     {
-        super();
+        super.create();
 
         var mainMenu = new OptionWindow(uiLayer);
 
         var mainMenuPanel = cast(mainMenu.getComponent(PanelComponent), PanelComponent);
         mainMenuPanel.position = new FlxPoint(96, 144);
         mainMenuPanel.size = new FlxPoint(128, 16);
+
+        mainMenu.start();
     }
 
     /*static inline var MAIN_MENU_WINDOW_X:Int = 96;
