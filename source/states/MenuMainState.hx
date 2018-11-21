@@ -1,6 +1,6 @@
 package states;
 
-import components.OptionComponent;
+import components.OptionListComponent;
 import components.PanelComponent;
 import flixel.math.FlxPoint;
 import objects.GameObject;
@@ -23,7 +23,7 @@ class MenuMainState extends State
         var mainMenuPanel = cast(mainMenu.getComponent(PanelComponent), PanelComponent);
         mainMenuPanel.size = new FlxPoint(128, 55);
 
-        var mainMenuOption = cast(mainMenu.getComponent(OptionComponent), OptionComponent);
+        var mainMenuOption = cast(mainMenu.getComponent(OptionListComponent), OptionListComponent);
         mainMenuOption.options.push(new Option("New Game", optionNewGame));
         mainMenuOption.options.push(new Option("Continue", optionContinue));
         mainMenuOption.options.push(new Option("Shutdown", optionShutdown));

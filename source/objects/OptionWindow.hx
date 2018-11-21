@@ -1,6 +1,6 @@
 package objects;
 
-import components.OptionComponent;
+import components.OptionListComponent;
 import components.PanelComponent;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -12,6 +12,6 @@ class OptionWindow extends GameObject
         super(layer);
 
         addComponent(new PanelComponent());
-        addComponent(new OptionComponent());
+        addComponent(new OptionListComponent());
     }
 }
