@@ -2,6 +2,7 @@ package states;
 
 import components.OptionListComponent;
 import components.PanelComponent;
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import lime.system.System;
@@ -44,7 +45,7 @@ class MenuMainState extends State
 
     function optionNewGame()
     {
-        //FlxG.switchState(ExplorationState);
+        FlxG.switchState(new ExplorationState());
     }
 
     function optionContinue()

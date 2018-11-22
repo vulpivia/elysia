@@ -1,24 +1,27 @@
 package states;
 
-import maps.Map;
+import objects.Map;
 
 /**
     In this state, the player can walk around the map and interact with objects and NPCs.
 **/
 class ExplorationState extends State
 {
-    var mapType:Class<Map>;
-
-    public function new(mapType:Class<Map>)
-    {
-        this.mapType = mapType;
-        super();
-    }
+    var map:Map;
 
     override public function create()
     {
-        var map = Type.createInstance(mapType, []);
-        map.start();
         super.create();
+
+        map = new Map(backgroundLayer, foregroundLayer);
+        
+        map.start();
+    }
+
+    override public function update(elapsed:Float)
+    {
+        super.update(elapsed);
+
+        map.update();
     }
 }
