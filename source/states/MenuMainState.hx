@@ -2,7 +2,9 @@ package states;
 
 import components.OptionListComponent;
 import components.PanelComponent;
+import flixel.FlxSprite;
 import flixel.math.FlxPoint;
+import lime.system.System;
 import objects.GameObject;
 import objects.OptionWindow;
 
@@ -16,6 +18,8 @@ class MenuMainState extends State
     override public function create()
     {
         super.create();
+
+        backgroundLayer.add(new FlxSprite(0, 0, AssetPaths.background_title__png));
 
         mainMenu = new OptionWindow(uiLayer);
         mainMenu.position = new FlxPoint(96, 144);
@@ -39,55 +43,15 @@ class MenuMainState extends State
     }
 
     function optionNewGame()
-    {}
-
-    function optionContinue()
-    {}
-
-    function optionShutdown()
-    {}
-
-    /*static inline var MAIN_MENU_WINDOW_X:Int = 96;
-    static inline var MAIN_MENU_WINDOW_Y:Int = 144;
-    static inline var MAIN_MENU_WINDOW_WIDTH:Int = 128;
-
-    var optionWindow:OptionWindow;
-
-    function createBackground()
     {
-        var background = new FlxSprite();
-        background.loadGraphic(AssetPaths.background_title__png);
-        backgroundLayer.add(background);
-    }
-
-    function createOptionWindow()
-    {
-        optionWindow = new OptionWindow(MAIN_MENU_WINDOW_X, MAIN_MENU_WINDOW_Y, MAIN_MENU_WINDOW_WIDTH);
-        optionWindow.addOption(new Option("New Game", optionNewGame));
-        optionWindow.addOption(new Option("Continue", optionContinue));
-        optionWindow.addOption(new Option("Shutdown", optionShutdown));
-    }
-
-    function optionNewGame()
-    {
-        FlxG.switchState(new ExplorationState(LaboratoryMap));
+        //FlxG.switchState(ExplorationState);
     }
 
     function optionContinue()
-    {
-        FlxG.switchState(new MenuLoadState());
-    }
+    {}
 
     function optionShutdown()
     {
         System.exit(0);
     }
-
-    override public function create()
-    {
-        createBackground();
-        createOptionWindow();
-
-        super.create();
-    }*/
 }
