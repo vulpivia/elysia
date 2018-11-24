@@ -59,11 +59,11 @@ class ControllerComponent extends Component
         {
             return Direction.Down;
         }
-        if (left && right)
+        if (left && !right)
         {
             return Direction.Left;
         }
-        if (right && left)
+        if (right && !left)
         {
             return Direction.Right;
         }

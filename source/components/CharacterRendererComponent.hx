@@ -1,6 +1,8 @@
 package components;
 
+import flixel.FlxSprite;
 import flixel.animation.FlxAnimationController;
+import flixel.math.FlxPoint;
 import objects.GameObject;
 
 class CharacterRendererComponent extends Component
@@ -10,7 +12,9 @@ class CharacterRendererComponent extends Component
     **/
     public var idle(null, set):Bool;
 
+    var sprite:FlxSprite;
     var animation:FlxAnimationController;
+    var gameObject:GameObject;
 
     public function new()
     {}
@@ -23,7 +27,6 @@ class CharacterRendererComponent extends Component
     **/
     public function set_idle(idle:Bool):Bool
     {
-        /* TODO
         if (idle)
         {
             // From walk to idle
@@ -48,22 +51,33 @@ class CharacterRendererComponent extends Component
         }
 
         return idle;
-        */return true;
     }
 
     override public function start(gameObject:GameObject)
     {
-        /* TODO
+        this.gameObject = gameObject;
+
+        sprite = new FlxSprite(gameObject.position.x - 4, gameObject.position.y - 16);
+        sprite.loadGraphic(AssetPaths.character_knight__png, true, 24, 32);
+        animation = sprite.animation;
+
         animation.add("idle_up", [1], 0, true, false, false);
         animation.add("idle_right", [4], 0, true, false, false);
         animation.add("idle_down", [7], 0, true, false, false);
         animation.add("idle_left", [10], 0, true, false, false);
 
-        animation.add("walk_up", [0, 1, 2, 1], 5, true, false, false);
+        animation.add("walk_up", [0, 1, 2, 1], 50, true, false, false);
         animation.add("walk_right", [3, 4, 5, 4], 5, true, false, false);
         animation.add("walk_down", [6, 7, 8, 7], 5, true, false, false);
         animation.add("walk_left", [9, 10, 11, 10], 5, true, false, false);
-        */
+
+        gameObject.layer.add(sprite);
+    }
+
+    override public function update()
+    {
+        sprite.x = gameObject.position.x - 4;
+        sprite.y = gameObject.position.y - 16;
     }
 
     /**
@@ -73,11 +87,17 @@ class CharacterRendererComponent extends Component
     {
         if (idle)
         {
-            animation.play("idle_up");
+            if (animation.name != "idle_up")
+            {
+                animation.play("idle_up");
+            }
         }
         else
         {
-            animation.play("walk_up");
+            if (animation.name != "walk_up")
+            {
+                animation.play("walk_up");
+            }
         }
     }
 

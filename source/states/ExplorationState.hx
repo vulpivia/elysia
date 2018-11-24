@@ -1,6 +1,7 @@
 package states;
 
 import components.MapRendererComponent;
+import flixel.math.FlxPoint;
 import objects.Map;
 import objects.Player;
 
@@ -19,6 +20,7 @@ class ExplorationState extends State
         var mapTop = new Map(foregroundLayer);
 
         var player = new Player(spriteLayer);
+        player.position = new FlxPoint(128, 128);
 
         var mapBottomRenderer = cast(mapBottom.getComponent(MapRendererComponent), MapRendererComponent);
         mapBottomRenderer.loadMap(AssetPaths.map_laboratory_bottom__csv, AssetPaths.tileset_map_bottom__png);
