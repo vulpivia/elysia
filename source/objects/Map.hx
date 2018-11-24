@@ -1,12 +1,15 @@
 package objects;
 
+import components.MapRendererComponent;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
 class Map extends GameObject
 {
-    public function new(backgroundLayer:FlxTypedGroup<FlxObject>, foregroundLayer:FlxTypedGroup<FlxObject>)
+    public function new(layer:FlxTypedGroup<FlxObject>)
     {
         super(layer);
+
+        addComponent(new MapRendererComponent());
     }
 }
