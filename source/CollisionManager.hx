@@ -1,0 +1,31 @@
+import flixel.math.FlxPoint;
+import flixel.tile.FlxTilemap;
+
+class CollisionManager
+{
+    static var collisionMap:Array<Array<Bool>>;
+
+    public static function isBlocked(position:FlxPoint):Bool
+    {
+        var x = cast(position.x / 16, Int);
+        var y = cast(position.y / 16, Int);
+        return collisionMap[x][y];
+    }
+
+    public static function initializeCollisionMap(csv:String)
+    {
+        var tilemap = new FlxTilemap();
+        tilemap.loadMapFromCSV(csv, null);
+
+        collisionMap = [];
+
+        for (x in 0...tilemap.widthInTiles)
+        {
+            collisionMap[x] = [];
+            for (y in 0...tilemap.heightInTiles)
+            {
+                collisionMap[x][y] = tilemap.getTile(x, y) > 0;
+            }
+        }
+    }
+}

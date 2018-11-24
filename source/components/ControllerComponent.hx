@@ -94,7 +94,10 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceUp();
 
-        // TODO: check for collision
+        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y - 16)))
+        {
+            return;
+        }
         characterRenderer.idle = false;
         position.y--;
     }
@@ -103,7 +106,10 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceLeft();
 
-        // TODO: check for collision
+        if (CollisionManager.isBlocked(new FlxPoint(position.x - 16, position.y)))
+        {
+            return;
+        }
         characterRenderer.idle = false;
         position.x--;
     }
@@ -112,7 +118,10 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceDown();
 
-        // TODO: check for collision
+        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y + 16)))
+        {
+            return;
+        }
         characterRenderer.idle = false;
         position.y++;
     }
@@ -121,7 +130,10 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceRight();
 
-        // TODO: check for collision
+        if (CollisionManager.isBlocked(new FlxPoint(position.x + 16, position.y)))
+        {
+            return;
+        }
         characterRenderer.idle = false;
         position.x++;
     }

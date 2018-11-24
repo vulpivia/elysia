@@ -23,6 +23,7 @@ class CharacterRendererComponent extends Component
     **/
     public function set_idle(idle:Bool):Bool
     {
+        /* TODO
         if (idle)
         {
             // From walk to idle
@@ -47,10 +48,12 @@ class CharacterRendererComponent extends Component
         }
 
         return idle;
+        */return true;
     }
 
     override public function start(gameObject:GameObject)
     {
+        /* TODO
         animation.add("idle_up", [1], 0, true, false, false);
         animation.add("idle_right", [4], 0, true, false, false);
         animation.add("idle_down", [7], 0, true, false, false);
@@ -60,6 +63,7 @@ class CharacterRendererComponent extends Component
         animation.add("walk_right", [3, 4, 5, 4], 5, true, false, false);
         animation.add("walk_down", [6, 7, 8, 7], 5, true, false, false);
         animation.add("walk_left", [9, 10, 11, 10], 5, true, false, false);
+        */
     }
 
     /**

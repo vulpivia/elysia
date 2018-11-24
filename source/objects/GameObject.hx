@@ -16,6 +16,8 @@ class GameObject
 
     public function new(layer:FlxTypedGroup<FlxObject>)
     {
+        position = new FlxPoint(0, 0);
+
         this.layer = layer;
 
         components = [];

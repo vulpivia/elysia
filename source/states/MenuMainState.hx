@@ -14,15 +14,13 @@ import objects.OptionWindow;
 **/
 class MenuMainState extends State
 {
-    var mainMenu:GameObject;
-
     override public function create()
     {
         super.create();
 
         backgroundLayer.add(new FlxSprite(0, 0, AssetPaths.background_title__png));
 
-        mainMenu = new OptionWindow(uiLayer);
+        var mainMenu = new OptionWindow(uiLayer);
         mainMenu.position = new FlxPoint(96, 144);
 
         var mainMenuPanel = cast(mainMenu.getComponent(PanelComponent), PanelComponent);
