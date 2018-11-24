@@ -24,15 +24,9 @@ class ExplorationState extends State
         var mapTopRenderer = cast(mapTop.getComponent(MapRendererComponent), MapRendererComponent);
         mapTopRenderer.loadMap(AssetPaths.map_laboratory_top__csv, AssetPaths.tileset_map_top__png);
 
-        mapBottom.start();
-        mapTop.start();
-    }
+        gameObjects.push(mapBottom);
+        gameObjects.push(mapTop);
 
-    override public function update(elapsed:Float)
-    {
-        super.update(elapsed);
-
-        mapBottom.update();
-        mapTop.update();
+        start();
     }
 }

@@ -4,12 +4,15 @@ import flixel.FlxObject;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.util.FlxSort;
+import objects.GameObject;
 
 /**
     The base class for game states.
 **/
 class State extends FlxState
 {
+    var gameObjects:Array<GameObject>;
+
     var backgroundLayer:FlxTypedGroup<FlxObject>;
     var foregroundLayer:FlxTypedGroup<FlxObject>;
     var spriteLayer:FlxTypedGroup<FlxObject>;
@@ -18,6 +21,8 @@ class State extends FlxState
     function new()
     {
         super();
+
+        gameObjects = [];
 
         backgroundLayer = new FlxTypedGroup<FlxObject>();
         foregroundLayer = new FlxTypedGroup<FlxObject>();
@@ -35,6 +40,19 @@ class State extends FlxState
 
     override public function update(elapsed:Float)
     {
+        for (gameObject in gameObjects)
+        {
+            gameObject.update();
+        }
+
         spriteLayer.sort(FlxSort.byY);
+    }
+
+    function start()
+    {
+        for (gameObject in gameObjects)
+        {
+            gameObject.start();
+        }
     }
 }

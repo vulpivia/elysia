@@ -33,14 +33,9 @@ class MenuMainState extends State
         mainMenuOption.options.push(new Option("Continue", optionContinue));
         mainMenuOption.options.push(new Option("Shutdown", optionShutdown));
 
-        mainMenu.start();
-    }
+        gameObjects.push(mainMenu);
 
-    override public function update(elapsed:Float)
-    {
-        super.update(elapsed);
-
-        mainMenu.update();
+        start();
     }
 
     function optionNewGame()
