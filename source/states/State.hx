@@ -40,6 +40,8 @@ class State extends FlxState
 
     override public function update(elapsed:Float)
     {
+        super.update(elapsed);
+
         for (gameObject in gameObjects)
         {
             gameObject.update();
