@@ -1,12 +1,21 @@
 package maps;
 
-import entities.characters.JoshuaCollier;
-import entities.events.IntroEvent;
-import flixel.FlxG;
+import objects.GameObject;
 
 class LaboratoryMap extends Map
 {
-    override public function start()
+    public function new()
+    {
+        super();
+
+        bottomCSV = AssetPaths.map_laboratory_bottom__csv;
+        topCSV = AssetPaths.map_laboratory_top__csv;
+        collisionCSV = AssetPaths.map_laboratory_collision__csv;
+
+        // TODO: Initialize charactes
+    }
+
+    /*override public function start()
     {
         layerBottom.loadMapFromCSV(AssetPaths.map_laboratory_bottom__csv, AssetPaths.tileset_map_bottom__png, Map.TILE_SIZE, Map.TILE_SIZE);
         layerTop.loadMapFromCSV(AssetPaths.map_laboratory_top__csv, AssetPaths.tileset_map_top__png, Map.TILE_SIZE, Map.TILE_SIZE);
@@ -20,5 +29,5 @@ class LaboratoryMap extends Map
         events.push(new IntroEvent());
 
         super.start();
-    }
+    }*/
 }
