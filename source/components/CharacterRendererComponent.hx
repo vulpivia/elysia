@@ -2,7 +2,6 @@ package components;
 
 import flixel.FlxSprite;
 import flixel.animation.FlxAnimationController;
-import flixel.math.FlxPoint;
 import objects.GameObject;
 
 class CharacterRendererComponent extends Component
