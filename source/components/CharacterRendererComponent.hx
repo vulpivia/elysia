@@ -66,10 +66,12 @@ class CharacterRendererComponent extends Component
         animation.add("idle_down", [7], 0, true, false, false);
         animation.add("idle_left", [10], 0, true, false, false);
 
-        animation.add("walk_up", [0, 1, 2, 1], 50, true, false, false);
+        animation.add("walk_up", [0, 1, 2, 1], 5, true, false, false);
         animation.add("walk_right", [3, 4, 5, 4], 5, true, false, false);
         animation.add("walk_down", [6, 7, 8, 7], 5, true, false, false);
         animation.add("walk_left", [9, 10, 11, 10], 5, true, false, false);
+
+        animation.play("idle_down");
 
         gameObject.layer.add(sprite);
     }
