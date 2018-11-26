@@ -1,13 +1,14 @@
 package commands;
 
-import flixel.util.FlxColor;
 import entities.Character;
 import flash.geom.Rectangle;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.text.FlxText;
+import flixel.util.FlxColor;
 import maps.Map;
+import objects.GameObject;
 import states.State;
 
 /**
@@ -61,7 +62,7 @@ class ShowTextCommand extends Command
         @param character The character that says the text.
         @param text The content of the message window.
     **/
-    public function new(character:Character, text:String)
+    public function new(character:GameObject, text:String)
     {
         super();
         fullText = text;

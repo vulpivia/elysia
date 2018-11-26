@@ -11,6 +11,8 @@ import objects.GameObject;
 **/
 class State extends FlxState
 {
+    public static var current:State;
+
     var gameObjects:Array<GameObject>;
 
     var backgroundLayer:FlxTypedGroup<FlxObject>;
@@ -21,6 +23,8 @@ class State extends FlxState
     function new()
     {
         super();
+
+        current = this;
 
         gameObjects = [];
 
@@ -48,6 +52,19 @@ class State extends FlxState
         }
 
         spriteLayer.sort(FlxSort.byY);
+    }
+
+    public function findObject(name:String):GameObject
+    {
+        for (gameObject in gameObjects)
+        {
+            if (gameObject.name == name)
+            {
+                return gameObject;
+            }
+        }
+
+        throw "No game object with name \"" + name + "\" found";
     }
 
     function start()

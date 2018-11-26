@@ -10,11 +10,4 @@ class Map
     public var bottomCSV:String;
     public var topCSV:String;
     public var collisionCSV:String;
-
-    public var gameObjects:Array<GameObject>;
-
-    public function new()
-    {
-        gameObjects = [];
-    }
 }

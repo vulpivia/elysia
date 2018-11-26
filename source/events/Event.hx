@@ -1,0 +1,6 @@
+package events;
+
+class Event
+{
+    
+}

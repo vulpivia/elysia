@@ -4,13 +4,17 @@ import components.Component;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
+import events.Event;
 
 class GameObject
 {
+    public var name:String;
     public var active:Bool;
     public var position:FlxPoint;
 
     public var layer:FlxTypedGroup<FlxObject>;
+
+    public var onStart:Event;
 
     var components:Array<Component>;
 

@@ -2,7 +2,7 @@ package commands;
 
 import states.State;
 
-class Command extends GameObject implements IExecutable
+class Command implements IExecutable
 {
     var callback:Void->Void;
     var executing:Bool;
@@ -11,7 +11,6 @@ class Command extends GameObject implements IExecutable
 
     public function new()
     {
-        super();
         executing = false;
     }
 
@@ -25,11 +24,5 @@ class Command extends GameObject implements IExecutable
     {
         executing = false;
         callback();
-    }
-
-    override public function create(state:State)
-    {
-        super.create(state);
-        this.state = state;
     }
 }

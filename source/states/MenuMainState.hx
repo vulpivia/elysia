@@ -6,7 +6,6 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import lime.system.System;
-import objects.GameObject;
 import objects.OptionWindow;
 
 /**

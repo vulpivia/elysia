@@ -16,7 +16,7 @@ class ExplorationState extends State
     {
         super.create();
 
-        var map = new LaboratoryMap();
+        var map = new LaboratoryMap(gameObjects, spriteLayer);
 
         CollisionManager.initializeCollisionMap(map.collisionCSV);
 
