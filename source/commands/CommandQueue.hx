@@ -29,11 +29,11 @@ class CommandQueue
         if (commandIndex == commands.length)
         {
             // Command queue finished
-            Game.player.inputEnabled = true;
+            // TODO: Enable player input
             return;
         }
 
-        Game.player.inputEnabled = false;
+        // TODO: Disable player input
         commands[commandIndex].execute(run);
         commandIndex++;
     }
