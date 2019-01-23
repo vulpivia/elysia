@@ -1,7 +1,8 @@
 package commands;
 
-import states.State;
 import objects.GameObject;
+import objects.TextBubble;
+import states.State;
 
 /**
     Opens a message window and displays text.
@@ -21,5 +22,11 @@ class ShowTextCommand extends Command
         super();
 
         this.characterName = characterName;
+    }
+
+    override public function execute(callback:Void->Void) {
+        super.execute(callback);
+
+        var textBubble = new TextBubble(State.current.uiLayer);
     }
 }

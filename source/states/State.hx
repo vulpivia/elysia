@@ -18,7 +18,7 @@ class State extends FlxState
     var backgroundLayer:FlxTypedGroup<FlxObject>;
     var foregroundLayer:FlxTypedGroup<FlxObject>;
     var spriteLayer:FlxTypedGroup<FlxObject>;
-    var uiLayer:FlxTypedGroup<FlxObject>;
+    public var uiLayer:FlxTypedGroup<FlxObject>;
 
     function new()
     {

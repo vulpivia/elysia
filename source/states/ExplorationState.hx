@@ -24,7 +24,7 @@ class ExplorationState extends State
         var mapTop = new MapLayer(foregroundLayer);
 
         var player = new Player(spriteLayer);
-        player.position = new FlxPoint(128, 128);
+        player.position = new FlxPoint(160, 144);
 
         var mapBottomRenderer = cast(mapBottom.getComponent(MapRendererComponent), MapRendererComponent);
         mapBottomRenderer.loadMap(map.bottomCSV, AssetPaths.tileset_map_bottom__png);

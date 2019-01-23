@@ -33,6 +33,10 @@ class GameObject
         {
             component.start(this);
         }
+
+        if (onStart != null) {
+            onStart.run();
+        }
     }
 
     public function update()

@@ -8,7 +8,7 @@ class IntroEvent extends Event
 {
     public function new()
     {
-        var queue = new CommandQueue();
+        queue = new CommandQueue();
         queue.insert(new ShowTextCommand("Joshua Collier", "Ready?"));
         queue.insert(new ShowTextCommand("Joshua Collier", "The connection will start in 3..."));
         queue.insert(new ShowTextCommand("Joshua Collier", "2..."));
