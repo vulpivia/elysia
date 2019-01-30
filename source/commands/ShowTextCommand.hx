@@ -1,5 +1,6 @@
 package commands;
 
+import flixel.math.FlxPoint;
 import objects.GameObject;
 import objects.TextBubble;
 import states.State;
@@ -27,6 +28,9 @@ class ShowTextCommand extends Command
     override public function execute(callback:Void->Void) {
         super.execute(callback);
 
-        var textBubble = new TextBubble(State.current.uiLayer);
+        var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(64, 32));
+        var character = State.current.findObject(characterName);
+        textBubble.position = new FlxPoint(character.position.x + 8, character.position.y - 32);
+        textBubble.start();
     }
 }
