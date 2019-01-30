@@ -13,7 +13,7 @@ class State extends FlxState
 {
     public static var current:State;
 
-    var gameObjects:Array<GameObject>;
+    public var gameObjects:Array<GameObject>;
 
     var backgroundLayer:FlxTypedGroup<FlxObject>;
     var foregroundLayer:FlxTypedGroup<FlxObject>;

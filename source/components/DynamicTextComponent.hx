@@ -11,8 +11,10 @@ class DynamicTextComponent extends Component
     var timer:Int;
     var flxText:FlxText;
 
-    public function new()
-    {}
+    public function new(text:String)
+    {
+        this.text = text;
+    }
 
     override public function start(gameObject:GameObject)
     {

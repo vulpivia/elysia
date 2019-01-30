@@ -11,6 +11,7 @@ import states.State;
 class ShowTextCommand extends Command
 {
     var characterName:String;
+    var text:String;
 
     /**
         Opens a message window and displays text.
@@ -23,14 +24,17 @@ class ShowTextCommand extends Command
         super();
 
         this.characterName = characterName;
+        this.text = text;
     }
 
     override public function execute(callback:Void->Void) {
         super.execute(callback);
 
-        var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(64, 32));
+        var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(64, 32), text);
         var character = State.current.findObject(characterName);
         textBubble.position = new FlxPoint(character.position.x + 8, character.position.y - 32);
         textBubble.start();
+
+        State.current.gameObjects.push(textBubble);
     }
 }
