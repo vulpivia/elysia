@@ -10,15 +10,18 @@ class DynamicTextComponent extends Component
     var delay:Int;
     var timer:Int;
     var flxText:FlxText;
+    var length:Int;
 
-    public function new(text:String)
+    public function new(text:String, length:Int)
     {
         this.text = text;
+        this.length = length;
     }
 
     override public function start(gameObject:GameObject)
     {
         flxText = new FlxText(gameObject.position.x, gameObject.position.y);
+        flxText.fieldWidth = length;
 
         gameObject.layer.add(flxText);
     }

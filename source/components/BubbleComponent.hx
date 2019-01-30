@@ -18,8 +18,8 @@ class BubbleComponent extends Component
     {
         var sizeRect = new Rectangle(0, 0, size.x, size.y);
         var slicePoints = [8, 8, 16, 16];
-        var x = gameObject.position.x - size.x / 2;
-        var y = gameObject.position.y - size.y / 2;
+        var x = gameObject.position.x - 4;
+        var y = gameObject.position.y - 4;
         var sprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_message__png, sizeRect, slicePoints);
         gameObject.layer.add(sprite);
     }

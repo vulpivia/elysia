@@ -8,11 +8,11 @@ import flixel.math.FlxPoint;
 
 class TextBubble extends GameObject
 {
-    public function new(layer:FlxTypedGroup<FlxObject>, size:FlxPoint, text:String)
+    public function new(layer:FlxTypedGroup<FlxObject>, size:FlxPoint, text:String, length:Int)
     {
         super(layer);
 
         addComponent(new BubbleComponent(size));
-        addComponent(new DynamicTextComponent(text));
+        addComponent(new DynamicTextComponent(text, length));
     }
 }
