@@ -1,5 +1,6 @@
 package components;
 
+import flixel.FlxG;
 import flixel.text.FlxText;
 import objects.GameObject;
 
@@ -8,9 +9,10 @@ class DynamicTextComponent extends Component
     public var text:String;
 
     var delay:Int;
-    var timer:Int;
     var flxText:FlxText;
+    var gameObject:GameObject;
     var length:Int;
+    var timer:Int;
 
     public function new(text:String, length:Int)
     {
@@ -24,10 +26,28 @@ class DynamicTextComponent extends Component
         flxText.fieldWidth = length;
 
         gameObject.layer.add(flxText);
+
+        this.gameObject = gameObject;
     }
 
     override public function update()
     {
+        if (flxText.text == text)
+        {
+            // Text fully loaded
+            if (FlxG.keys.justPressed.ENTER)
+            {
+                gameObject.destroy();
+            }
+
+            return;
+        }
+
+        if (FlxG.keys.justPressed.ENTER)
+        {
+            flxText.text = text;
+        }
+
         if (text != flxText.text)
         {
             if (timer >= delay)
@@ -40,5 +60,10 @@ class DynamicTextComponent extends Component
                 timer++;
             }
         }
+    }
+
+    override public function destroy()
+    {
+        flxText.destroy();
     }
 }

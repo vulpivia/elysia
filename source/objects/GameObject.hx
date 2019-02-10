@@ -47,6 +47,14 @@ class GameObject
         }
     }
 
+    public function destroy()
+    {
+        for (component in components)
+        {
+            component.destroy();
+        }
+    }
+
     /**
         Add a new component to the game object.
 

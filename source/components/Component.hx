@@ -9,4 +9,7 @@ class Component
 
     public function update()
     {}
+
+    public function destroy()
+    {}
 }

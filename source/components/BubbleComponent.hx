@@ -8,6 +8,7 @@ import openfl.geom.Rectangle;
 class BubbleComponent extends Component
 {
     private var size:FlxPoint;
+    private var sprite:FlxUI9SliceSprite;
 
     public function new(size:FlxPoint)
     {
@@ -20,7 +21,13 @@ class BubbleComponent extends Component
         var slicePoints = [8, 8, 16, 16];
         var x = gameObject.position.x - 4;
         var y = gameObject.position.y - 4;
-        var sprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_message__png, sizeRect, slicePoints);
+        sprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_message__png, sizeRect, slicePoints);
         gameObject.layer.add(sprite);
+    }
+
+    override public function destroy()
+    {
+        trace("Destroy bubble");
+        sprite.destroy();
     }
 }
