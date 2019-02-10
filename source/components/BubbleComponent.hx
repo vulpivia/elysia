@@ -27,7 +27,6 @@ class BubbleComponent extends Component
 
     override public function destroy()
     {
-        trace("Destroy bubble");
         sprite.destroy();
     }
 }

@@ -33,7 +33,6 @@ class ShowTextCommand extends Command
         var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(96, 32), text, 88);
         var character = State.current.findObject(characterName);
         textBubble.position = new FlxPoint(character.position.x - 36, character.position.y - 44);
-        textBubble.start();
 
         State.current.gameObjects.push(textBubble);
     }
