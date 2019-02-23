@@ -2,6 +2,7 @@ package commands;
 
 import flixel.math.FlxPoint;
 import objects.GameObject;
+import objects.TextBox;
 import objects.TextBubble;
 import states.State;
 
@@ -30,11 +31,24 @@ class ShowTextCommand extends Command
     override public function execute(callback:Void->Void) {
         super.execute(callback);
 
-        var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(96, 32), text, 88, callback);
-        var character = State.current.findObject(characterName);
-        textBubble.position = new FlxPoint(character.position.x - 36, character.position.y - 44);
+        if (characterName == null)
+        {
+            // Show textbox
+            var textBox = new TextBox(State.current.uiLayer, new FlxPoint(96, 32), text, 88, callback);
+            textBox.position = new FlxPoint(16, 16);
 
-        State.current.gameObjects.push(textBubble);
-        textBubble.start();
+            State.current.gameObjects.push(textBox);
+            textBox.start();
+        }
+        else
+        {
+            // Show bubble
+            var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(96, 32), text, 88, callback);
+            var character = State.current.findObject(characterName);
+            textBubble.position = new FlxPoint(character.position.x - 36, character.position.y - 44);
+
+            State.current.gameObjects.push(textBubble);
+            textBubble.start();
+        }
     }
 }
