@@ -1,10 +1,11 @@
 package objects;
 
 import components.Component;
+import events.Event;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
-import events.Event;
+import states.State;
 
 class GameObject
 {
@@ -68,6 +69,7 @@ class GameObject
         {
             component.destroy();
         }
+        State.current.removeObject(this);
     }
 
     /**

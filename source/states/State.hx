@@ -67,6 +67,11 @@ class State extends FlxState
         throw "No game object with name \"" + name + "\" found";
     }
 
+    public function removeObject(object:GameObject)
+    {
+        gameObjects.remove(object);
+    }
+
     function start()
     {
         for (gameObject in gameObjects)
