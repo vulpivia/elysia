@@ -12,7 +12,7 @@ class TextBox extends GameObject
     {
         super(layer);
 
-        var panel = new PanelComponent();
+        var panel = new PanelComponent(4);
         panel.size = size;
         addComponent(panel);
         addComponent(new DynamicTextComponent(text, length, callback));
