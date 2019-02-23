@@ -6,6 +6,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import lime.system.System;
+import maps.LaboratoryMap;
 import objects.OptionWindow;
 
 /**
@@ -37,7 +38,7 @@ class MenuMainState extends State
 
     function optionNewGame()
     {
-        FlxG.switchState(new ExplorationState());
+        FlxG.switchState(new ExplorationState(LaboratoryMap, 10, 9));
     }
 
     function optionContinue()

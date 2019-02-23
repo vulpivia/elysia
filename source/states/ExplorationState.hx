@@ -4,6 +4,7 @@ import components.MapRendererComponent;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
 import maps.LaboratoryMap;
+import maps.Map;
 import objects.MapLayer;
 import objects.Player;
 
@@ -12,19 +13,29 @@ import objects.Player;
 **/
 class ExplorationState extends State
 {
+    public var player:Player;
+
+    var mapType:Class<Map>;
+
+    override public function new(mapType:Class<Map>, x:Int, y:Int)
+    {
+        super();
+        this.mapType = mapType;
+
+        player = new Player(spriteLayer);
+        player.position = new FlxPoint(x * 16, y * 16);
+    }
+
     override public function create()
     {
         super.create();
 
-        var map = new LaboratoryMap(gameObjects, spriteLayer);
+        var map = Type.createInstance(mapType, [gameObjects, spriteLayer]);
 
         CollisionManager.initializeCollisionMap(map.collisionCSV);
 
         var mapBottom = new MapLayer(backgroundLayer);
         var mapTop = new MapLayer(foregroundLayer);
-
-        var player = new Player(spriteLayer);
-        player.position = new FlxPoint(160, 144);
 
         var mapBottomRenderer = cast(mapBottom.getComponent(MapRendererComponent), MapRendererComponent);
         mapBottomRenderer.loadMap(map.bottomCSV, AssetPaths.tileset_map_bottom__png);
