@@ -3,7 +3,7 @@ package events;
 import commands.CommandQueue;
 import commands.ShowTextCommand;
 import commands.TeleportCommand;
-import maps.LaboratoryMap;
+import maps.PlainsStartMap;
 import states.State;
 
 class IntroEvent extends Event
@@ -15,6 +15,6 @@ class IntroEvent extends Event
         queue.insert(new ShowTextCommand("Joshua Collier", "The connection will start in 3..."));
         queue.insert(new ShowTextCommand("Joshua Collier", "2..."));
         queue.insert(new ShowTextCommand("Joshua Collier", "1..."));
-        queue.insert(new TeleportCommand(LaboratoryMap, 1, 1));
+        queue.insert(new TeleportCommand(PlainsStartMap, 8, 8));
     }
 }
