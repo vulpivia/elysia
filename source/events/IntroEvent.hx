@@ -15,6 +15,6 @@ class IntroEvent extends Event
         queue.insert(new ShowTextCommand("Joshua Collier", "The connection will start in 3..."));
         queue.insert(new ShowTextCommand("Joshua Collier", "2..."));
         queue.insert(new ShowTextCommand("Joshua Collier", "1..."));
-        queue.insert(new TeleportCommand(PlainsStartMap, 8, 8));
+        queue.insert(new TeleportCommand(PlainsStartMap, 11, 4));
     }
 }

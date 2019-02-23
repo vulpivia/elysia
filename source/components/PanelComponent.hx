@@ -10,6 +10,7 @@ class PanelComponent extends Component
     public var size:FlxPoint;
 
     var padding:Int;
+    var sprite:FlxUI9SliceSprite;
 
     public function new(padding:Int = 0)
     {
@@ -22,7 +23,12 @@ class PanelComponent extends Component
         var slicePoints = [8, 8, 16, 16];
         var x = gameObject.position.x - padding;
         var y = gameObject.position.y - padding;
-        var sprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_window__png, size, slicePoints);
+        sprite = new FlxUI9SliceSprite(x, y, AssetPaths.tileset_window__png, size, slicePoints);
         gameObject.layer.add(sprite);
+    }
+
+    override public function destroy()
+    {
+        sprite.destroy();
     }
 }

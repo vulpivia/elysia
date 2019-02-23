@@ -49,7 +49,6 @@ class DynamicTextComponent extends Component
         if (FlxG.keys.justPressed.ENTER)
         {
             flxText.text = text;
-            trace("Full text displayed");
         }
 
         if (text != flxText.text)

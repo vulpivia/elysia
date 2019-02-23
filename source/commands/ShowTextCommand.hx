@@ -34,7 +34,7 @@ class ShowTextCommand extends Command
         if (characterName == null)
         {
             // Show textbox
-            var textBox = new TextBox(State.current.uiLayer, new FlxPoint(96, 32), text, 88, callback);
+            var textBox = new TextBox(State.current.uiLayer, new FlxPoint(128, 36), text, 128, callback);
             textBox.position = new FlxPoint(16, 16);
 
             State.current.gameObjects.push(textBox);
@@ -43,7 +43,7 @@ class ShowTextCommand extends Command
         else
         {
             // Show bubble
-            var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(96, 32), text, 88, callback);
+            var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(112, 32), text, 108, callback);
             var character = State.current.findObject(characterName);
             textBubble.position = new FlxPoint(character.position.x - 36, character.position.y - 44);
 
