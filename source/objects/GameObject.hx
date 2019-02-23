@@ -17,6 +17,8 @@ class GameObject
     public var onStart:Event;
 
     var components:Array<Component>;
+    var started:Bool = false;
+    var firstUpdate:Bool = true;
 
     public function new(layer:FlxTypedGroup<FlxObject>)
     {
@@ -29,6 +31,12 @@ class GameObject
 
     public function start()
     {
+        if (started)
+        {
+            return;
+        }
+        started = true;
+
         for (component in components)
         {
             component.start(this);
@@ -41,6 +49,13 @@ class GameObject
 
     public function update()
     {
+        // Skip update call on same frame as start
+        if (firstUpdate)
+        {
+            firstUpdate = false;
+            return;
+        }
+
         for (component in components)
         {
             component.update();

@@ -30,10 +30,11 @@ class ShowTextCommand extends Command
     override public function execute(callback:Void->Void) {
         super.execute(callback);
 
-        var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(96, 32), text, 88);
+        var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(96, 32), text, 88, callback);
         var character = State.current.findObject(characterName);
         textBubble.position = new FlxPoint(character.position.x - 36, character.position.y - 44);
 
         State.current.gameObjects.push(textBubble);
+        textBubble.start();
     }
 }

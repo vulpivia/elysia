@@ -8,16 +8,18 @@ class DynamicTextComponent extends Component
 {
     public var text:String;
 
+    var callback:Void->Void;
     var delay:Int;
     var flxText:FlxText;
     var gameObject:GameObject;
     var length:Int;
     var timer:Int;
 
-    public function new(text:String, length:Int)
+    public function new(text:String, length:Int, callback:Void->Void)
     {
         this.text = text;
         this.length = length;
+        this.callback = callback;
     }
 
     override public function start(gameObject:GameObject)
@@ -37,6 +39,7 @@ class DynamicTextComponent extends Component
             // Text fully loaded
             if (FlxG.keys.justPressed.ENTER)
             {
+                callback();
                 gameObject.destroy();
             }
 
@@ -46,6 +49,7 @@ class DynamicTextComponent extends Component
         if (FlxG.keys.justPressed.ENTER)
         {
             flxText.text = text;
+            trace("Full text displayed");
         }
 
         if (text != flxText.text)
