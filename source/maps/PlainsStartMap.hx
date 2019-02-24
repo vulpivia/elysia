@@ -1,22 +1,27 @@
 package maps;
 
-import entities.characters.Player;
-import entities.events.MissionOneEvent;
-import flixel.FlxG;
+import events.MissionOneEvent;
+import flixel.FlxObject;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import objects.GameObject;
 
+/**
+    The first map where the player can freely move.
+**/
 class PlainsStartMap extends Map
 {
-    override public function start()
+    public function new(gameObjects:Array<GameObject>, spriteLayer:FlxTypedGroup<FlxObject>)
     {
-        layerBottom.loadMapFromCSV(AssetPaths.map_plains_start_bottom__csv, AssetPaths.tileset_map_bottom__png, Map.TILE_SIZE, Map.TILE_SIZE);
-        layerTop.loadMapFromCSV(AssetPaths.map_plains_start_top__csv, AssetPaths.tileset_map_top__png, Map.TILE_SIZE, Map.TILE_SIZE);
-        layerCollision.loadMapFromCSV(AssetPaths.map_plains_start_collision__csv, null);
+        // Set map files
+        bottomCSV = AssetPaths.map_plains_start_bottom__csv;
+        topCSV = AssetPaths.map_plains_start_top__csv;
+        collisionCSV = AssetPaths.map_plains_start_collision__csv;
 
-        FlxG.camera.setScrollBounds(0, layerBottom.width, 0, layerBottom.height);
+        // Initialize mission one event
+        var missionOneEvent = new GameObject(spriteLayer);
+        missionOneEvent.name = "Mission One";
+        missionOneEvent.onStart = new MissionOneEvent();
 
-        events.push(new MissionOneEvent());
-        events.push(new Player());
-
-        super.start();
+        gameObjects.push(missionOneEvent);
     }
 }

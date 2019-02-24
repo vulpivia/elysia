@@ -22,22 +22,15 @@ class TeleportCommand extends Command
         super();
 
         this.mapType = mapType;
-        this.x = x * Map.TILE_SIZE;
-        this.y = y * Map.TILE_SIZE;
+        this.x = x;
+        this.y = y;
     }
 
-    override public function update()
+    override public function execute(callback:Void->Void)
     {
-        if (!executing)
-        {
-            return;
-        }
+        super.execute(callback);
 
-        FlxG.switchState(new ExplorationState(mapType));
-        
-        Game.player.x = this.x;
-        Game.player.y = this.y;
-
-        finish();
+        var state = new ExplorationState(mapType, x, y);
+        FlxG.switchState(state);
     }
 }

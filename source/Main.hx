@@ -11,8 +11,11 @@ import states.MenuMainState;
 **/
 class Main extends Sprite
 {
-    static inline var UPDATE_FPS:Int = 60;
+    static inline var SCREEN_WIDTH:Int = 320;
+    static inline var SCREEN_HEIGHT:Int = 240;
+
     static inline var DRAW_FPS:Int = 60;
+    static inline var UPDATE_FPS:Int = 60;
 
     /**
         Creates the game.
@@ -21,7 +24,7 @@ class Main extends Sprite
     {
         super();
 
-        var game = new FlxGame(Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT, MenuMainState, 1, UPDATE_FPS, DRAW_FPS, true);
+        var game = new FlxGame(SCREEN_WIDTH, SCREEN_HEIGHT, MenuMainState, 1, UPDATE_FPS, DRAW_FPS, true);
         addChild(game);
 
         FlxG.scaleMode = new PixelPerfectScaleMode();

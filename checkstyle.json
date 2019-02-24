@@ -270,11 +270,11 @@
                 "thresholds":[
                     {
                         "severity":"INFO",
-                        "complexity":6
+                        "complexity":11
                     },
                     {
                         "severity":"WARNING",
-                        "complexity":11
+                        "complexity":16
                     },
                     {
                         "severity":"ERROR",
