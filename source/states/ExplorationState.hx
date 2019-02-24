@@ -25,6 +25,7 @@ class ExplorationState extends State
         this.mapType = mapType;
 
         player = new Player(spriteLayer);
+        player.name = "Player";
         player.position = new FlxPoint(x * 16, y * 16);
     }
 

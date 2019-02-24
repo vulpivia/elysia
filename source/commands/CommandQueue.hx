@@ -1,5 +1,7 @@
 package commands;
 
+import states.ExplorationState;
+import states.State;
 /**
     Manages a list of events.
 **/
@@ -24,17 +26,26 @@ class CommandQueue
         commands.push(command);
     }
 
+    /**
+        Runs the next command in the queue.
+    **/
     public function run()
     {
         if (commandIndex == commands.length)
         {
             // Command queue finished
-            // TODO: Enable player input
+            switchPlayerInput(true);
             return;
         }
 
-        // TODO: Disable player input
+        switchPlayerInput(false);
         commands[commandIndex].execute(run);
         commandIndex++;
+    }
+
+    function switchPlayerInput(inputEnabled:Bool)
+    {
+        var state = cast(State.current, ExplorationState);
+        state.findObject("Player").active = inputEnabled;
     }
 }

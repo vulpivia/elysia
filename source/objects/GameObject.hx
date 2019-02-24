@@ -20,7 +20,7 @@ class GameObject
     /**
         A flag that activates or deactivates the game object. An inactive game object doesn't update.
     **/
-    public var active:Bool;
+    public var active:Bool = true;
     /**
         The position of the game object (in pixels).
     **/
@@ -75,6 +75,11 @@ class GameObject
     **/
     public function update()
     {
+        if (!active)
+        {
+            return;
+        }
+
         // Skip update call on same frame as start
         if (firstUpdate)
         {
