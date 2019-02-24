@@ -2,12 +2,20 @@ package events;
 
 import commands.CommandQueue;
 
+/**
+    Events define a list of commands that are run once the event gets executed.
+**/
 class Event
 {
-    private var queue:CommandQueue;
+    var queue:CommandQueue;
 
-    public function run() {
-        if (queue != null) {
+    /**
+        Run the commands contained in this event.
+    **/
+    public function run()
+    {
+        if (queue != null)
+        {
             queue.run();
         }
     }

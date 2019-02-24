@@ -2,6 +2,9 @@ package components;
 
 import flixel.FlxG;
 
+/**
+    Handles player input and moves the player accordingly.
+**/
 class InputControllerComponent extends ControllerComponent
 {
     /**

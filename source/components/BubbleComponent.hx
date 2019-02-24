@@ -5,8 +5,14 @@ import flixel.math.FlxPoint;
 import objects.GameObject;
 import openfl.geom.Rectangle;
 
+/**
+    Renders a bubble. This bubble can be used as the background of text that is spoken by characters on screen.
+**/
 class BubbleComponent extends Component
 {
+    /**
+        The size of the bubble in pixels.
+    **/
     public var size:FlxPoint;
 
     var padding:Int;

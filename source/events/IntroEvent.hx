@@ -4,8 +4,10 @@ import commands.CommandQueue;
 import commands.ShowTextCommand;
 import commands.TeleportCommand;
 import maps.PlainsStartMap;
-import states.State;
 
+/**
+    This event plays the intro of the game.
+**/
 class IntroEvent extends Event
 {
     public function new()

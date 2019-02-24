@@ -4,8 +4,14 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import objects.GameObject;
 
+/**
+    Continuously displays a text on the screen which is removed when the player presses the enter key.
+**/
 class DynamicTextComponent extends Component
 {
+    /**
+        The text that is displayed.
+    **/
     public var text:String;
 
     var callback:Void->Void;

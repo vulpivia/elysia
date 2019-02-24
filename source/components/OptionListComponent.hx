@@ -6,6 +6,9 @@ import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.text.FlxText;
 import objects.GameObject;
 
+/**
+    Represents an option that consists of the text that is displayed and the function that is executed when the option is chosen.
+**/
 class Option
 {
     /**
@@ -24,8 +27,14 @@ class Option
     }
 }
 
+/**
+    Displays a list of options and handles the input that the player uses to choose an option.
+**/
 class OptionListComponent extends Component
 {
+    /**
+        The list of options to choose from.
+    **/
     public var options:Array<Option>;
 
     var gameObject:GameObject;

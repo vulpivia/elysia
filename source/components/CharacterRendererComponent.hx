@@ -4,6 +4,9 @@ import flixel.FlxSprite;
 import flixel.animation.FlxAnimationController;
 import objects.GameObject;
 
+/**
+    This component renders a character.
+**/
 class CharacterRendererComponent extends Component
 {
     /**

@@ -3,6 +3,9 @@ package events;
 import commands.CommandQueue;
 import commands.ShowTextCommand;
 
+/**
+    This event continues the intro after the the map change.
+**/
 class MissionOneEvent extends Event
 {
     public function new()

@@ -5,8 +5,14 @@ import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.math.FlxPoint;
 import objects.GameObject;
 
+/**
+    Renders a panel. Useful for UI elements such as menus and textboxes.
+**/
 class PanelComponent extends Component
 {
+    /**
+        Size of the panel in pixels.
+    **/
     public var size:FlxPoint;
 
     var padding:Int;

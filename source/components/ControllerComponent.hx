@@ -3,6 +3,9 @@ package components;
 import flixel.math.FlxPoint;
 import objects.GameObject;
 
+/**
+    Possible directions that a character can face.
+**/
 enum Direction
 {
     None;
@@ -12,6 +15,9 @@ enum Direction
     Right;
 }
 
+/**
+    This component handles character movement on a grid.
+**/
 class ControllerComponent extends Component
 {
     var characterRenderer:CharacterRendererComponent;
@@ -39,7 +45,7 @@ class ControllerComponent extends Component
 
     function continueMovement()
     {
-        switch(direction)
+        switch (direction)
         {
             case Direction.None: return;
             case Direction.Up: position.y--;
