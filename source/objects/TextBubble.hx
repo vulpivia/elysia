@@ -12,7 +12,9 @@ class TextBubble extends GameObject
     {
         super(layer);
 
-        addComponent(new BubbleComponent(size));
+        var bubble = new BubbleComponent(4);
+        bubble.size = size;
+        addComponent(bubble);
         addComponent(new DynamicTextComponent(text, length, callback));
     }
 }
