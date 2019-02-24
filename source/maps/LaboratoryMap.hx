@@ -7,6 +7,9 @@ import flixel.math.FlxPoint;
 import objects.GameObject;
 import objects.NPC;
 
+/**
+    The laboratory map in the intro of the game.
+**/
 class LaboratoryMap extends Map
 {
     public function new(gameObjects:Array<GameObject>, spriteLayer:FlxTypedGroup<FlxObject>)

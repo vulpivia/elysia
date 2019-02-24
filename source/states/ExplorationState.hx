@@ -3,7 +3,6 @@ package states;
 import components.MapRendererComponent;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
-import maps.LaboratoryMap;
 import maps.Map;
 import objects.MapLayer;
 import objects.Player;
@@ -13,6 +12,9 @@ import objects.Player;
 **/
 class ExplorationState extends State
 {
+    /**
+        The player game object.
+    **/
     public var player:Player;
 
     var mapType:Class<Map>;

@@ -54,6 +54,12 @@ class State extends FlxState
         spriteLayer.sort(FlxSort.byY);
     }
 
+    /**
+        Find a game object by name.
+
+        @param name Name of the game object that is searched for.
+        @return The found game object.
+    **/
     public function findObject(name:String):GameObject
     {
         for (gameObject in gameObjects)
@@ -67,6 +73,11 @@ class State extends FlxState
         throw "No game object with name \"" + name + "\" found";
     }
 
+    /**
+        Remove a game object from the state.
+
+        @param object The game object that should be removed.
+    **/
     public function removeObject(object:GameObject)
     {
         gameObjects.remove(object);
