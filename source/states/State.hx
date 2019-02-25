@@ -12,16 +12,25 @@ import objects.GameObject;
 **/
 class State extends FlxSubState
 {
+    /**
+        A stack containing all loaded game states. The active state is the first state in the stack.
+    **/
     public static var stack:GenericStack<State> = new GenericStack<State>();
 
+    /**
+        A list of all game objects contained in this state.
+    **/
     public var gameObjects:Array<GameObject>;
 
     var backgroundLayer:FlxTypedGroup<FlxObject>;
     var foregroundLayer:FlxTypedGroup<FlxObject>;
     var spriteLayer:FlxTypedGroup<FlxObject>;
+    /**
+        The layer that is used by UI components (menus etc.).
+    **/
     public var uiLayer:FlxTypedGroup<FlxObject>;
 
-    var created:Bool = false;
+    var created:Bool;
 
     public function new()
     {
@@ -35,6 +44,8 @@ class State extends FlxSubState
         foregroundLayer = new FlxTypedGroup<FlxObject>();
         spriteLayer = new FlxTypedGroup<FlxObject>();
         uiLayer = new FlxTypedGroup<FlxObject>();
+
+        created = false;
     }
 
     override public function create()

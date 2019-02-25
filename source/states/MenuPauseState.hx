@@ -2,23 +2,32 @@ package states;
 
 import components.OptionListComponent;
 import components.PanelComponent;
-import flixel.FlxG;
 import flixel.math.FlxPoint;
 import objects.OptionWindow;
 
+/**
+    The pause menu which is accessed by pressing escape.
+**/
 class MenuPauseState extends State
 {
-    static inline var MENU_X = 224;
+    /**
+        Width of the menu.
+    **/
+    static inline var MENU_WIDTH:Int = 96;
+    /**
+        Height of the menu.
+    **/
+    static inline var MENU_HEIGHT:Int = 128;
 
     override public function create()
     {
         super.create();
 
         var menu = new OptionWindow(uiLayer);
-        menu.position = new FlxPoint(MENU_X, 0);
+        menu.position = new FlxPoint(Main.SCREEN_WIDTH - MENU_WIDTH - 8, 8);
 
         var menuPanel = cast(menu.getComponent(PanelComponent), PanelComponent);
-        menuPanel.size = new FlxPoint(Main.SCREEN_WIDTH - MENU_X, 128);
+        menuPanel.size = new FlxPoint(MENU_WIDTH, MENU_HEIGHT);
 
         var menuOption = cast(menu.getComponent(OptionListComponent), OptionListComponent);
         menuOption.options.push(new Option("Inventory", optionInventory));

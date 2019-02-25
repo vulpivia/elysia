@@ -35,7 +35,7 @@ class ShowTextCommand extends Command
         {
             // Show textbox
             var textBox = new TextBox(State.stack.first().uiLayer, new FlxPoint(128, 36), text, 128, callback);
-            textBox.position = new FlxPoint(16, 16);
+            textBox.position = new FlxPoint(Main.SCREEN_WIDTH - 140, 12);
 
             State.stack.first().gameObjects.push(textBox);
             textBox.start();
