@@ -1,3 +1,5 @@
+import haxe.Timer;
+
 class GameState
 {
     public static var playTime(get, null):Float;
@@ -7,11 +9,11 @@ class GameState
 
     static function get_playTime()
     {
-        return Sys.time() + playTimeOffset;
+        return Timer.stamp() + playTimeOffset;
     }
 
     public static function initialize()
     {
-        playTimeOffset = -Sys.time();
+        playTimeOffset = -Timer.stamp();
     }
 }
