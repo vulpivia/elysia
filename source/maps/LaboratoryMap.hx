@@ -22,7 +22,7 @@ class LaboratoryMap extends Map
         // Initialize character: Joshua Collier
         var joshuaCollier = new NPC(spriteLayer);
         joshuaCollier.name = "Joshua Collier";
-        joshuaCollier.position = new FlxPoint(7 * 16, 9 * 16);
+        joshuaCollier.position = new FlxPoint(7 * Main.TILE_SIZE, 9 * Main.TILE_SIZE);
 
         joshuaCollier.onStart = new IntroEvent();
 

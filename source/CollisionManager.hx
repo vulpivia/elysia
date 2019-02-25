@@ -16,8 +16,8 @@ class CollisionManager
     **/
     public static function isBlocked(position:FlxPoint):Bool
     {
-        var x = cast(position.x / 16, Int);
-        var y = cast(position.y / 16, Int);
+        var x = cast(position.x / Main.TILE_SIZE, Int);
+        var y = cast(position.y / Main.TILE_SIZE, Int);
         return collisionMap[x][y];
     }
 

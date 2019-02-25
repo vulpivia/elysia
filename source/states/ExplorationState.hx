@@ -26,7 +26,7 @@ class ExplorationState extends State
 
         player = new Player(spriteLayer);
         player.name = "Player";
-        player.position = new FlxPoint(x * 16, y * 16);
+        player.position = new FlxPoint(x * Main.TILE_SIZE, y * Main.TILE_SIZE);
     }
 
     override public function create()

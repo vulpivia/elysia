@@ -65,7 +65,8 @@ class GameObject
             component.start(this);
         }
 
-        if (onStart != null) {
+        if (onStart != null)
+        {
             onStart.run();
         }
     }

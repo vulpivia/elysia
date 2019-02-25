@@ -47,7 +47,7 @@ class MapRendererComponent extends Component
     public function loadMap(csv:String, tileset:String)
     {
         tilemap = new FlxTilemap();
-        tilemap.loadMapFromCSV(csv, tileset, 16, 16);
+        tilemap.loadMapFromCSV(csv, tileset, Main.TILE_SIZE, Main.TILE_SIZE);
         tilemap.useScaleHack = false;
     }
 }

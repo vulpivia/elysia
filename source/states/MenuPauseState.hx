@@ -7,15 +7,17 @@ import objects.OptionWindow;
 
 class MenuPauseState extends State
 {
+    static inline var MENU_X = 224;
+
     override public function create()
     {
         super.create();
 
         var menu = new OptionWindow(uiLayer);
-        menu.position = new FlxPoint(224, 0);
+        menu.position = new FlxPoint(MENU_X, 0);
 
         var menuPanel = cast(menu.getComponent(PanelComponent), PanelComponent);
-        menuPanel.size = new FlxPoint(96, 128);
+        menuPanel.size = new FlxPoint(Main.SCREEN_WIDTH - MENU_X, 128);
 
         var menuOption = cast(menu.getComponent(OptionListComponent), OptionListComponent);
         menuOption.options.push(new Option("Inventory", optionInventory));

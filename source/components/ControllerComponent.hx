@@ -79,8 +79,8 @@ class ControllerComponent extends Component
 
     function onGrid(position:FlxPoint):Bool
     {
-        var xOffset = position.x % 16;
-        var yOffset = position.y % 16;
+        var xOffset = position.x % Main.TILE_SIZE;
+        var yOffset = position.y % Main.TILE_SIZE;
         return xOffset == 0 && yOffset == 0;
     }
 
@@ -100,7 +100,7 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceUp();
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y - 16)))
+        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y - Main.TILE_SIZE)))
         {
             return;
         }
@@ -112,7 +112,7 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceLeft();
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x - 16, position.y)))
+        if (CollisionManager.isBlocked(new FlxPoint(position.x - Main.TILE_SIZE, position.y)))
         {
             return;
         }
@@ -124,7 +124,7 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceDown();
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y + 16)))
+        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y + Main.TILE_SIZE)))
         {
             return;
         }
@@ -136,7 +136,7 @@ class ControllerComponent extends Component
     {
         characterRenderer.faceRight();
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x + 16, position.y)))
+        if (CollisionManager.isBlocked(new FlxPoint(position.x + Main.TILE_SIZE, position.y)))
         {
             return;
         }
