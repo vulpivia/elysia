@@ -1,6 +1,7 @@
 package components;
 
 import flixel.FlxG;
+import states.MenuPauseState;
 
 /**
     Handles player input and moves the player accordingly.
@@ -14,6 +15,12 @@ class InputControllerComponent extends ControllerComponent
     **/
     override public function update()
     {
+        if (FlxG.keys.pressed.ESCAPE)
+        {
+            // Open menu
+            FlxG.switchState(new MenuPauseState());
+        }
+
         // Check if character is on grid
         if (onGrid(position))
         {

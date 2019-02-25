@@ -20,7 +20,7 @@ class State extends FlxState
     var spriteLayer:FlxTypedGroup<FlxObject>;
     public var uiLayer:FlxTypedGroup<FlxObject>;
 
-    function new()
+    public function new()
     {
         super();
 
