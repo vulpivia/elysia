@@ -34,20 +34,20 @@ class ShowTextCommand extends Command
         if (characterName == null)
         {
             // Show textbox
-            var textBox = new TextBox(State.current.uiLayer, new FlxPoint(128, 36), text, 128, callback);
+            var textBox = new TextBox(State.stack.first().uiLayer, new FlxPoint(128, 36), text, 128, callback);
             textBox.position = new FlxPoint(16, 16);
 
-            State.current.gameObjects.push(textBox);
+            State.stack.first().gameObjects.push(textBox);
             textBox.start();
         }
         else
         {
             // Show bubble
-            var textBubble = new TextBubble(State.current.uiLayer, new FlxPoint(128, 26), text, 128, callback);
-            var character = State.current.findObject(characterName);
+            var textBubble = new TextBubble(State.stack.first().uiLayer, new FlxPoint(128, 26), text, 128, callback);
+            var character = State.stack.first().findObject(characterName);
             textBubble.position = new FlxPoint(character.position.x - 56, character.position.y - 44);
 
-            State.current.gameObjects.push(textBubble);
+            State.stack.first().gameObjects.push(textBubble);
             textBubble.start();
         }
     }

@@ -1,8 +1,9 @@
 package commands;
 
-import states.ExplorationState;
 import flixel.FlxG;
 import maps.Map;
+import states.ExplorationState;
+import states.RootState;
 
 class TeleportCommand extends Command
 {
@@ -31,6 +32,7 @@ class TeleportCommand extends Command
         super.execute(callback);
 
         var state = new ExplorationState(mapType, x, y);
-        FlxG.switchState(state);
+        RootState.state.closeSubState();
+        RootState.state.openSubState(state);
     }
 }

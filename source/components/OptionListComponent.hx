@@ -36,6 +36,7 @@ class OptionListComponent extends Component
         The list of options to choose from.
     **/
     public var options:Array<Option>;
+    public var cancel:Void->Void;
 
     var gameObject:GameObject;
     var index:Int;
@@ -67,6 +68,11 @@ class OptionListComponent extends Component
 
     override public function update()
     {
+        if (cancel != null && FlxG.keys.justPressed.ESCAPE)
+        {
+            cancel();
+        }
+
         if (FlxG.keys.justPressed.ENTER)
         {
             FlxG.sound.play(AssetPaths.decision_1__wav);

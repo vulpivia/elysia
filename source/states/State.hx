@@ -1,17 +1,18 @@
 package states;
 
 import flixel.FlxObject;
-import flixel.FlxState;
+import flixel.FlxSubState;
 import flixel.group.FlxGroup;
 import flixel.util.FlxSort;
+import haxe.ds.GenericStack;
 import objects.GameObject;
 
 /**
     The base class for game states.
 **/
-class State extends FlxState
+class State extends FlxSubState
 {
-    public static var current:State;
+    public static var stack:GenericStack<State> = new GenericStack<State>();
 
     public var gameObjects:Array<GameObject>;
 
@@ -20,11 +21,13 @@ class State extends FlxState
     var spriteLayer:FlxTypedGroup<FlxObject>;
     public var uiLayer:FlxTypedGroup<FlxObject>;
 
+    var created:Bool = false;
+
     public function new()
     {
         super();
 
-        current = this;
+        stack.add(this);
 
         gameObjects = [];
 
@@ -36,10 +39,17 @@ class State extends FlxState
 
     override public function create()
     {
+        if (created)
+        {
+            return;
+        }
+
         add(backgroundLayer);
         add(spriteLayer);
         add(foregroundLayer);
         add(uiLayer);
+
+        created = true;
     }
 
     override public function update(elapsed:Float)
@@ -52,6 +62,12 @@ class State extends FlxState
         }
 
         spriteLayer.sort(FlxSort.byY);
+    }
+
+    override public function close()
+    {
+        super.close();
+        stack.pop();
     }
 
     /**

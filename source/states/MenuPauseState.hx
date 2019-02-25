@@ -2,6 +2,7 @@ package states;
 
 import components.OptionListComponent;
 import components.PanelComponent;
+import flixel.FlxG;
 import flixel.math.FlxPoint;
 import objects.OptionWindow;
 
@@ -25,6 +26,7 @@ class MenuPauseState extends State
         menuOption.options.push(new Option("Status", optionStatus));
         menuOption.options.push(new Option("Save", optionSave));
         menuOption.options.push(new Option("Quit", optionQuit));
+        menuOption.cancel = close;
 
         gameObjects.push(menu);
 

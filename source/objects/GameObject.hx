@@ -103,7 +103,7 @@ class GameObject
         {
             component.destroy();
         }
-        State.current.removeObject(this);
+        State.stack.first().removeObject(this);
     }
 
     /**

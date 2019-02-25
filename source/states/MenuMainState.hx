@@ -38,7 +38,8 @@ class MenuMainState extends State
 
     function optionNewGame()
     {
-        FlxG.switchState(new ExplorationState(LaboratoryMap, 10, 9));
+        RootState.state.closeSubState();
+        RootState.state.openSubState(new ExplorationState(LaboratoryMap, 10, 9));
     }
 
     function optionContinue()

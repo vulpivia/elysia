@@ -25,6 +25,6 @@ class FadeCommand extends Command
     {
         super.execute(callback);
 
-        State.current.camera.fade(color, duration, fadeIn, callback);
+        State.stack.first().camera.fade(color, duration, fadeIn, callback);
     }
 }

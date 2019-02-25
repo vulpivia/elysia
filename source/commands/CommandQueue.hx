@@ -45,7 +45,7 @@ class CommandQueue
 
     function switchPlayerInput(inputEnabled:Bool)
     {
-        var state = cast(State.current, ExplorationState);
+        var state = cast(State.stack.first(), ExplorationState);
         state.findObject("Player").active = inputEnabled;
     }
 }

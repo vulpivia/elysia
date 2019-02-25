@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxGame;
+import states.RootState;
 import flixel.system.scaleModes.PixelPerfectScaleMode;
 import openfl.display.Sprite;
 import states.MenuMainState;
@@ -35,11 +36,12 @@ class Main extends Sprite
     {
         super();
 
-        var game = new FlxGame(SCREEN_WIDTH, SCREEN_HEIGHT, MenuMainState, 1, UPDATE_FPS, DRAW_FPS, true);
+        var game = new FlxGame(SCREEN_WIDTH, SCREEN_HEIGHT, RootState, 1, UPDATE_FPS, DRAW_FPS, true);
         addChild(game);
 
         FlxG.scaleMode = new PixelPerfectScaleMode();
-
         FlxG.mouse.useSystemCursor = true;
+
+        RootState.state.openSubState(new MenuMainState());
     }
 }

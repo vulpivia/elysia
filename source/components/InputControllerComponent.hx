@@ -1,7 +1,9 @@
 package components;
 
+import components.ControllerComponent.Direction;
 import flixel.FlxG;
 import states.MenuPauseState;
+import states.State;
 
 /**
     Handles player input and moves the player accordingly.
@@ -15,12 +17,6 @@ class InputControllerComponent extends ControllerComponent
     **/
     override public function update()
     {
-        if (FlxG.keys.pressed.ESCAPE)
-        {
-            // Open menu
-            FlxG.switchState(new MenuPauseState());
-        }
-
         // Check if character is on grid
         if (onGrid(position))
         {
@@ -32,6 +28,12 @@ class InputControllerComponent extends ControllerComponent
 
             // Set direction
             direction = getDirection(up, left, down, right);
+
+            if (direction == Direction.None && FlxG.keys.justPressed.ESCAPE)
+            {
+                // Open menu
+                State.stack.first().openSubState(new MenuPauseState());
+            }
 
             // Start movement
             startMovement();
