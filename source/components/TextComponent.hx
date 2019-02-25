@@ -7,19 +7,22 @@ class TextComponent extends Component
 {
     public var text:String;
     var padding:Int;
+    var alignment:FlxTextAlign;
 
-    var flxText:FlxText;
+    public var flxText:FlxText;
 
-    public function new(text:String, padding:Int)
+    public function new(text:String, padding:Int, alignment:FlxTextAlign)
     {
         this.text = text;
         this.padding = padding;
+        this.alignment = alignment;
     }
 
     override public function start(gameObject:GameObject)
     {
         flxText = new FlxText(gameObject.position.x - 3 + padding, gameObject.position.y - 4 + padding);
         flxText.text = text;
+        flxText.alignment = alignment;
         gameObject.layer.add(flxText);
     }
 

@@ -3,6 +3,7 @@ package states;
 import components.OptionListComponent;
 import components.PanelComponent;
 import flixel.math.FlxPoint;
+import flixel.text.FlxText;
 import objects.InfoWindow;
 import objects.OptionWindow;
 
@@ -40,10 +41,10 @@ class MenuPauseState extends State
 
         var infoHeight = Main.TEXT_HEIGHT + InfoWindow.PADDING * 2;
 
-        var goldInfo = new InfoWindow(uiLayer, new FlxPoint(MENU_WIDTH, infoHeight), "0 G");
+        var goldInfo = new InfoWindow(uiLayer, new FlxPoint(MENU_WIDTH, infoHeight), GameState.gold + " G", FlxTextAlign.RIGHT);
         goldInfo.position = new FlxPoint(Main.SCREEN_WIDTH - MENU_WIDTH - 8, Main.SCREEN_HEIGHT - infoHeight - 8);
 
-        var timeInfo = new InfoWindow(uiLayer, new FlxPoint(MENU_WIDTH, infoHeight), "0:00:00");
+        var timeInfo = new InfoWindow(uiLayer, new FlxPoint(MENU_WIDTH, infoHeight), Util.displayTime(GameState.playTime), FlxTextAlign.RIGHT);
         timeInfo.position = new FlxPoint(8, Main.SCREEN_HEIGHT - infoHeight - 8);
 
         gameObjects.push(menu);

@@ -38,6 +38,8 @@ class MenuMainState extends State
 
     function optionNewGame()
     {
+        GameState.initialize();
+
         RootState.state.closeSubState();
         RootState.state.openSubState(new ExplorationState(LaboratoryMap, 10, 9));
     }
