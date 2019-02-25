@@ -11,15 +11,18 @@ import flixel.math.FlxPoint;
 **/
 class TextBox extends GameObject
 {
-    static inline var PADDING:Int = 4;
+    /**
+        Padding between the outer border of the panel and the text. The panel gets expanded, text starts at the position of the game object.
+    **/
+    public static inline var PADDING:Int = 8;
 
     public function new(layer:FlxTypedGroup<FlxObject>, size:FlxPoint, text:String, length:Int, callback:Void->Void)
     {
         super(layer);
 
-        var panel = new PanelComponent(PADDING);
+        var panel = new PanelComponent();
         panel.size = size;
         addComponent(panel);
-        addComponent(new DynamicTextComponent(text, length, callback));
+        addComponent(new DynamicTextComponent(text, length, PADDING, callback));
     }
 }

@@ -32,6 +32,8 @@ class Option
 **/
 class OptionListComponent extends Component
 {
+    public static inline var LINE_HEIGHT:Int = 13;
+
     /**
         The list of options to choose from.
     **/
@@ -50,15 +52,15 @@ class OptionListComponent extends Component
     override public function start(gameObject:GameObject)
     {
         var panelWidth = cast(gameObject.getComponent(PanelComponent), PanelComponent).size.x;
-        var selectionSize = new Rectangle(0, 0, panelWidth, 27);
+        var selectionSize = new Rectangle(0, 0, panelWidth, 20 + Main.TEXT_HEIGHT);
         var slicePoints = [8, 8, 16, 16];
         selectionSprite = new FlxUI9SliceSprite(gameObject.position.x, gameObject.position.y, AssetPaths.tileset_selection__png, selectionSize, slicePoints);
         gameObject.layer.add(selectionSprite);
 
         for (i in 0...options.length)
         {
-            var x = gameObject.position.x + 8;
-            var y = gameObject.position.y + 7 + i * 14;
+            var x = gameObject.position.x + 7;
+            var y = gameObject.position.y + 6 + i * LINE_HEIGHT;
             var text = new FlxText(x, y, 0, options[i].text);
             gameObject.layer.add(text);
         }
@@ -85,7 +87,7 @@ class OptionListComponent extends Component
         if (indexChanged)
         {
             FlxG.sound.play(AssetPaths.cursor__wav);
-            selectionSprite.y = gameObject.position.y + index * 14;
+            selectionSprite.y = gameObject.position.y + index * LINE_HEIGHT;
         }
     }
 

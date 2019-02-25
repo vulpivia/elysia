@@ -24,7 +24,7 @@ class MenuMainState extends State
         mainMenu.position = new FlxPoint(96, 144);
 
         var mainMenuPanel = cast(mainMenu.getComponent(PanelComponent), PanelComponent);
-        mainMenuPanel.size = new FlxPoint(128, 55);
+        mainMenuPanel.size = new FlxPoint(128, OptionListComponent.LINE_HEIGHT * 3 + 14);
 
         var mainMenuOption = cast(mainMenu.getComponent(OptionListComponent), OptionListComponent);
         mainMenuOption.options.push(new Option("New Game", optionNewGame));

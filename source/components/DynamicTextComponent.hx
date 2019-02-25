@@ -19,19 +19,22 @@ class DynamicTextComponent extends Component
     var flxText:FlxText;
     var gameObject:GameObject;
     var length:Int;
+    var padding:Int;
     var timer:Int;
 
-    public function new(text:String, length:Int, callback:Void->Void)
+    public function new(text:String, length:Int, padding:Int, callback:Void->Void)
     {
         this.text = text;
         this.length = length;
+        this.padding = padding;
         this.callback = callback;
     }
 
     override public function start(gameObject:GameObject)
     {
-        flxText = new FlxText(gameObject.position.x, gameObject.position.y);
-        flxText.fieldWidth = length;
+        flxText = new FlxText(gameObject.position.x - 3 + padding, gameObject.position.y - 4 + padding);
+        // TODO: Check if field width is correct (hint: it probably isn't)
+        flxText.fieldWidth = length - padding * 2;
 
         gameObject.layer.add(flxText);
 

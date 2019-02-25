@@ -30,6 +30,19 @@ class Main extends Sprite
     public static inline var TILE_SIZE:Int = 16;
 
     /**
+        The height of text.
+    **/
+    public static inline var TEXT_HEIGHT:Int = 7;
+    /**
+        Distance from one line of text to the next.
+    **/
+    public static inline var LINE_HEIGHT:Int = 10;
+    /**
+        Margin that gets added around text.
+    **/
+    public static inline var TEXT_MARGIN:Int = 2;
+
+    /**
         Creates the game.
 	**/
     public function new()

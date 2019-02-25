@@ -11,6 +11,8 @@ import states.State;
 **/
 class ShowTextCommand extends Command
 {
+    static inline var WIDTH = 128;
+
     var characterName:String;
     var text:String;
 
@@ -34,8 +36,8 @@ class ShowTextCommand extends Command
         if (characterName == null)
         {
             // Show textbox
-            var textBox = new TextBox(State.stack.first().uiLayer, new FlxPoint(128, 36), text, 128, callback);
-            textBox.position = new FlxPoint(Main.SCREEN_WIDTH - 140, 12);
+            var textBox = new TextBox(State.stack.first().uiLayer, new FlxPoint(WIDTH, Main.TEXT_HEIGHT + Main.LINE_HEIGHT * 2 + TextBox.PADDING * 2), text, WIDTH, callback);
+            textBox.position = new FlxPoint(Main.SCREEN_WIDTH - WIDTH - 8, 8);
 
             State.stack.first().gameObjects.push(textBox);
             textBox.start();
@@ -43,9 +45,9 @@ class ShowTextCommand extends Command
         else
         {
             // Show bubble
-            var textBubble = new TextBubble(State.stack.first().uiLayer, new FlxPoint(128, 26), text, 128, callback);
+            var textBubble = new TextBubble(State.stack.first().uiLayer, new FlxPoint(WIDTH, Main.TEXT_HEIGHT + Main.LINE_HEIGHT + TextBubble.PADDING * 2), text, WIDTH, callback);
             var character = State.stack.first().findObject(characterName);
-            textBubble.position = new FlxPoint(character.position.x - 56, character.position.y - 44);
+            textBubble.position = new FlxPoint(character.position.x + (Main.TILE_SIZE / 2) - 64, character.position.y - 40);
 
             State.stack.first().gameObjects.push(textBubble);
             textBubble.start();

@@ -11,15 +11,15 @@ import flixel.math.FlxPoint;
 **/
 class TextBubble extends GameObject
 {
-    static inline var PADDING:Int = 4;
+    public static inline var PADDING:Int = 6;
 
     public function new(layer:FlxTypedGroup<FlxObject>, size:FlxPoint, text:String, length:Int, callback:Void->Void)
     {
         super(layer);
 
-        var bubble = new BubbleComponent(PADDING);
+        var bubble = new BubbleComponent();
         bubble.size = size;
         addComponent(bubble);
-        addComponent(new DynamicTextComponent(text, length, callback));
+        addComponent(new DynamicTextComponent(text, length, PADDING, callback));
     }
 }
