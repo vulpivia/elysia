@@ -54,13 +54,13 @@ class OptionListComponent extends Component
         var panelWidth = cast(gameObject.getComponent(PanelComponent), PanelComponent).size.x;
         var selectionSize = new Rectangle(0, 0, panelWidth, 20 + Main.TEXT_HEIGHT);
         var slicePoints = [8, 8, 16, 16];
-        selectionSprite = new FlxUI9SliceSprite(gameObject.position.x, gameObject.position.y, AssetPaths.tileset_selection__png, selectionSize, slicePoints);
+        selectionSprite = new FlxUI9SliceSprite(gameObject.position.x + FlxG.camera.scroll.x, gameObject.position.y + FlxG.camera.scroll.y, AssetPaths.tileset_selection__png, selectionSize, slicePoints);
         gameObject.layer.add(selectionSprite);
 
         for (i in 0...options.length)
         {
-            var x = gameObject.position.x + 7;
-            var y = gameObject.position.y + 6 + i * LINE_HEIGHT;
+            var x = gameObject.position.x + 7 + FlxG.camera.scroll.x;
+            var y = gameObject.position.y + 6 + i * LINE_HEIGHT + FlxG.camera.scroll.y;
             var text = new FlxText(x, y, 0, options[i].text);
             gameObject.layer.add(text);
         }
@@ -87,7 +87,7 @@ class OptionListComponent extends Component
         if (indexChanged)
         {
             FlxG.sound.play(AssetPaths.cursor__wav);
-            selectionSprite.y = gameObject.position.y + index * LINE_HEIGHT;
+            selectionSprite.y = gameObject.position.y + index * LINE_HEIGHT + FlxG.camera.scroll.y;
         }
     }
 
