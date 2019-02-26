@@ -14,7 +14,7 @@ class CharacterRendererComponent extends Component
     **/
     public var idle(null, set):Bool;
 
-    var sprite:FlxSprite;
+    public var sprite:FlxSprite;
     var animation:FlxAnimationController;
     var gameObject:GameObject;
 

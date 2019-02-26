@@ -1,6 +1,8 @@
 package states;
 
+import components.CharacterRendererComponent;
 import components.MapRendererComponent;
+import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
 import maps.Map;
@@ -54,5 +56,8 @@ class ExplorationState extends State
         gameObjects.push(player);
 
         start();
+
+        var playerSprite = cast(player.getComponent(CharacterRendererComponent), CharacterRendererComponent).sprite;
+        FlxG.camera.follow(playerSprite, FlxCameraFollowStyle.TOPDOWN);
     }
 }
