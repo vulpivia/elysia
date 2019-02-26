@@ -20,6 +20,6 @@ class IntroEvent extends Event
         queue.insert(new ShowTextCommand("Joshua Collier", "2..."));
         queue.insert(new ShowTextCommand("Joshua Collier", "1..."));
         queue.insert(new FadeCommand(FlxColor.WHITE, 2, false));
-        queue.insert(new TeleportCommand(PlainsStartMap, 11, 4));
+        queue.insert(new TeleportCommand(PlainsStartMap, 21, 4));
     }
 }
