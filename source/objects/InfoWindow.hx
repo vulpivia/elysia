@@ -7,8 +7,14 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 
+/**
+    Show a non-interactable window to display additional information.
+**/
 class InfoWindow extends GameObject
 {
+    /**
+        Padding between the window border and the text.
+    **/
     public static inline var PADDING:Int = 8;
 
     public function new(layer:FlxTypedGroup<FlxObject>, size:FlxPoint, text:String, alignment:FlxTextAlign = FlxTextAlign.LEFT)

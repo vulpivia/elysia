@@ -1,10 +1,12 @@
 package commands;
 
-import flixel.FlxG;
 import maps.Map;
 import states.ExplorationState;
 import states.RootState;
 
+/**
+    Teleports the player to a new map.
+**/
 class TeleportCommand extends Command
 {
     var mapType:Class<Map>;

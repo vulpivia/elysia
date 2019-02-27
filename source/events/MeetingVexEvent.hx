@@ -3,6 +3,9 @@ package events;
 import commands.ShowTextCommand;
 import commands.CommandQueue;
 
+/**
+    Gets executed when the player first meets Vex.
+**/
 class MeetingVexEvent extends Event
 {
     public function new()

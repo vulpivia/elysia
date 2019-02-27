@@ -55,17 +55,27 @@ class MenuPauseState extends State
     }
 
     function optionInventory()
-    {}
+    {
+        // TODO
+    }
 
     function optionEquipment()
-    {}
+    {
+        // TODO
+    }
 
     function optionStatus()
-    {}
+    {
+        // TODO
+    }
 
     function optionSave()
-    {}
+    {
+        // TODO
+    }
 
     function optionQuit()
-    {}
+    {
+        // TODO
+    }
 }

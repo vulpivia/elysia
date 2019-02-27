@@ -4,12 +4,21 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import objects.GameObject;
 
+/**
+    Show text on the screen.
+**/
 class TextComponent extends Component
 {
+    /**
+        The text that should be rendered.
+    **/
     public var text:String;
     var padding:Int;
     var alignment:FlxTextAlign;
 
+    /**
+        The text object.
+    **/
     public var flxText:FlxText;
 
     public function new(text:String, padding:Int, alignment:FlxTextAlign)

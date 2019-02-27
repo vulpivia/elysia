@@ -20,7 +20,7 @@ class GameObject
     /**
         A flag that activates or deactivates the game object. An inactive game object doesn't update.
     **/
-    public var active:Bool = true;
+    public var active:Bool;
     /**
         The position of the game object (in pixels).
     **/
@@ -37,11 +37,15 @@ class GameObject
     public var onStart:Event;
 
     var components:Array<Component>;
-    var started:Bool = false;
-    var firstUpdate:Bool = true;
+    var started:Bool;
+    var firstUpdate:Bool;
 
     public function new(layer:FlxTypedGroup<FlxObject>)
     {
+        active = true;
+        started = false;
+        firstUpdate = true;
+
         position = new FlxPoint(0, 0);
 
         this.layer = layer;

@@ -9,11 +9,17 @@ import objects.GameObject;
 **/
 class CharacterRendererComponent extends Component
 {
+    static inline var SPRITE_WIDTH:Int = 24;
+    static inline var SPRITE_HEIGHT:Int = 32;
+
     /**
         If the character is currently moving or not.
     **/
     public var idle(null, set):Bool;
 
+    /**
+        The rendered sprite of the character.
+    **/
     public var sprite:FlxSprite;
     var animation:FlxAnimationController;
     var gameObject:GameObject;
@@ -59,8 +65,8 @@ class CharacterRendererComponent extends Component
     {
         this.gameObject = gameObject;
 
-        sprite = new FlxSprite(gameObject.position.x - 4, gameObject.position.y - 16);
-        sprite.loadGraphic(AssetPaths.character_knight__png, true, 24, 32);
+        sprite = new FlxSprite(gameObject.position.x - (SPRITE_WIDTH - Main.TILE_SIZE) / 2, gameObject.position.y + (Main.TILE_SIZE - SPRITE_HEIGHT));
+        sprite.loadGraphic(AssetPaths.character_knight__png, true, SPRITE_WIDTH, SPRITE_HEIGHT);
         animation = sprite.animation;
 
         animation.add("idle_up", [1], 0, true, false, false);
