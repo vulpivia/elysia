@@ -28,6 +28,10 @@ class Main extends Sprite
         The size of one tile.
     **/
     public static inline var TILE_SIZE:Int = 16;
+    /**
+        The size of one UI tile.
+    **/
+    public static inline var UI_TILE_SIZE:Int = 8;
 
     /**
         The height of text.

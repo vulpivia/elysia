@@ -32,12 +32,18 @@ class Option
 **/
 class OptionListComponent extends Component
 {
+    /**
+        The height of a single option element.
+    **/
     public static inline var LINE_HEIGHT:Int = 13;
 
     /**
         The list of options to choose from.
     **/
     public var options:Array<Option>;
+    /**
+        The function that is called when the player presses Escape while in the option list.
+    **/
     public var cancel:Void->Void;
 
     var gameObject:GameObject;
