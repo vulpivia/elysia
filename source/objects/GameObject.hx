@@ -35,6 +35,10 @@ class GameObject
         This event gets called when the game object is loaded.
     **/
     public var onStart:Event;
+    /**
+        This event gets called when the player enters the tile that this game object is located at.
+    **/
+    public var onEnter:Event;
 
     var components:Array<Component>;
     var started:Bool;
