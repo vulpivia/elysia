@@ -22,6 +22,10 @@ class PlainsStartMap extends Map
         missionOneEvent.name = "Mission One";
         missionOneEvent.onStart = new MissionOneEvent();
 
+        // 34, 10
+        // 34, 11
+        // 34, 12
+
         gameObjects.push(missionOneEvent);
     }
 }
