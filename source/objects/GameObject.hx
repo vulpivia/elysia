@@ -5,6 +5,7 @@ import events.Event;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
+import states.ExplorationState;
 import states.State;
 
 /**
@@ -43,12 +44,14 @@ class GameObject
     var components:Array<Component>;
     var started:Bool;
     var firstUpdate:Bool;
+    var playerOnTile:Bool;
 
     public function new(layer:FlxTypedGroup<FlxObject>)
     {
         active = true;
         started = false;
         firstUpdate = true;
+        playerOnTile = false;
 
         position = new FlxPoint(0, 0);
 
@@ -87,6 +90,26 @@ class GameObject
         if (!active)
         {
             return;
+        }
+
+        // Check for player
+        var state = State.stack.first();
+        if (onEnter != null && Std.is(state, ExplorationState))
+        {
+            var player = cast(State.stack.first(), ExplorationState).player;
+            if (!playerOnTile && player.position.equals(position))
+            {
+                trace("Enter");
+                // Player moved onto same tile
+                playerOnTile = true;
+                onEnter.run();
+            }
+            else if (playerOnTile && !player.position.equals(position))
+            {
+                trace("Leave");
+                // Player left same tile
+                playerOnTile = false;
+            }
         }
 
         // Skip update call on same frame as start

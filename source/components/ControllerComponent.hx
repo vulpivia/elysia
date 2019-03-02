@@ -22,8 +22,10 @@ class ControllerComponent extends Component
 {
     var characterRenderer:CharacterRendererComponent;
 
-    var direction:Direction;
+    public var direction:Direction;
     var position:FlxPoint;
+
+    var callback:Void->Void;
 
     public function new()
     {}
@@ -84,8 +86,15 @@ class ControllerComponent extends Component
         return xOffset == 0 && yOffset == 0;
     }
 
-    function startMovement()
+    /**
+        Start to move in the current direction.
+
+        @param callback An optional function that gets executed when the movement is completed.
+    **/
+    public function startMovement(callback:Void->Void = null)
     {
+        this.callback = callback;
+
         switch (direction)
         {
             case Direction.None: stopMovement();
@@ -147,5 +156,11 @@ class ControllerComponent extends Component
     function stopMovement()
     {
         characterRenderer.idle = true;
+
+        if (callback != null)
+        {
+            callback();
+            callback = null;
+        }
     }
 }
