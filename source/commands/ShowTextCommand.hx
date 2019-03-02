@@ -30,7 +30,8 @@ class ShowTextCommand extends Command
         this.text = text;
     }
 
-    override public function execute(callback:Void->Void) {
+    override public function execute(callback:Void->Void)
+    {
         super.execute(callback);
 
         if (characterName == null)

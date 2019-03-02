@@ -23,7 +23,7 @@ class PlainsStartMap extends Map
         // Initialize character: Vex
         var vex = new NPC(spriteLayer);
         vex.name = "Vex";
-        vex.position = new FlxPoint(43 * Main.TILE_SIZE, 5 * Main.TILE_SIZE);
+        vex.position = new FlxPoint(43 * Main.TILE_SIZE, 10 * Main.TILE_SIZE);
 
         // Initialize mission one event
         var missionOneEvent = new GameObject(spriteLayer);
