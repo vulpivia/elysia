@@ -45,6 +45,18 @@ class ControllerComponent extends Component
         position = gameObject.position;
     }
 
+    override public function update()
+    {
+        if (onGrid(position))
+        {
+            stopMovement();
+        }
+        else
+        {
+            continueMovement();
+        }
+    }
+
     function continueMovement()
     {
         switch (direction)

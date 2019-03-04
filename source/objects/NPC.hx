@@ -1,6 +1,7 @@
 package objects;
 
 import components.CharacterRendererComponent;
+import components.ControllerComponent;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
@@ -14,5 +15,6 @@ class NPC extends GameObject
         super(layer);
 
         addComponent(new CharacterRendererComponent());
+        addComponent(new ControllerComponent());
     }
 }
