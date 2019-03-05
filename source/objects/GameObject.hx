@@ -1,5 +1,6 @@
 package objects;
 
+import components.CharacterRendererComponent;
 import components.Component;
 import events.Event;
 import flixel.FlxObject;
@@ -99,14 +100,19 @@ class GameObject
             var player = cast(State.stack.first(), ExplorationState).player;
             if (!playerOnTile && player.position.equals(position))
             {
-                trace("Enter");
                 // Player moved onto same tile
+
+                // Stop player movement
+                var playerRenderer = cast(player.getComponent(CharacterRendererComponent), CharacterRendererComponent);
+                playerRenderer.idle = true;
+                player.update();
+                playerRenderer.idle = true;
+
                 playerOnTile = true;
                 onEnter.run();
             }
             else if (playerOnTile && !player.position.equals(position))
             {
-                trace("Leave");
                 // Player left same tile
                 playerOnTile = false;
             }
