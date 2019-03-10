@@ -14,7 +14,10 @@ class MeetingVexEvent extends Event
     {
         queue = new CommandQueue();
         queue.insert(new ShowTextCommand(null, "Hey! Haven't seen you before..."));
-        queue.insert(new MoveCommand("Vex", Direction.Left));
+        for (i in 0...7)
+        {
+            queue.insert(new MoveCommand("Vex", Direction.Left));
+        }
         queue.insert(new ShowTextCommand("Vex", "Test"));
     }
 }

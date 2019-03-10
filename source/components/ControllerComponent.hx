@@ -171,8 +171,14 @@ class ControllerComponent extends Component
 
         if (callback != null)
         {
+            // Create copy to check if the callback was changed (by the next event)
+            var callbackTemp = Reflect.copy(callback);
             callback();
-            callback = null;
+            // Only reset if the callback isn't used by the next event
+            if (callback == callbackTemp)
+            {
+                callback = null;
+            }
         }
     }
 }
