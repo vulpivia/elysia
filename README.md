@@ -1,7 +1,7 @@
 # Elysia
 
 [![Build Status](https://travis-ci.com/Acid147/elysia.svg?branch=master)](https://travis-ci.com/Acid147/elysia)
-[![Issue Count](https://codeclimate.com/github/Acid147/elysia/badges/issue_count.svg)](https://codeclimate.com/github/Acid147/elysia)
+[![Issue Count](https://img.shields.io/codeclimate/issues/Acid147/elysia.svg)](https://codeclimate.com/github/Acid147/elysia)
 
 **Elysia** is a single-player 2D tactical RPG.
 
