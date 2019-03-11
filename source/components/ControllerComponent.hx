@@ -23,12 +23,15 @@ class ControllerComponent extends Component
     var characterRenderer:CharacterRendererComponent;
 
     public var direction:Direction;
+    public var stepCount:Int;
     var position:FlxPoint;
 
     var callback:Void->Void;
 
     public function new()
-    {}
+    {
+        stepCount = 1;
+    }
 
     /**
         Get required components and set variables.
@@ -49,6 +52,12 @@ class ControllerComponent extends Component
     {
         if (onGrid(position))
         {
+            if (stepCount > 1)
+            {
+                stepCount--;
+                continueMovement();
+                return;
+            }
             stopMovement();
         }
         else
