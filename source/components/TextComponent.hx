@@ -30,7 +30,7 @@ class TextComponent extends Component
 
     override public function start(gameObject:GameObject)
     {
-        flxText = new FlxText(gameObject.position.x - 3 + FlxG.camera.scroll.x + padding, gameObject.position.y - 4 + padding  + FlxG.camera.scroll.y);
+        flxText = new FlxText(gameObject.position.x - 3 + padding, gameObject.position.y - 4 + padding);
         flxText.text = text;
         flxText.alignment = alignment;
         gameObject.layer.add(flxText);

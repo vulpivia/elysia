@@ -32,7 +32,7 @@ class DynamicTextComponent extends Component
 
     override public function start(gameObject:GameObject)
     {
-        flxText = new FlxText(gameObject.position.x - 3 + padding + FlxG.camera.scroll.x, gameObject.position.y - 4 + padding + FlxG.camera.scroll.y);
+        flxText = new FlxText(gameObject.position.x - 3 + padding, gameObject.position.y - 4 + padding);
         // TODO: Check if field width is correct (hint: it probably isn't)
         flxText.fieldWidth = length - padding * 2;
 

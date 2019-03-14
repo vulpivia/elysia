@@ -2,6 +2,7 @@ package objects;
 
 import components.PanelComponent;
 import components.TextComponent;
+import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
@@ -25,5 +26,12 @@ class InfoWindow extends GameObject
         panel.size = size;
         addComponent(panel);
         addComponent(new TextComponent(text, PADDING, alignment));
+    }
+
+    override public function start()
+    {
+        position.x += FlxG.camera.scroll.x;
+        position.y += FlxG.camera.scroll.y;
+        super.start();
     }
 }

@@ -2,6 +2,7 @@ package objects;
 
 import components.DynamicTextComponent;
 import components.PanelComponent;
+import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
@@ -24,5 +25,12 @@ class TextBox extends GameObject
         panel.size = size;
         addComponent(panel);
         addComponent(new DynamicTextComponent(text, length, PADDING, callback));
+    }
+
+    override public function start()
+    {
+        position.x += FlxG.camera.scroll.x;
+        position.y += FlxG.camera.scroll.y;
+        super.start();
     }
 }

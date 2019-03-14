@@ -2,6 +2,7 @@ package objects;
 
 import components.OptionListComponent;
 import components.PanelComponent;
+import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
@@ -16,5 +17,12 @@ class OptionWindow extends GameObject
 
         addComponent(new PanelComponent());
         addComponent(new OptionListComponent());
+    }
+
+    override public function start()
+    {
+        position.x += FlxG.camera.scroll.x;
+        position.y += FlxG.camera.scroll.y;
+        super.start();
     }
 }
