@@ -1,6 +1,5 @@
 package components;
 
-import flixel.FlxG;
 import flixel.text.FlxText;
 import objects.GameObject;
 

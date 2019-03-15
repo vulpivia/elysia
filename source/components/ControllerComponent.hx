@@ -22,7 +22,13 @@ class ControllerComponent extends Component
 {
     var characterRenderer:CharacterRendererComponent;
 
+    /**
+        The current direction that the character is facing.
+    **/
     public var direction:Direction;
+    /**
+        Number of steps until current movement is finished.
+    **/
     public var stepCount:Int;
     var position:FlxPoint;
 

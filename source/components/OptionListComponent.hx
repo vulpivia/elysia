@@ -59,7 +59,7 @@ class OptionListComponent extends Component
     {
         var panelWidth = cast(gameObject.getComponent(PanelComponent), PanelComponent).size.x;
         var selectionSize = new Rectangle(0, 0, panelWidth, 20 + Main.TEXT_HEIGHT);
-        var slicePoints = [8, 8, 16, 16];
+        var slicePoints = [Main.UI_TILE_SIZE, Main.UI_TILE_SIZE, Main.UI_TILE_SIZE * 2, Main.UI_TILE_SIZE * 2];
         selectionSprite = new FlxUI9SliceSprite(gameObject.position.x, gameObject.position.y, AssetPaths.tileset_selection__png, selectionSize, slicePoints);
         gameObject.layer.add(selectionSprite);
 

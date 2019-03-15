@@ -628,6 +628,7 @@
         "version": 1,
         "path": "RELATIVE_TO_SOURCE",
         "MagicNumber": [
+            "events",
             "maps"
         ]
     }

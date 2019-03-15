@@ -1,7 +1,6 @@
 package commands;
 
 import flixel.math.FlxPoint;
-import objects.GameObject;
 import objects.TextBox;
 import objects.TextBubble;
 import states.State;
@@ -11,7 +10,7 @@ import states.State;
 **/
 class ShowTextCommand extends Command
 {
-    static inline var WIDTH = 128;
+    static inline var WIDTH:Int = 128;
 
     var characterName:String;
     var text:String;

@@ -3,6 +3,9 @@ package commands;
 import states.State;
 import components.ControllerComponent;
 
+/**
+    Moves a character by a specific number of tiles into the specified direction.
+**/
 class MoveCommand extends Command
 {
     var characterName:String;
