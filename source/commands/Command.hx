@@ -2,27 +2,23 @@ package commands;
 
 import states.State;
 
-class Command implements IExecutable
-{
-    var callback:Void->Void;
-    var executing:Bool;
+class Command implements IExecutable {
+	var callback:Void->Void;
+	var executing:Bool;
 
-    var state:State;
+	var state:State;
 
-    public function new()
-    {
-        executing = false;
-    }
+	public function new() {
+		executing = false;
+	}
 
-    public function execute(callback:Void->Void)
-    {
-        this.callback = callback;
-        executing = true;
-    }
+	public function execute(callback:Void->Void) {
+		this.callback = callback;
+		executing = true;
+	}
 
-    function finish()
-    {
-        executing = false;
-        callback();
-    }
+	function finish() {
+		executing = false;
+		callback();
+	}
 }

@@ -9,29 +9,26 @@ import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 
 /**
-    Show a non-interactable window to display additional information.
+	Show a non-interactable window to display additional information.
 **/
-class InfoWindow extends GameObject
-{
-    /**
-        Padding between the window border and the text.
-    **/
-    public static inline var PADDING:Int = 8;
+class InfoWindow extends GameObject {
+	/**
+		Padding between the window border and the text.
+	**/
+	public static inline var PADDING:Int = 8;
 
-    public function new(layer:FlxTypedGroup<FlxObject>, size:FlxPoint, text:String, alignment:FlxTextAlign = FlxTextAlign.LEFT)
-    {
-        super(layer);
+	public function new(layer:FlxTypedGroup<FlxObject>, size:FlxPoint, text:String, alignment:FlxTextAlign = FlxTextAlign.LEFT) {
+		super(layer);
 
-        var panel = new PanelComponent();
-        panel.size = size;
-        addComponent(panel);
-        addComponent(new TextComponent(text, PADDING, alignment));
-    }
+		var panel = new PanelComponent();
+		panel.size = size;
+		addComponent(panel);
+		addComponent(new TextComponent(text, PADDING, alignment));
+	}
 
-    override public function start()
-    {
-        position.x += FlxG.camera.scroll.x;
-        position.y += FlxG.camera.scroll.y;
-        super.start();
-    }
+	override public function start() {
+		position.x += FlxG.camera.scroll.x;
+		position.y += FlxG.camera.scroll.y;
+		super.start();
+	}
 }

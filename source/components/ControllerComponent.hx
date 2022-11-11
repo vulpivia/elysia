@@ -4,196 +4,178 @@ import flixel.math.FlxPoint;
 import objects.GameObject;
 
 /**
-    Possible directions that a character can face.
+	Possible directions that a character can face.
 **/
-enum Direction
-{
-    None;
-    Up;
-    Left;
-    Down;
-    Right;
+enum Direction {
+	None;
+	Up;
+	Left;
+	Down;
+	Right;
 }
 
 /**
-    This component handles character movement on a grid.
+	This component handles character movement on a grid.
 **/
-class ControllerComponent extends Component
-{
-    var characterRenderer:CharacterRendererComponent;
+class ControllerComponent extends Component {
+	var characterRenderer:CharacterRendererComponent;
 
-    /**
-        The current direction that the character is facing.
-    **/
-    public var direction:Direction;
-    /**
-        Number of steps until current movement is finished.
-    **/
-    public var stepCount:Int;
-    var position:FlxPoint;
+	/**
+		The current direction that the character is facing.
+	**/
+	public var direction:Direction;
 
-    var callback:Void->Void;
+	/**
+		Number of steps until current movement is finished.
+	**/
+	public var stepCount:Int;
 
-    public function new()
-    {
-        stepCount = 1;
-    }
+	var position:FlxPoint;
 
-    /**
-        Get required components and set variables.
+	var callback:Void->Void;
 
-        @param gameObject The game object this component belongs to.
-    **/
-    override public function start(gameObject:GameObject)
-    {
-        // Get required components
-        characterRenderer = cast(gameObject.getComponent(CharacterRendererComponent), CharacterRendererComponent);
+	public function new() {
+		stepCount = 1;
+	}
 
-        // Set variables
-        direction = Direction.None;
-        position = gameObject.position;
-    }
+	/**
+		Get required components and set variables.
 
-    override public function update()
-    {
-        if (onGrid(position))
-        {
-            if (stepCount > 1)
-            {
-                stepCount--;
-                continueMovement();
-                return;
-            }
-            stopMovement();
-        }
-        else
-        {
-            continueMovement();
-        }
-    }
+		@param gameObject The game object this component belongs to.
+	**/
+	override public function start(gameObject:GameObject) {
+		// Get required components
+		characterRenderer = cast(gameObject.getComponent(CharacterRendererComponent), CharacterRendererComponent);
 
-    function continueMovement()
-    {
-        switch (direction)
-        {
-            case Direction.None: return;
-            case Direction.Up: position.y--;
-            case Direction.Left: position.x--;
-            case Direction.Down: position.y++;
-            case Direction.Right: position.x++;
-        }
-    }
+		// Set variables
+		direction = Direction.None;
+		position = gameObject.position;
+	}
 
-    function getDirection(up:Bool, left:Bool, down:Bool, right:Bool):Direction
-    {
-        if (up && !down)
-        {
-            return Direction.Up;
-        }
-        if (down && !up)
-        {
-            return Direction.Down;
-        }
-        if (left && !right)
-        {
-            return Direction.Left;
-        }
-        if (right && !left)
-        {
-            return Direction.Right;
-        }
+	override public function update() {
+		if (onGrid(position)) {
+			if (stepCount > 1) {
+				stepCount--;
+				continueMovement();
+				return;
+			}
+			stopMovement();
+		} else {
+			continueMovement();
+		}
+	}
 
-        return Direction.None;
-    }
+	function continueMovement() {
+		switch (direction) {
+			case Direction.None:
+				return;
+			case Direction.Up:
+				position.y--;
+			case Direction.Left:
+				position.x--;
+			case Direction.Down:
+				position.y++;
+			case Direction.Right:
+				position.x++;
+		}
+	}
 
-    function onGrid(position:FlxPoint):Bool
-    {
-        var xOffset = position.x % Main.TILE_SIZE;
-        var yOffset = position.y % Main.TILE_SIZE;
-        return xOffset == 0 && yOffset == 0;
-    }
+	function getDirection(up:Bool, left:Bool, down:Bool, right:Bool):Direction {
+		if (up && !down) {
+			return Direction.Up;
+		}
+		if (down && !up) {
+			return Direction.Down;
+		}
+		if (left && !right) {
+			return Direction.Left;
+		}
+		if (right && !left) {
+			return Direction.Right;
+		}
 
-    /**
-        Start to move in the current direction.
+		return Direction.None;
+	}
 
-        @param callback An optional function that gets executed when the movement is completed.
-    **/
-    public function startMovement(callback:Void->Void = null)
-    {
-        this.callback = callback;
+	function onGrid(position:FlxPoint):Bool {
+		var xOffset = position.x % Main.TILE_SIZE;
+		var yOffset = position.y % Main.TILE_SIZE;
+		return xOffset == 0 && yOffset == 0;
+	}
 
-        switch (direction)
-        {
-            case Direction.None: stopMovement();
-            case Direction.Up: startUpMovement();
-            case Direction.Left: startLeftMovement();
-            case Direction.Down: startDownMovement();
-            case Direction.Right: startRightMovement();
-        }
-    }
+	/**
+		Start to move in the current direction.
 
-    function startUpMovement()
-    {
-        characterRenderer.faceUp();
+		@param callback An optional function that gets executed when the movement is completed.
+	**/
+	public function startMovement(callback:Void->Void = null) {
+		this.callback = callback;
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y - Main.TILE_SIZE)))
-        {
-            return;
-        }
-        characterRenderer.idle = false;
-        position.y--;
-    }
+		switch (direction) {
+			case Direction.None:
+				stopMovement();
+			case Direction.Up:
+				startUpMovement();
+			case Direction.Left:
+				startLeftMovement();
+			case Direction.Down:
+				startDownMovement();
+			case Direction.Right:
+				startRightMovement();
+		}
+	}
 
-    function startLeftMovement()
-    {
-        characterRenderer.faceLeft();
+	function startUpMovement() {
+		characterRenderer.faceUp();
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x - Main.TILE_SIZE, position.y)))
-        {
-            return;
-        }
-        characterRenderer.idle = false;
-        position.x--;
-    }
+		if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y - Main.TILE_SIZE))) {
+			return;
+		}
+		characterRenderer.idle = false;
+		position.y--;
+	}
 
-    function startDownMovement()
-    {
-        characterRenderer.faceDown();
+	function startLeftMovement() {
+		characterRenderer.faceLeft();
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y + Main.TILE_SIZE)))
-        {
-            return;
-        }
-        characterRenderer.idle = false;
-        position.y++;
-    }
+		if (CollisionManager.isBlocked(new FlxPoint(position.x - Main.TILE_SIZE, position.y))) {
+			return;
+		}
+		characterRenderer.idle = false;
+		position.x--;
+	}
 
-    function startRightMovement()
-    {
-        characterRenderer.faceRight();
+	function startDownMovement() {
+		characterRenderer.faceDown();
 
-        if (CollisionManager.isBlocked(new FlxPoint(position.x + Main.TILE_SIZE, position.y)))
-        {
-            return;
-        }
-        characterRenderer.idle = false;
-        position.x++;
-    }
+		if (CollisionManager.isBlocked(new FlxPoint(position.x, position.y + Main.TILE_SIZE))) {
+			return;
+		}
+		characterRenderer.idle = false;
+		position.y++;
+	}
 
-    function stopMovement()
-    {
-        characterRenderer.idle = true;
+	function startRightMovement() {
+		characterRenderer.faceRight();
 
-        if (callback != null)
-        {
-            // Create copy to check if the callback was changed (by the next event)
-            var callbackTemp = Reflect.copy(callback);
-            callback();
-            // Only reset if the callback isn't used by the next event
-            if (callback == callbackTemp)
-            {
-                callback = null;
-            }
-        }
-    }
+		if (CollisionManager.isBlocked(new FlxPoint(position.x + Main.TILE_SIZE, position.y))) {
+			return;
+		}
+		characterRenderer.idle = false;
+		position.x++;
+	}
+
+	function stopMovement() {
+		characterRenderer.idle = true;
+
+		if (callback != null) {
+			// Create copy to check if the callback was changed (by the next event)
+			var callbackTemp = Reflect.copy(callback);
+			callback();
+			// Only reset if the callback isn't used by the next event
+			if (callback == callbackTemp) {
+				callback = null;
+			}
+		}
+	}
 }

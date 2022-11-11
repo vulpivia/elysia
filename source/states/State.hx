@@ -8,113 +8,101 @@ import haxe.ds.GenericStack;
 import objects.GameObject;
 
 /**
-    The base class for game states.
+	The base class for game states.
 **/
-class State extends FlxSubState
-{
-    /**
-        A stack containing all loaded game states. The active state is the first state in the stack.
-    **/
-    public static var stack:GenericStack<State> = new GenericStack<State>();
+class State extends FlxSubState {
+	/**
+		A stack containing all loaded game states. The active state is the first state in the stack.
+	**/
+	public static var stack:GenericStack<State> = new GenericStack<State>();
 
-    /**
-        A list of all game objects contained in this state.
-    **/
-    public var gameObjects:Array<GameObject>;
+	/**
+		A list of all game objects contained in this state.
+	**/
+	public var gameObjects:Array<GameObject>;
 
-    var backgroundLayer:FlxTypedGroup<FlxObject>;
-    var foregroundLayer:FlxTypedGroup<FlxObject>;
-    var spriteLayer:FlxTypedGroup<FlxObject>;
-    /**
-        The layer that is used by UI components (menus etc.).
-    **/
-    public var uiLayer:FlxTypedGroup<FlxObject>;
+	var backgroundLayer:FlxTypedGroup<FlxObject>;
+	var foregroundLayer:FlxTypedGroup<FlxObject>;
+	var spriteLayer:FlxTypedGroup<FlxObject>;
 
-    var created:Bool;
+	/**
+		The layer that is used by UI components (menus etc.).
+	**/
+	public var uiLayer:FlxTypedGroup<FlxObject>;
 
-    public function new()
-    {
-        super();
+	var created:Bool;
 
-        stack.add(this);
+	public function new() {
+		super();
 
-        gameObjects = [];
+		stack.add(this);
 
-        backgroundLayer = new FlxTypedGroup<FlxObject>();
-        foregroundLayer = new FlxTypedGroup<FlxObject>();
-        spriteLayer = new FlxTypedGroup<FlxObject>();
-        uiLayer = new FlxTypedGroup<FlxObject>();
+		gameObjects = [];
 
-        created = false;
-    }
+		backgroundLayer = new FlxTypedGroup<FlxObject>();
+		foregroundLayer = new FlxTypedGroup<FlxObject>();
+		spriteLayer = new FlxTypedGroup<FlxObject>();
+		uiLayer = new FlxTypedGroup<FlxObject>();
 
-    override public function create()
-    {
-        if (created)
-        {
-            return;
-        }
+		created = false;
+	}
 
-        add(backgroundLayer);
-        add(spriteLayer);
-        add(foregroundLayer);
-        add(uiLayer);
+	override public function create() {
+		if (created) {
+			return;
+		}
 
-        created = true;
-    }
+		add(backgroundLayer);
+		add(spriteLayer);
+		add(foregroundLayer);
+		add(uiLayer);
 
-    override public function update(elapsed:Float)
-    {
-        super.update(elapsed);
+		created = true;
+	}
 
-        for (gameObject in gameObjects)
-        {
-            gameObject.update();
-        }
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
 
-        spriteLayer.sort(FlxSort.byY);
-    }
+		for (gameObject in gameObjects) {
+			gameObject.update();
+		}
 
-    override public function close()
-    {
-        super.close();
-        stack.pop();
-    }
+		spriteLayer.sort(FlxSort.byY);
+	}
 
-    /**
-        Find a game object by name.
+	override public function close() {
+		super.close();
+		stack.pop();
+	}
 
-        @param name Name of the game object that is searched for.
-        @return The found game object.
-    **/
-    public function findObject(name:String):GameObject
-    {
-        for (gameObject in gameObjects)
-        {
-            if (gameObject.name == name)
-            {
-                return gameObject;
-            }
-        }
+	/**
+		Find a game object by name.
 
-        throw "No game object with name \"" + name + "\" found";
-    }
+		@param name Name of the game object that is searched for.
+		@return The found game object.
+	**/
+	public function findObject(name:String):GameObject {
+		for (gameObject in gameObjects) {
+			if (gameObject.name == name) {
+				return gameObject;
+			}
+		}
 
-    /**
-        Remove a game object from the state.
+		throw "No game object with name \"" + name + "\" found";
+	}
 
-        @param object The game object that should be removed.
-    **/
-    public function removeObject(object:GameObject)
-    {
-        gameObjects.remove(object);
-    }
+	/**
+		Remove a game object from the state.
 
-    function start()
-    {
-        for (gameObject in gameObjects)
-        {
-            gameObject.start();
-        }
-    }
+		@param object The game object that should be removed.
+	**/
+	public function removeObject(object:GameObject) {
+		gameObjects.remove(object);
+	}
+
+	function start() {
+		for (gameObject in gameObjects) {
+			gameObject.start();
+		}
+	}
 }

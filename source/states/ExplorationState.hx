@@ -10,54 +10,51 @@ import objects.MapLayer;
 import objects.Player;
 
 /**
-    In this state, the player can walk around the map and interact with objects and NPCs.
+	In this state, the player can walk around the map and interact with objects and NPCs.
 **/
-class ExplorationState extends State
-{
-    /**
-        The player game object.
-    **/
-    public var player:Player;
+class ExplorationState extends State {
+	/**
+		The player game object.
+	**/
+	public var player:Player;
 
-    var mapType:Class<Map>;
+	var mapType:Class<Map>;
 
-    override public function new(mapType:Class<Map>, x:Int, y:Int)
-    {
-        super();
-        this.mapType = mapType;
+	override public function new(mapType:Class<Map>, x:Int, y:Int) {
+		super();
+		this.mapType = mapType;
 
-        player = new Player(spriteLayer);
-        player.name = "Player";
-        player.position = new FlxPoint(x * Main.TILE_SIZE, y * Main.TILE_SIZE);
-    }
+		player = new Player(spriteLayer);
+		player.name = "Player";
+		player.position = new FlxPoint(x * Main.TILE_SIZE, y * Main.TILE_SIZE);
+	}
 
-    override public function create()
-    {
-        super.create();
+	override public function create() {
+		super.create();
 
-        var map = Type.createInstance(mapType, [gameObjects, spriteLayer]);
+		var map = Type.createInstance(mapType, [gameObjects, spriteLayer]);
 
-        CollisionManager.initializeCollisionMap(map.collisionCSV);
+		CollisionManager.initializeCollisionMap(map.collisionCSV);
 
-        var mapBottom = new MapLayer(backgroundLayer);
-        var mapTop = new MapLayer(foregroundLayer);
+		var mapBottom = new MapLayer(backgroundLayer);
+		var mapTop = new MapLayer(foregroundLayer);
 
-        var mapBottomRenderer = cast(mapBottom.getComponent(MapRendererComponent), MapRendererComponent);
-        mapBottomRenderer.loadMap(map.bottomCSV, AssetPaths.tileset_map_bottom__png);
+		var mapBottomRenderer = cast(mapBottom.getComponent(MapRendererComponent), MapRendererComponent);
+		mapBottomRenderer.loadMap(map.bottomCSV, AssetPaths.tileset_map_bottom__png);
 
-        var mapTopRenderer = cast(mapTop.getComponent(MapRendererComponent), MapRendererComponent);
-        mapTopRenderer.loadMap(map.topCSV, AssetPaths.tileset_map_top__png);
+		var mapTopRenderer = cast(mapTop.getComponent(MapRendererComponent), MapRendererComponent);
+		mapTopRenderer.loadMap(map.topCSV, AssetPaths.tileset_map_top__png);
 
-        FlxG.camera.setScrollBounds(0, mapBottomRenderer.width, 0, mapBottomRenderer.height);
+		FlxG.camera.setScrollBounds(0, mapBottomRenderer.width, 0, mapBottomRenderer.height);
 
-        gameObjects.push(mapBottom);
-        gameObjects.push(mapTop);
+		gameObjects.push(mapBottom);
+		gameObjects.push(mapTop);
 
-        gameObjects.push(player);
+		gameObjects.push(player);
 
-        start();
+		start();
 
-        var playerSprite = cast(player.getComponent(CharacterRendererComponent), CharacterRendererComponent).sprite;
-        FlxG.camera.follow(playerSprite, FlxCameraFollowStyle.TOPDOWN);
-    }
+		var playerSprite = cast(player.getComponent(CharacterRendererComponent), CharacterRendererComponent).sprite;
+		FlxG.camera.follow(playerSprite, FlxCameraFollowStyle.TOPDOWN);
+	}
 }

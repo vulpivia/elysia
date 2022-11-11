@@ -4,50 +4,44 @@ import flixel.tile.FlxTilemap;
 import objects.GameObject;
 
 /**
-    Renders a single map layer.
+	Renders a single map layer.
 **/
-class MapRendererComponent extends Component
-{
-    /**
-        The width of the map in tiles.
-    **/
-    public var width(get, null):Float;
-    /**
-        The height of the map in tiles.
-    **/
-    public var height(get, null):Float;
+class MapRendererComponent extends Component {
+	/**
+		The width of the map in tiles.
+	**/
+	public var width(get, null):Float;
 
-    var tilemap:FlxTilemap;
+	/**
+		The height of the map in tiles.
+	**/
+	public var height(get, null):Float;
 
-    public function new()
-    {
-    }
+	var tilemap:FlxTilemap;
 
-    public function get_width():Float
-    {
-        return tilemap.width;
-    }
+	public function new() {}
 
-    public function get_height():Float
-    {
-        return tilemap.height;
-    }
+	public function get_width():Float {
+		return tilemap.width;
+	}
 
-    override public function start(gameObject:GameObject)
-    {
-        gameObject.layer.add(tilemap);
-    }
+	public function get_height():Float {
+		return tilemap.height;
+	}
 
-    /**
-        Load a map layer by its path.
+	override public function start(gameObject:GameObject) {
+		gameObject.layer.add(tilemap);
+	}
 
-        @param csv The path to the CSV file containing the layer data.
-        @param tileset The path to the tileset that the layer uses.
-    **/
-    public function loadMap(csv:String, tileset:String)
-    {
-        tilemap = new FlxTilemap();
-        tilemap.loadMapFromCSV(csv, tileset, Main.TILE_SIZE, Main.TILE_SIZE);
-        tilemap.useScaleHack = false;
-    }
+	/**
+		Load a map layer by its path.
+
+		@param csv The path to the CSV file containing the layer data.
+		@param tileset The path to the tileset that the layer uses.
+	**/
+	public function loadMap(csv:String, tileset:String) {
+		tilemap = new FlxTilemap();
+		tilemap.loadMapFromCSV(csv, tileset, Main.TILE_SIZE, Main.TILE_SIZE);
+		tilemap.useScaleHack = false;
+	}
 }
